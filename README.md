@@ -1,1 +1,3 @@
 # herni-automat
+
+**Čau**
