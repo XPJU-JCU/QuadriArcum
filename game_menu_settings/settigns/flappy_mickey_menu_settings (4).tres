@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=5 format=3 uid="uid://cx1blq40myin4"]
+
+[ext_resource type="PackedScene" uid="uid://ck5t70syhfvs2" path="res://games/flappy-mickey/game/game.tscn" id="1_xdmkj"]
+[ext_resource type="Script" path="res://game_menu_settings/game_menu_settings.gd" id="2_ce0h8"]
+
+[sub_resource type="Gradient" id="Gradient_0e5x8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_q8sk6"]
+gradient = SubResource("Gradient_0e5x8")
+
+[resource]
+script = ExtResource("2_ce0h8")
+launch_scene = ExtResource("1_xdmkj")
+game_name = "Flappy Mickey"
+game_icon = SubResource("GradientTexture2D_q8sk6")
+game_config = "res://games/flappy-mickey/config.cfg"

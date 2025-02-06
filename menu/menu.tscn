@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2v7rn2q832n1"]
+
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_uin05"]
+[ext_resource type="PackedScene" uid="uid://dgkgwdex4c1qs" path="res://menu/menu_game_item/menu_game_item.tscn" id="2_36thy"]
+
+[node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("hbox")]
+script = ExtResource("1_uin05")
+game_menu_settings_dir = "res://game_menu_settings/settigns/"
+menu_game_item = ExtResource("2_36thy")
+hbox = NodePath("MarginContainer/ScrollContainer/HBoxContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+follow_focus = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 100
