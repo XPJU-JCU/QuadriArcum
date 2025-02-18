@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcvd6ovlvb14x"]
+
+[ext_resource type="Texture2D" uid="uid://bx6mkisyvs148" path="res://games/Rocket-shooter-minigame/Textures/Asteroid.png" id="1_5u08f"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1adji"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="GDScript" id="GDScript_kmp1f"]
+script/source = "extends RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4n0x"]
+size = Vector2(134.98, 162.7)
+
+[node name="Node2D" type="RigidBody2D" groups=["Asteroids", "Enemies"]]
+collision_layer = 4
+collision_mask = 45
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_1adji")
+gravity_scale = 0.0
+can_sleep = false
+contact_monitor = true
+linear_velocity = Vector2(300, 300)
+linear_damp_mode = 1
+angular_velocity = 0.0349066
+angular_damp_mode = 1
+script = SubResource("GDScript_kmp1f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 0)
+rotation = 0.046314
+scale = Vector2(0.285156, 0.298828)
+texture = ExtResource("1_5u08f")
+
+[node name="Monster" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 3)
+scale = Vector2(0.861235, 0.762895)
+shape = SubResource("RectangleShape2D_p4n0x")
+debug_color = Color(0.643036, 0, 0.163429, 0.42)

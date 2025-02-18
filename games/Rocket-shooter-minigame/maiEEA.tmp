@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqpsvq4dufhum"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="2_4bp0e"]
+[ext_resource type="PackedScene" uid="uid://dks0oc7yt3ois" path="res://map.tscn" id="2_hwond"]
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="3_5wqrr"]
+[ext_resource type="Texture2D" uid="uid://bp01s317vkld3" path="res://icon.svg" id="4_0cp5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnky5"]
+size = Vector2(124, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob205"]
+size = Vector2(111, 112)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Map" parent="." instance=ExtResource("2_hwond")]
+position = Vector2(7, -2)
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="EnemyHandler"]
+script = ExtResource("3_5wqrr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHandler/Area2D"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_dnky5")
+debug_color = Color(0.643036, 0, 0.163429, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyHandler/Area2D"]
+texture = ExtResource("4_0cp5d")
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_4bp0e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(-2.5, -3)
+shape = SubResource("RectangleShape2D_ob205")
+debug_color = Color(0.912174, 0.196973, 0.550315, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(-2, -2)
+texture = ExtResource("4_0cp5d")

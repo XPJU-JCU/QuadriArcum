@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp44ue0siqvmp"]
+
+[ext_resource type="Texture2D" uid="uid://ofev2p3jxoes" path="res://games/Rocket-shooter-minigame/Textures/Shield.png" id="1_674o0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_21hbu"]
+height = 28.0
+
+[node name="Shield" type="Area2D" groups=["Shield_collectible"]]
+collision_layer = 16
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 2.98023e-08)
+scale = Vector2(0.0429688, 0.0478516)
+texture = ExtResource("1_674o0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_21hbu")

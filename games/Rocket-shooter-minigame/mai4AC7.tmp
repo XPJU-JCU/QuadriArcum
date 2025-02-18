@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqpsvq4dufhum"]
+
+[ext_resource type="PackedScene" uid="uid://cpdjan5xgxrr3" path="res://player.tscn" id="1_hwpgt"]
+[ext_resource type="PackedScene" uid="uid://dks0oc7yt3ois" path="res://map.tscn" id="2_hwond"]
+[ext_resource type="Script" path="res://Scripts/scorecounter.gd" id="4_4s21o"]
+[ext_resource type="PackedScene" uid="uid://ccehcijevf8a5" path="res://Spawner.tscn" id="4_v466c"]
+
+[sub_resource type="Curve2D" id="Curve2D_g32qc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -769, -497, 0, 0, 0, 0, -754, -497, 0, 0, 0, 0, -721, -494, 0, 0, 0, 0, -687, -493, 0, 0, 0, 0, -662, -492, 0, 0, 0, 0, -560, -478, 0, 0, 0, 0, -535, -499, 0, 0, 0, 0, -483, -492, 0, 0, 0, 0, -448, -488, 0, 0, 0, 0, -416, -491, 0, 0, 0, 0, -377, -491, 0, 0, 0, 0, -326, -489, 0, 0, 0, 0, -306, -488, 0, 0, 0, 0, -297, -488, 0, 0, 0, 0, -250, -485, 0, 0, 0, 0, -220, -484, 0, 0, 0, 0, -171, -478, 0, 0, 0, 0, -126, -477, 0, 0, 0, 0, -97, -477, 0, 0, 0, 0, -45, -474, 0, 0, 0, 0, 19, -474, 0, 0, 0, 0, 52, -475, 0, 0, 0, 0, 95, -478, 0, 0, 0, 0, 152, -477, 0, 0, 0, 0, 243, -470, 0, 0, 0, 0, 273, -472, 0, 0, 0, 0, 332, -473, 0, 0, 0, 0, 348, -474, 0, 0, 0, 0, 392, -469, 0, 0, 0, 0, 448, -464, 0, 0, 0, 0, 495, -462, 0, 0, 0, 0, 524, -463, 0, 0, 0, 0, 553, -463, 0, 0, 0, 0, 597, -463, 0, 0, 0, 0, 632, -460, 0, 0, 0, 0, 663, -458, 0, 0, 0, 0, 721, -451, 0, 0, 0, 0, 736, -449, 0, 0, 0, 0, 743, -368, 0, 0, 0, 0, 744, -302, 0, 0, 0, 0, 739, -221, 0, 0, 0, 0, 752, -167, 0, 0, 0, 0, 750, -104, 0, 0, 0, 0, 759, -55, 0, 0, 0, 0, 763, 15, 0, 0, 0, 0, 764, 63, 0, 0, 0, 0, 760, 134, 0, 0, 0, 0, 759, 214, 0, 0, 0, 0, 757, 299, 0, 0, 0, 0, 757, 335, 0, 0, 0, 0, 718, 389, 0, 0, 0, 0, 682, 455, 0, 0, 0, 0, 679, 457, 0, 0, 0, 0, 615, 480, 0, 0, 0, 0, 585, 490, 0, 0, 0, 0, 529, 495, 0, 0, 0, 0, 395, 487, 0, 0, 0, 0, 320, 487, 0, 0, 0, 0, 276, 494, 0, 0, 0, 0, 192, 494, 0, 0, 0, 0, 136, 494, 0, 0, 0, 0, 51, 489, 0, 0, 0, 0, 7, 492, 0, 0, 0, 0, -87, 495, 0, 0, 0, 0, -191, 494, 0, 0, 0, 0, -245, 494, 0, 0, 0, 0, -327, 485, 0, 0, 0, 0, -447, 490, 0, 0, 0, 0, -473, 487, 0, 0, 0, 0, -537, 473, 0, 0, 0, 0, -549, 473, 0, 0, 0, 0, -604, 468, 0, 0, 0, 0, -665, 463, 0, 0, 0, 0, -685, 415, 0, 0, 0, 0, -692, 361, 0, 0, 0, 0, -699, 324, 0, 0, 0, 0, -697, 270, 0, 0, 0, 0, -699, 238, 0, 0, 0, 0, -697, 178, 0, 0, 0, 0, -699, 121, 0, 0, 0, 0, -697, 80, 0, 0, 0, 0, -697, 42, 0, 0, 0, 0, -697, 11, 0, 0, 0, 0, -690, -26, 0, 0, 0, 0, -700, -106, 0, 0, 0, 0, -707, -155, 0, 0, 0, 0, -709, -200, 0, 0, 0, 0, -715, -274, 0, 0, 0, 0, -719, -313, 0, 0, 0, 0, -727, -350, 0, 0, 0, 0, -729, -372, 0, 0, 0, 0, -734, -395, 0, 0, 0, 0, -741, -419, 0, 0, 0, 0, -746, -432, 0, 0, 0, 0, -747, -449, 0, 0, 0, 0, -752, -461, 0, 0, 0, 0, -769, -497)
+}
+point_count = 97
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps1a"]
+size = Vector2(1147, 80)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Map" parent="." instance=ExtResource("2_hwond")]
+light_mask = 2
+position = Vector2(2, -1)
+
+[node name="EnemyHandler" type="Node2D" parent="."]
+position = Vector2(-1, -4)
+
+[node name="Spawner" parent="EnemyHandler" node_paths=PackedStringArray("pathAster") instance=ExtResource("4_v466c")]
+pathAster = NodePath("../Asteroisds")
+
+[node name="Asteroisds" type="Path2D" parent="EnemyHandler"]
+position = Vector2(1, 4)
+curve = SubResource("Curve2D_g32qc")
+
+[node name="player" parent="." instance=ExtResource("1_hwpgt")]
+position = Vector2(-21, 16)
+scale = Vector2(0.277955, 0.272464)
+collision_mask = 22
+
+[node name="Asteroid bounds" type="Node2D" parent="."]
+position = Vector2(-8, 0)
+scale = Vector2(1.61817, 1.93446)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Asteroid bounds"]
+position = Vector2(0, 310)
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid bounds/StaticBody2D"]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_1ps1a")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Asteroid bounds"]
+position = Vector2(-556, 132)
+rotation = 1.56902
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid bounds/StaticBody2D2"]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_1ps1a")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Asteroid bounds"]
+position = Vector2(556, -246)
+rotation = -1.56856
+collision_layer = 32
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid bounds/StaticBody2D3"]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_1ps1a")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Asteroid bounds"]
+position = Vector2(-3.63798e-12, -424)
+rotation = 0.00045383
+collision_layer = 32
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid bounds/StaticBody2D4"]
+position = Vector2(0, 58)
+shape = SubResource("RectangleShape2D_1ps1a")
+
+[node name="Score" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="Score"]
+offset_left = 782.0
+offset_top = 567.0
+offset_right = 1154.0
+offset_bottom = 668.0
+
+[node name="Label" type="Label" parent="Score/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 437.0
+offset_bottom = 73.0
+theme_override_font_sizes/font_size = 36
+text = "Score: 0"
+vertical_alignment = 1
+script = ExtResource("4_4s21o")

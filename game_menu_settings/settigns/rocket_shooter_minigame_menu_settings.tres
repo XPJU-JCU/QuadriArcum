@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=5 format=3 uid="uid://7v0w5uuguxvs"]
+
+[ext_resource type="PackedScene" uid="uid://bqpsvq4dufhum" path="res://games/Rocket-shooter-minigame/main.tscn" id="1_0d7lr"]
+[ext_resource type="Script" path="res://game_menu_settings/game_menu_settings.gd" id="2_qubn5"]
+
+[sub_resource type="Gradient" id="Gradient_7bvd4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ru2hl"]
+gradient = SubResource("Gradient_7bvd4")
+
+[resource]
+script = ExtResource("2_qubn5")
+launch_scene = ExtResource("1_0d7lr")
+game_name = "Rocket Shooter"
+game_icon = SubResource("GradientTexture2D_ru2hl")
+game_config = "res://games/Rocket-shooter-minigame/config.cfg"

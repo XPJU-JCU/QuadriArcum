@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccehcijevf8a5"]
+
+[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/Spawner.gd" id="1_vxv11"]
+
+[node name="Spawner" type="Node2D"]
+script = ExtResource("1_vxv11")
+
+[node name="Monsters" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Arteroids" type="Timer" parent="."]
+wait_time = 7.0
+autostart = true
+
+[node name="Pickups" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[connection signal="timeout" from="Monsters" to="." method="_on_monsters_timeout"]
+[connection signal="timeout" from="Arteroids" to="." method="_on_arteroids_timeout"]
+[connection signal="timeout" from="Pickups" to="." method="_on_pickups_timeout"]

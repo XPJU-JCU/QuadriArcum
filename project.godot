@@ -15,12 +15,21 @@ run/main_scene="res://main/main.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://games/Rocket-shooter-minigame/Global.gd"
+
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=3
+
+[global_group]
+
+Shield_collectible=""
+Enemies=""
+Asteroids=""
 
 [input]
 
