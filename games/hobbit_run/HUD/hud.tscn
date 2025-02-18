@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://ht4sr8ka4l1w"]
+
+[ext_resource type="FontFile" uid="uid://bapa2qf7cgk4d" path="res://games/hobbit_run/retro_font/Retro Gaming.ttf" id="1_wavcs"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_right = 79.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_wavcs")
+text = "SCORE : "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.0
+offset_top = -11.5
+offset_right = 101.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_wavcs")
+text = "PRESS SPACE TO PLAY
+(that is all)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScoreLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -127.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_wavcs")
+text = "HIGH SCORE : 0"
+horizontal_alignment = 2
+vertical_alignment = 1

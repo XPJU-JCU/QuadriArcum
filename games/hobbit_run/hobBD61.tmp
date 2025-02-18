@@ -1,0 +1,89 @@
+[gd_scene load_steps=12 format=3 uid="uid://dmlwuropqu5l4"]
+
+[ext_resource type="Texture2D" uid="uid://c3h5o2oay6ul6" path="res://hobbit_full_animations.png" id="1_6sgq6"]
+[ext_resource type="Script" path="res://hobbit.gd" id="1_c0mkj"]
+[ext_resource type="AudioStream" uid="uid://00wqi3tc32nm" path="res://parallax background/jump.mp3" id="1_si2cd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaeq0"]
+size = Vector2(11, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i60f2"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4fnt"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yywjf"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyvo7"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpwdj"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ts1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i60f2")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4fnt")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yywjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyvo7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpwdj")
+}],
+"loop": true,
+"name": &"still",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_seorv"]
+size = Vector2(11, 12)
+
+[node name="hobbit" type="CharacterBody2D"]
+script = ExtResource("1_c0mkj")
+
+[node name="normalColision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_iaeq0")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_si2cd")
+volume_db = -25.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ts1e")
+animation = &"still"
+autoplay = "still"
+
+[node name="duckCollision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 2)
+shape = SubResource("RectangleShape2D_seorv")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://udl5p5xdpdog"]
+
+[ext_resource type="Texture2D" uid="uid://128kv0cdegt3" path="res://games/hobbit_run/stump/stump.png" id="1_igv6m"]
+[ext_resource type="Script" path="res://games/hobbit_run/stump/stump.gd" id="1_rautd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_traif"]
+size = Vector2(19.6, 10.6)
+
+[node name="Stump" type="Area2D"]
+script = ExtResource("1_rautd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_igv6m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 23.5)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_traif")

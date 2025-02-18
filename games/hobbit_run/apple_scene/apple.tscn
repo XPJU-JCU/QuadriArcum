@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://i37fprmkrtsd"]
+
+[ext_resource type="Script" path="res://games/hobbit_run/apple_scene/apple.gd" id="1_fesst"]
+[ext_resource type="Texture2D" uid="uid://cwscxgvmwygts" path="res://games/hobbit_run/apple_scene/2P3uFo.png" id="1_jn8ew"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0gmp6"]
+radius = 28.0
+
+[node name="apple" type="Area2D"]
+script = ExtResource("1_fesst")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(54, -160)
+scale = Vector2(0.745833, 0.736)
+texture = ExtResource("1_jn8ew")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(56, -169)
+shape = SubResource("CircleShape2D_0gmp6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

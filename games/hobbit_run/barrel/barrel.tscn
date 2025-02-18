@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cybgoat8hywr1"]
+
+[ext_resource type="Script" path="res://games/hobbit_run/barrel/barrel.gd" id="1_ayqv4"]
+[ext_resource type="Texture2D" uid="uid://blhb8dtdfu7ua" path="res://games/hobbit_run/barrel/3.png" id="1_xaxdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwnoa"]
+size = Vector2(89, 94)
+
+[node name="barrel" type="Area2D"]
+position = Vector2(-6, -50)
+script = ExtResource("1_ayqv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_xaxdg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 2)
+shape = SubResource("RectangleShape2D_hwnoa")

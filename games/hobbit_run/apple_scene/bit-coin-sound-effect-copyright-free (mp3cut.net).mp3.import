@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwnpt12ytq3wp"
+path="res://.godot/imported/bit-coin-sound-effect-copyright-free (mp3cut.net).mp3-244b3636b60b8a23d00f6668de19d76f.mp3str"
+
+[deps]
+
+source_file="res://games/hobbit_run/apple_scene/bit-coin-sound-effect-copyright-free (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/bit-coin-sound-effect-copyright-free (mp3cut.net).mp3-244b3636b60b8a23d00f6668de19d76f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

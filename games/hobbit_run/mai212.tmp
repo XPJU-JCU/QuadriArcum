@@ -1,0 +1,73 @@
+[gd_scene load_steps=15 format=3 uid="uid://cnitjn0hl4ks3"]
+
+[ext_resource type="PackedScene" uid="uid://kc4m66sedxti" path="res://ground.tscn" id="1_3l1yw"]
+[ext_resource type="Script" path="res://main.gd" id="1_8aslt"]
+[ext_resource type="PackedScene" uid="uid://dmlwuropqu5l4" path="res://hobbit.tscn" id="2_nk0di"]
+[ext_resource type="PackedScene" uid="uid://ht4sr8ka4l1w" path="res://hud.tscn" id="5_bsv0a"]
+[ext_resource type="PackedScene" uid="uid://boo2brhrwyt03" path="res://plus_score_label.tscn" id="6_m4pmm"]
+[ext_resource type="PackedScene" uid="uid://62v4c8nnjei6" path="res://game_over.tscn" id="7_lcrr6"]
+[ext_resource type="PackedScene" uid="uid://cu3ir6wmh4c2s" path="res://sauron_sees_you.tscn" id="8_0akys"]
+[ext_resource type="PackedScene" uid="uid://b63ho4eif7dng" path="res://new_bg.tscn" id="8_jwtax"]
+[ext_resource type="AudioStream" uid="uid://bis0yieheeu3g" path="res://Sounds/hotel.mp3" id="9_03aso"]
+[ext_resource type="AudioStream" uid="uid://b12de81vew6go" path="res://Sounds/sound-effect-hd.mp3" id="10_rrl1a"]
+[ext_resource type="AudioStream" uid="uid://cu1s7s2c6avqo" path="res://Sounds/coin.mp3" id="11_4jvtc"]
+[ext_resource type="PackedScene" uid="uid://i37fprmkrtsd" path="res://apple_scene/apple.tscn" id="11_bw4ce"]
+[ext_resource type="PackedScene" uid="uid://dgtbqm1xoqy0o" path="res://lembas_scene/lembas.tscn" id="11_yr4er"]
+[ext_resource type="PackedScene" uid="uid://dpjyseak5vqdk" path="res://ring.tscn" id="13_mvbwf"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_8aslt")
+MAX_SPEED = 500
+
+[node name="PlusScoreLabel" parent="." instance=ExtResource("6_m4pmm")]
+visible = false
+
+[node name="sauron_sees_you" parent="." instance=ExtResource("8_0akys")]
+visible = false
+position = Vector2(-1, -1)
+scale = Vector2(7.48, 7.6)
+
+[node name="Ground" parent="." instance=ExtResource("1_3l1yw")]
+position = Vector2(24, -22)
+
+[node name="hobbit" parent="." instance=ExtResource("2_nk0di")]
+position = Vector2(155, 491)
+scale = Vector2(8, 8)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(576, 324)
+
+[node name="HUD" parent="." instance=ExtResource("5_bsv0a")]
+
+[node name="GameOver" parent="." instance=ExtResource("7_lcrr6")]
+process_mode = 2
+
+[node name="RingSpawnTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="SBTimer" type="Timer" parent="."]
+wait_time = 2.5
+autostart = true
+
+[node name="newBg" parent="." instance=ExtResource("8_jwtax")]
+
+[node name="main_soundtrack" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_03aso")
+
+[node name="death_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_rrl1a")
+
+[node name="zing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4jvtc")
+
+[node name="lembas" parent="." instance=ExtResource("11_yr4er")]
+visible = false
+script = null
+
+[node name="apple" parent="." instance=ExtResource("11_bw4ce")]
+visible = false
+
+[node name="ring" parent="." instance=ExtResource("13_mvbwf")]
+visible = false
+script = null

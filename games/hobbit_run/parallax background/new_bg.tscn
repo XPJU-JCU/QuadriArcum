@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdnirugwvib11"]
+
+[ext_resource type="Texture2D" uid="uid://dmny865t62btr" path="res://games/hobbit_run/parallax background/sky.png" id="1_26fh1"]
+[ext_resource type="Texture2D" uid="uid://drisvnp38et58" path="res://games/hobbit_run/parallax background/tumblr_e6898eb997c80e27e50e62bc2062e852_f079ccbc_1280 (12) (2).png" id="2_22ust"]
+[ext_resource type="Texture2D" uid="uid://dp8tyc5ahcpqr" path="res://games/hobbit_run/parallax background/tumblr_e6898eb997c80e27e50e62bc2062e852_f079ccbc_1280 (12) (1).png" id="3_f7aj0"]
+[ext_resource type="Texture2D" uid="uid://kcoueto8l0sc" path="res://games/hobbit_run/parallax background/shades_2.png" id="5_ljmx2"]
+[ext_resource type="Texture2D" uid="uid://betsegm7ylgci" path="res://games/hobbit_run/parallax background/shades.png" id="6_tbf72"]
+
+[node name="newBg" type="ParallaxBackground"]
+
+[node name="Pr" type="ParallaxLayer" parent="."]
+texture_filter = 1
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="sky" type="Sprite2D" parent="Pr"]
+position = Vector2(1, 0)
+scale = Vector2(2.69789, 2.65417)
+texture = ExtResource("1_26fh1")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="clouds1" type="Sprite2D" parent="ParallaxLayer7"]
+position = Vector2(454, 308)
+scale = Vector2(2.69555, 2.69583)
+texture = ExtResource("2_22ust")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="clouds1" type="Sprite2D" parent="ParallaxLayer6"]
+position = Vector2(575.5, 302)
+scale = Vector2(2.70023, 2.51667)
+texture = ExtResource("3_f7aj0")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="mountains_of_hobbits" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(576, 313)
+scale = Vector2(2.70398, 2.3)
+texture = ExtResource("5_ljmx2")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="2_hobbit_houses" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(575, 275)
+scale = Vector2(2.70044, 2.64166)
+texture = ExtResource("6_tbf72")

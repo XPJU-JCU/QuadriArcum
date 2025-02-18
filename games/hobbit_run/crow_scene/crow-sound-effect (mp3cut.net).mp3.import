@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnyxujiyxym1b"
+path="res://.godot/imported/crow-sound-effect (mp3cut.net).mp3-fe06f68f58b38fbcd0432ae87cf0fceb.mp3str"
+
+[deps]
+
+source_file="res://games/hobbit_run/crow_scene/crow-sound-effect (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/crow-sound-effect (mp3cut.net).mp3-fe06f68f58b38fbcd0432ae87cf0fceb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

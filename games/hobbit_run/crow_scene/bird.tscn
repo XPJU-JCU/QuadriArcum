@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dqadsdwy2pga3"]
+
+[ext_resource type="Texture2D" uid="uid://b2a7vikn0n1ls" path="res://games/hobbit_run/crow_scene/crow.png" id="1_02gsq"]
+[ext_resource type="Script" path="res://games/hobbit_run/crow_scene/bird.gd" id="1_erscw"]
+[ext_resource type="AudioStream" uid="uid://cnyxujiyxym1b" path="res://games/hobbit_run/crow_scene/crow-sound-effect (mp3cut.net).mp3" id="3_lg082"]
+[ext_resource type="Texture2D" uid="uid://bf3amxonjq1tw" path="res://games/hobbit_run/crow_scene/sauron_crow_better.png" id="3_qxns4"]
+[ext_resource type="Script" path="res://games/hobbit_run/crow_scene/kra.gd" id="5_bajyj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o85o7"]
+atlas = ExtResource("1_02gsq")
+region = Rect2(0, 32, 53, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcej5"]
+atlas = ExtResource("1_02gsq")
+region = Rect2(0, 96, 53, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkmh5"]
+atlas = ExtResource("3_qxns4")
+region = Rect2(0, 32, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nyy75"]
+atlas = ExtResource("3_qxns4")
+region = Rect2(0, 96, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5fer"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o85o7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcej5")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkmh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nyy75")
+}],
+"loop": true,
+"name": &"sauron_flying",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xtfbq"]
+radius = 30.9917
+height = 157.996
+
+[node name="bird" type="Area2D"]
+position = Vector2(4, -183)
+scale = Vector2(0.9, 0.9)
+script = ExtResource("1_erscw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(69.4375, -43)
+scale = Vector2(5.79481, 6)
+sprite_frames = SubResource("SpriteFrames_i5fer")
+animation = &"flying"
+autoplay = "flying"
+
+[node name="kra" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lg082")
+script = ExtResource("5_bajyj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(96, -1)
+rotation = 1.57285
+shape = SubResource("CapsuleShape2D_xtfbq")

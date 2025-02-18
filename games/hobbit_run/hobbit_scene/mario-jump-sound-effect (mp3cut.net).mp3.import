@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://xml4ull0nfor"
+path="res://.godot/imported/mario-jump-sound-effect (mp3cut.net).mp3-380a5770eb0658a0dab827cf4a1c4160.mp3str"
+
+[deps]
+
+source_file="res://games/hobbit_run/hobbit_scene/mario-jump-sound-effect (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/mario-jump-sound-effect (mp3cut.net).mp3-380a5770eb0658a0dab827cf4a1c4160.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

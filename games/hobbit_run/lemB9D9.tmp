@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgtbqm1xoqy0o"]
+
+[ext_resource type="Texture2D" uid="uid://dwporeg84gb4" path="res://lembas.png" id="1_cygc6"]
+[ext_resource type="Script" path="res://lembas.gd" id="1_vmb6r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ds4nm"]
+radius = 81.9203
+height = 180.718
+
+[node name="lembas" type="Area2D"]
+script = ExtResource("1_vmb6r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(64, -171)
+scale = Vector2(0.10675, 0.10175)
+texture = ExtResource("1_cygc6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(306, -257)
+rotation = 0.610865
+shape = SubResource("CapsuleShape2D_ds4nm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

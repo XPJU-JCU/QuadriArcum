@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://dpjyseak5vqdk"]
+
+[ext_resource type="Script" path="res://games/hobbit_run/ring_scene/ring.gd" id="1_psf1o"]
+[ext_resource type="Texture2D" uid="uid://ck4rjey01dde2" path="res://games/hobbit_run/ring_scene/ring.png" id="1_qcfar"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywy51"]
+atlas = ExtResource("1_qcfar")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wihu"]
+atlas = ExtResource("1_qcfar")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xwci"]
+atlas = ExtResource("1_qcfar")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cji1t"]
+atlas = ExtResource("1_qcfar")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5maj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywy51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wihu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xwci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cji1t")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0obha"]
+radius = 8.0
+
+[node name="ring" type="Area2D"]
+position = Vector2(41, 41)
+script = ExtResource("1_psf1o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_p5maj")
+animation = &"spin"
+autoplay = "spin"
+frame_progress = 0.411069
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("CircleShape2D_0obha")

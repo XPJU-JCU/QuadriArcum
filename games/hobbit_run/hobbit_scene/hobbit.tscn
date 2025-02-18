@@ -1,0 +1,156 @@
+[gd_scene load_steps=21 format=3 uid="uid://dmlwuropqu5l4"]
+
+[ext_resource type="Texture2D" uid="uid://bbs7oucsicqhf" path="res://games/hobbit_run/hobbit_scene/hobbit_full_animations.png" id="1_6sgq6"]
+[ext_resource type="Script" path="res://games/hobbit_run/hobbit_scene/hobbit.gd" id="1_c0mkj"]
+[ext_resource type="AudioStream" uid="uid://xml4ull0nfor" path="res://games/hobbit_run/hobbit_scene/mario-jump-sound-effect (mp3cut.net).mp3" id="2_xva5l"]
+[ext_resource type="Script" path="res://games/hobbit_run/hobbit_scene/jump_sound.gd" id="3_r3e1v"]
+[ext_resource type="Texture2D" uid="uid://cqk8u56v2svc8" path="res://games/hobbit_run/hobbit_scene/hobbit_piksel_sauron.png" id="4_ihucr"]
+[ext_resource type="Script" path="res://games/hobbit_run/hobbit_scene/run_sound.gd" id="4_jchny"]
+[ext_resource type="AudioStream" uid="uid://bhjj6uatccabl" path="res://games/hobbit_run/hobbit_scene/footsteps (1) (mp3cut.net).mp3" id="4_tv51f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i60f2"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4fnt"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yywjf"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyvo7"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpwdj"]
+atlas = ExtResource("1_6sgq6")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ts1e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i60f2")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q4fnt")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yywjf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyvo7")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpwdj")
+}],
+"loop": true,
+"name": &"still",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwu15"]
+atlas = ExtResource("4_ihucr")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu8ed"]
+atlas = ExtResource("4_ihucr")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2c8mg"]
+atlas = ExtResource("4_ihucr")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyxlk"]
+atlas = ExtResource("4_ihucr")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45ciw"]
+atlas = ExtResource("4_ihucr")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lpwt2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwu15")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu8ed")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2c8mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyxlk")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45ciw")
+}],
+"loop": true,
+"name": &"still",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o25ux"]
+size = Vector2(8, 11)
+
+[node name="hobbit" type="CharacterBody2D"]
+script = ExtResource("1_c0mkj")
+
+[node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_xva5l")
+volume_db = 1.248
+script = ExtResource("3_r3e1v")
+
+[node name="run_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tv51f")
+volume_db = -18.761
+pitch_scale = 2.68
+script = ExtResource("4_jchny")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ts1e")
+animation = &"duck"
+autoplay = "still"
+
+[node name="SauronSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_lpwt2")
+animation = &"run"
+
+[node name="normalColision2" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_o25ux")

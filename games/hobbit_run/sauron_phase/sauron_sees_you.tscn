@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://cu3ir6wmh4c2s"]
+
+[ext_resource type="Script" path="res://games/hobbit_run/sauron_phase/sauron_sees_you.gd" id="1_kpknl"]
+[ext_resource type="Texture2D" uid="uid://d1iq33jcix84u" path="res://games/hobbit_run/sauron_phase/sauron_background.png" id="1_o740f"]
+[ext_resource type="Texture2D" uid="uid://vh5ij34ilrta" path="res://games/hobbit_run/sauron_phase/only_flamespiskel.png" id="2_r3eqy"]
+[ext_resource type="Texture2D" uid="uid://ililva07qmlp" path="res://games/hobbit_run/sauron_phase/paralax_sauron.png" id="3_dv2mr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oyhu6"]
+atlas = ExtResource("3_dv2mr")
+region = Rect2(0, 78, 140, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8pd7"]
+atlas = ExtResource("3_dv2mr")
+region = Rect2(0, 156, 140, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_813rc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oyhu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8pd7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eo3fp"]
+atlas = ExtResource("1_o740f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c10oa"]
+atlas = ExtResource("1_o740f")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g08mn"]
+atlas = ExtResource("1_o740f")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gpeb"]
+atlas = ExtResource("1_o740f")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcdmr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eo3fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c10oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g08mn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gpeb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="SauronSeesYou" type="Node2D"]
+script = ExtResource("1_kpknl")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(577.5, 304.5)
+scale = Vector2(8.25, 8.67949)
+texture = ExtResource("2_r3eqy")
+
+[node name="the rest" type="AnimatedSprite2D" parent="ParallaxBackground"]
+scale = Vector2(8.25, 8.24359)
+sprite_frames = SubResource("SpriteFrames_813rc")
+frame_progress = 0.0872939
+centered = false
+
+[node name="eye" type="AnimatedSprite2D" parent="ParallaxBackground"]
+position = Vector2(572, 310)
+scale = Vector2(7.04687, 7.20703)
+sprite_frames = SubResource("SpriteFrames_jcdmr")
+frame_progress = 0.49355

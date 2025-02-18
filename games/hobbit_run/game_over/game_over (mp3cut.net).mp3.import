@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cjd7tsko1a6gu"
+path="res://.godot/imported/game_over (mp3cut.net).mp3-dda3f76f2637ecaa85c79c6ca3346a16.mp3str"
+
+[deps]
+
+source_file="res://games/hobbit_run/game_over/game_over (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/game_over (mp3cut.net).mp3-dda3f76f2637ecaa85c79c6ca3346a16.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

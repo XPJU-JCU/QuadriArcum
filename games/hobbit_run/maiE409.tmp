@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnitjn0hl4ks3"]
+
+[ext_resource type="PackedScene" uid="uid://kc4m66sedxti" path="res://ground.tscn" id="1_3l1yw"]
+[ext_resource type="Script" path="res://main.gd" id="1_8aslt"]
+[ext_resource type="PackedScene" uid="uid://dmlwuropqu5l4" path="res://hobbit.tscn" id="2_nk0di"]
+[ext_resource type="PackedScene" uid="uid://c0mjfes3gpdjn" path="res://hobbitrun.tscn" id="3_arfgg"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_8aslt")
+
+[node name="Ground" parent="." instance=ExtResource("1_3l1yw")]
+
+[node name="hobbit" parent="." instance=ExtResource("2_nk0di")]
+position = Vector2(173, 494)
+scale = Vector2(8, 8)
+
+[node name="Bg" parent="." instance=ExtResource("3_arfgg")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(576, 324)
