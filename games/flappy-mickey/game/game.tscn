@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck5t70syhfvs2"]
+
+[ext_resource type="Script" path="res://games/flappy-mickey/game/game.gd" id="1_iekg0"]
+[ext_resource type="PackedScene" uid="uid://buy8nep2jm3xk" path="res://games/flappy-mickey/level/level.tscn" id="2_a8nuv"]
+[ext_resource type="PackedScene" uid="uid://bq6w2ni1ktr2n" path="res://games/flappy-mickey/bird/bird.tscn" id="3_r3pr2"]
+[ext_resource type="PackedScene" uid="uid://b2r6jp2fvxhje" path="res://games/flappy-mickey/pipes/pipes.tscn" id="4_a6oru"]
+[ext_resource type="Script" path="res://games/flappy-mickey/scripts/pipe_kill_zone.gd" id="5_a84ym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kfmgv"]
+size = Vector2(98, 1147)
+
+[sub_resource type="SystemFont" id="SystemFont_bf85l"]
+font_names = PackedStringArray("Roboto")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_wpmla"]
+font = SubResource("SystemFont_bf85l")
+font_size = 32
+font_color = Color(1, 1, 0.203922, 1)
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Game" type="Node" node_paths=PackedStringArray("pipes_spawn_point", "score_label", "timer")]
+process_mode = 3
+script = ExtResource("1_iekg0")
+pipes_resource = ExtResource("4_a6oru")
+pipes_spawn_point = NodePath("PipesSpawnPoint")
+score_label = NodePath("HUD/MarginContainer/Score")
+timer = NodePath("PipesSpawnTimer")
+pipes_speed = 250.0
+pipes_speed_increment = 1.0
+
+[node name="Level" parent="." instance=ExtResource("2_a8nuv")]
+process_mode = 1
+
+[node name="Bird" parent="." instance=ExtResource("3_r3pr2")]
+position = Vector2(-255, -271)
+flap_force = 500.0
+
+[node name="PipesKillZone" type="Area2D" parent="."]
+process_mode = 1
+position = Vector2(-963, -267)
+collision_mask = 4
+script = ExtResource("5_a84ym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipesKillZone"]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_kfmgv")
+
+[node name="PipesSpawnTimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 2.0
+autostart = true
+
+[node name="PipesSpawnPoint" type="Marker2D" parent="."]
+process_mode = 1
+position = Vector2(780, -310)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+process_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 30
+
+[node name="Score" type="Label" parent="HUD/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_wpmla")
+horizontal_alignment = 1
+
+[connection signal="pipe_cleared" from="Bird" to="." method="_on_bird_pipe_cleared"]
+[connection signal="pipe_touched" from="Bird" to="." method="_on_bird_pipe_touched"]
+[connection signal="area_entered" from="PipesKillZone" to="PipesKillZone" method="_on_area_entered"]
+[connection signal="body_entered" from="PipesKillZone" to="PipesKillZone" method="_on_body_entered"]
+[connection signal="timeout" from="PipesSpawnTimer" to="." method="_on_spawn_timer_timeout"]

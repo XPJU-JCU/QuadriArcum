@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://buy8nep2jm3xk"]
+
+[ext_resource type="Texture2D" uid="uid://ckj3llgqf4qir" path="res://games/flappy-mickey/icon.svg" id="1_3clhr"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2axn3"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("WorldBoundaryShape2D_2axn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(-22, 35)
+scale = Vector2(11.7266, 0.5)
+texture = ExtResource("1_3clhr")
+
+[node name="Roof" type="StaticBody2D" parent="."]
+position = Vector2(1, -572)
+rotation = 3.14159
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Roof"]
+shape = SubResource("WorldBoundaryShape2D_2axn3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Roof"]
+position = Vector2(6.50002, 32)
+scale = Vector2(11.5198, 0.5)
+texture = ExtResource("1_3clhr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(23, -275)
