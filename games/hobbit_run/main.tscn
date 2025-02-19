@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnitjn0hl4ks3"]
+[gd_scene load_steps=18 format=3 uid="uid://cnitjn0hl4ks3"]
 
 [ext_resource type="PackedScene" uid="uid://kc4m66sedxti" path="res://games/hobbit_run/ground/ground.tscn" id="1_3l1yw"]
 [ext_resource type="Script" path="res://games/hobbit_run/main.gd" id="1_8aslt"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://62v4c8nnjei6" path="res://games/hobbit_run/game_over/game_over.tscn" id="7_lcrr6"]
 [ext_resource type="PackedScene" uid="uid://cu3ir6wmh4c2s" path="res://games/hobbit_run/sauron_phase/sauron_sees_you.tscn" id="8_0akys"]
 [ext_resource type="PackedScene" uid="uid://bdnirugwvib11" path="res://games/hobbit_run/parallax background/new_bg.tscn" id="8_jwtax"]
-[ext_resource type="Script" path="res://games/hobbit_run/game_over/game_over.gd" id="8_u2v4l"]
 [ext_resource type="AudioStream" uid="uid://b6ij71v8hgrft" path="res://games/hobbit_run/MAIN/main_trash.mp3" id="9_dowwk"]
 [ext_resource type="AudioStream" uid="uid://cjd7tsko1a6gu" path="res://games/hobbit_run/game_over/game_over (mp3cut.net).mp3" id="10_r654i"]
 [ext_resource type="Script" path="res://games/hobbit_run/main_soundtrack.gd" id="10_yta3w"]
@@ -42,7 +41,6 @@ offset = Vector2(576, 324)
 
 [node name="GameOver" parent="." instance=ExtResource("7_lcrr6")]
 process_mode = 2
-script = ExtResource("8_u2v4l")
 
 [node name="RingSpawnTimer" type="Timer" parent="."]
 wait_time = 30.0
