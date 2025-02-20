@@ -7,6 +7,7 @@
 size = Vector2(89, 94)
 
 [node name="barrel" type="Area2D"]
+process_mode = 1
 position = Vector2(-6, -50)
 script = ExtResource("1_ayqv4")
 

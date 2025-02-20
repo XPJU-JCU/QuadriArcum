@@ -43,6 +43,7 @@ animations = [{
 radius = 8.0
 
 [node name="ring" type="Area2D"]
+process_mode = 1
 position = Vector2(41, 41)
 script = ExtResource("1_psf1o")
 

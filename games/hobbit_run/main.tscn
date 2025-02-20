@@ -26,41 +26,51 @@ MAX_SPEED = 500
 visible = false
 
 [node name="Ground" parent="." instance=ExtResource("1_3l1yw")]
+process_mode = 1
 position = Vector2(24, -22)
 
 [node name="hobbit" parent="." instance=ExtResource("2_nk0di")]
+process_mode = 1
 position = Vector2(155, 491)
 scale = Vector2(8, 8)
 
 [node name="sauron_sees_you" parent="." instance=ExtResource("8_0akys")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
 offset = Vector2(576, 324)
 
 [node name="HUD" parent="." instance=ExtResource("5_bsv0a")]
+process_mode = 1
 
 [node name="GameOver" parent="." instance=ExtResource("7_lcrr6")]
-process_mode = 2
 
 [node name="RingSpawnTimer" type="Timer" parent="."]
+process_mode = 1
 wait_time = 30.0
 
 [node name="SBTimer" type="Timer" parent="."]
+process_mode = 1
 wait_time = 1.5
 
 [node name="newBg" parent="." instance=ExtResource("8_jwtax")]
+process_mode = 1
 
 [node name="main_soundtrack" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = ExtResource("9_dowwk")
 script = ExtResource("10_yta3w")
 
 [node name="death_sound" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = ExtResource("10_r654i")
 
 [node name="zing" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = ExtResource("11_4jvtc")
 
 [node name="zong" type="AudioStreamPlayer" parent="."]
+process_mode = 1
 stream = ExtResource("12_47yu4")
 script = ExtResource("15_52uta")
 
@@ -69,6 +79,7 @@ visible = false
 script = null
 
 [node name="apple" parent="." instance=ExtResource("11_bw4ce")]
+process_mode = 1
 visible = false
 
 [node name="ring" parent="." instance=ExtResource("13_mvbwf")]

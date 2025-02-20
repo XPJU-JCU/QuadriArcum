@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://games/hobbit_run/rock/rock.gd" id="1_fco1i"]
 
 [node name="rock" type="Area2D"]
+process_mode = 1
 script = ExtResource("1_fco1i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

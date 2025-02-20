@@ -30,7 +30,7 @@ var high_score : int
 var speed : float
 const START_SPEED : float = 10  #used to be 10
 @export var MAX_SPEED : int = 22  
-const SPEED_MODIFIER : int = 13000  #(20000) is good - no its not
+const SPEED_MODIFIER : int = 13000  #(13000) is good - no its not
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -117,11 +117,16 @@ func _process(delta):
 
 	else: 
 		if Input.is_action_pressed("ui_accept"):
+			new_game()
+			
 			game_running = true
 			reset_music()
 			$RingSpawnTimer.start()
 			$SBTimer.start()
 			$HUD.get_node("StartLabel").hide()
+			
+			
+			
 
 func generate_obs():
 	#generate only ground obstacles
