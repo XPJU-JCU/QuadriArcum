@@ -10,12 +10,15 @@ signal player_died
 	set(newhp):
 		hp = newhp
 		if(hp == 0):
-			player_died.emit()
+			$"../Score/Panel3".visible = true
+			Engine.time_scale = 0
 			hp+=1
-			Global.score = 0
 
 @onready var projectile = preload("res://games/Rocket-shooter-minigame/Bullet.tscn")
 @export var spawnpoint : Sprite2D
+
+func _ready():
+	Engine.time_scale = 1
 
 func get_input():
 	rotation_direction = Input.get_axis("left", "right")
@@ -50,3 +53,14 @@ func _on_area_2d_body_entered(body: Node2D):
 			
 func _on_area_2d_area_entered(area: Area2D):
 	checkEntry(area)
+
+
+func _on_btn_restart_pressed() -> void:
+	
+	Global.score -= Global.score
+	Global.hp -= Global.hp
+	Global.hp += 1
+
+
+func _on_btn_menu_pressed() -> void:
+	player_died.emit()

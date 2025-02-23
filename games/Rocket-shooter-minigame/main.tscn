@@ -121,6 +121,52 @@ text = "Armor: 0"
 vertical_alignment = 1
 script = ExtResource("5_lsyla")
 
+[node name="Panel3" type="Panel" parent="Score"]
+visible = false
+offset_left = 199.0
+offset_top = 122.0
+offset_right = 829.0
+offset_bottom = 503.0
+
+[node name="LabelHp" type="Label" parent="Score/Panel3"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = -58.0
+offset_right = 570.0
+offset_bottom = 129.0
+theme_override_font_sizes/font_size = 46
+text = "You lost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LostScore" type="Label" parent="Score/Panel3"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = -2.0
+offset_right = 557.0
+offset_bottom = 184.0
+theme_override_font_sizes/font_size = 27
+text = "With Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_4s21o")
+
+[node name="BtnRestart" type="Button" parent="Score/Panel3"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 198.0
+offset_right = 281.0
+offset_bottom = 240.0
+text = "Restart"
+
+[node name="BtnMenu" type="Button" parent="Score/Panel3"]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 199.0
+offset_right = 480.0
+offset_bottom = 241.0
+text = "Main menu"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(0, -6)
@@ -128,3 +174,5 @@ scale = Vector2(1.64, 1.92)
 texture = ExtResource("6_qab24")
 
 [connection signal="player_died" from="player" to="." method="_on_player_player_died"]
+[connection signal="pressed" from="Score/Panel3/BtnRestart" to="player" method="_on_btn_restart_pressed"]
+[connection signal="pressed" from="Score/Panel3/BtnMenu" to="player" method="_on_btn_menu_pressed"]
