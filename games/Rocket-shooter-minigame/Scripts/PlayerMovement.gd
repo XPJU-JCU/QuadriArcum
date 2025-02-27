@@ -56,11 +56,11 @@ func _on_area_2d_area_entered(area: Area2D):
 
 
 func _on_btn_restart_pressed() -> void:
-	
+	get_tree().change_scene_to_file("res://games/Rocket-shooter-minigame/main.tscn")
 	Global.score -= Global.score
 	Global.hp -= Global.hp
 	Global.hp += 1
 
 
 func _on_btn_menu_pressed() -> void:
-	player_died.emit()
+	get_tree().change_scene_to_file("res://main/main.tscn")

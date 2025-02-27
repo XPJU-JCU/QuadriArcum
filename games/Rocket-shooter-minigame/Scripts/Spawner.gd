@@ -2,8 +2,11 @@ extends Node2D
 
 @onready var enemy = preload("res://games/Rocket-shooter-minigame/Enemies/Monster.tscn")
 @onready var enemy2 = preload("res://games/Rocket-shooter-minigame/Enemies/Asteroid.tscn")
+@onready var enemy3 = preload("res://games/Rocket-shooter-minigame/Enemies/EnemyUFO.tscn")
 @onready var shield = preload("res://games/Rocket-shooter-minigame/Pickups/Shield.tscn")
 @export var pathAster : Path2D
+
+var turn = 0
 
 var pos : Vector2
 var pointsArray : Array
@@ -21,9 +24,15 @@ func _on_arteroids_timeout() -> void:
 	print(pos)
 
 func _on_monsters_timeout() -> void:
+	var ene
 	var chosen = (randi() % pointsArray.size()-1) - 0
 	pos = pointsArray[chosen]
-	var ene = enemy.instantiate()
+	if (turn == 0):
+		ene = enemy.instantiate()
+		turn = 1
+	else: 
+		ene = enemy3.instantiate()
+		turn = 0
 	ene.position = pos
 	add_child(ene)
 

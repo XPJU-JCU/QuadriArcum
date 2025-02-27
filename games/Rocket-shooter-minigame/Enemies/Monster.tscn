@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://8dicwxpnupr7" path="res://games/Rocket-shooter-minigame/Textures/monster1.png" id="2_u8khk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnky5"]
-size = Vector2(98.3318, 80.332)
+size = Vector2(128.812, 102.406)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x6nh"]
 radius = 50.9986
@@ -24,7 +24,7 @@ scale = Vector2(0.268749, 0.177078)
 texture = ExtResource("2_u8khk")
 
 [node name="Monster" type="CollisionShape2D" parent="."]
-position = Vector2(0.156076, -8.42011)
+position = Vector2(-2.34374, -1.5625)
 scale = Vector2(0.861235, 0.762895)
 shape = SubResource("RectangleShape2D_dnky5")
 debug_color = Color(0.643036, 0, 0.163429, 0.42)
@@ -34,6 +34,7 @@ position = Vector2(0, -1)
 collision_mask = 22
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.38419e-07, 1)
 rotation = 1.57823
 shape = SubResource("CapsuleShape2D_8x6nh")
 

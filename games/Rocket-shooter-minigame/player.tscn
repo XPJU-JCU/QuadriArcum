@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpdjan5xgxrr3"]
+[gd_scene load_steps=7 format=3 uid="uid://cpdjan5xgxrr3"]
 
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/PlayerMovement.gd" id="1_wks7a"]
 [ext_resource type="Texture2D" uid="uid://bopm7l2fb7agr" path="res://games/Rocket-shooter-minigame/Textures/raketka_better_otocena.png" id="2_tbvm0"]
 [ext_resource type="Texture2D" uid="uid://bp01s317vkld3" path="res://games/Rocket-shooter-minigame/icon.svg" id="3_mwd1c"]
+[ext_resource type="Texture2D" uid="uid://bg01am6i8s21h" path="res://games/Rocket-shooter-minigame/Textures/Cursor.png" id="4_4m2na"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cj85y"]
 radius = 50.9986
@@ -41,6 +42,11 @@ position = Vector2(0, -2.38419e-07)
 scale = Vector2(0.526314, -0.041664)
 shape = SubResource("RectangleShape2D_ob205")
 debug_color = Color(0.912174, 0.196973, 0.550315, 0.42)
+
+[node name="Kurzor" type="Sprite2D" parent="."]
+position = Vector2(617, -3)
+scale = Vector2(0.157425, 0.123528)
+texture = ExtResource("4_4m2na")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
