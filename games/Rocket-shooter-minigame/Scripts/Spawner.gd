@@ -21,7 +21,7 @@ func _on_arteroids_timeout() -> void:
 	var ene = enemy2.instantiate()
 	ene.position = pos
 	add_child(ene)
-	print(pos)
+	#print(pos)
 
 func _on_monsters_timeout() -> void:
 	var ene
@@ -41,4 +41,4 @@ func _on_pickups_timeout() -> void:
 	var ene = shield.instantiate()
 	ene.position = pos
 	add_child(ene)
-	print(pos)
+	#print(pos)

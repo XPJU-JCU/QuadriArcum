@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwjuij5e75x23"]
+
+[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/Enemy.gd" id="1_x28ot"]
+[ext_resource type="Texture2D" uid="uid://dseb6e60wlxh3" path="res://games/Rocket-shooter-minigame/Textures/Monster2.png" id="2_bpixv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnky5"]
+size = Vector2(128.812, 102.406)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x6nh"]
+radius = 50.9986
+height = 157.996
+
+[node name="Monster" type="CharacterBody2D" node_paths=PackedStringArray("spawnpoint") groups=["Enemies"]]
+scale = Vector2(0.640003, 0.639999)
+collision_layer = 4
+collision_mask = 45
+motion_mode = 1
+floor_stop_on_slope = false
+script = ExtResource("1_x28ot")
+spawnpoint = NodePath("Sprite2D2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.56249, 6.77626e-21)
+scale = Vector2(0.209783, 0.177688)
+texture = ExtResource("2_bpixv")
+
+[node name="ShootCooldown" type="Timer" parent="Sprite2D"]
+wait_time = 3.0
+autostart = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 1.5625)
+scale = Vector2(0.0768597, 0.0183963)
+texture = ExtResource("2_bpixv")
+
+[node name="Monster" type="CollisionShape2D" parent="."]
+position = Vector2(-2.34374, -1.5625)
+scale = Vector2(0.861235, 0.762895)
+shape = SubResource("RectangleShape2D_dnky5")
+debug_color = Color(0.643036, 0, 0.163429, 0.42)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -1)
+collision_mask = 22
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.38419e-07, 1)
+rotation = 1.57823
+shape = SubResource("CapsuleShape2D_8x6nh")
+
+[connection signal="timeout" from="Sprite2D/ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

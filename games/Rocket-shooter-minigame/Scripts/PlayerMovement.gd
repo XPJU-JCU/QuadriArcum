@@ -9,10 +9,10 @@ signal player_died
 @export var hp : int = Global.hp:
 	set(newhp):
 		hp = newhp
-		if(hp == 0):
+		if(hp < 1):
 			$"../Score/Panel3".visible = true
 			Engine.time_scale = 0
-			hp+=1
+			hp=1
 
 @onready var projectile = preload("res://games/Rocket-shooter-minigame/Bullet.tscn")
 @export var spawnpoint : Sprite2D
@@ -21,7 +21,7 @@ func _ready():
 	Engine.time_scale = 1
 
 func get_input():
-	rotation_direction = Input.get_axis("left", "right")
+	look_at(get_global_mouse_position())
 	velocity = transform.x * Input.get_axis("down", "up") * speed
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
@@ -30,6 +30,7 @@ func _physics_process(delta):
 	rotation += rotation_direction * rotation_speed * delta
 	get_input()
 	move_and_slide()
+	hp = Global.hp
 	
 func shoot():
 	var instance = projectile.instantiate()

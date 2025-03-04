@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqpsvq4dufhum"]
+[gd_scene load_steps=11 format=3 uid="uid://bqpsvq4dufhum"]
 
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/main.gd" id="1_1tgxy"]
 [ext_resource type="PackedScene" uid="uid://cpdjan5xgxrr3" path="res://games/Rocket-shooter-minigame/player.tscn" id="1_hwpgt"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ccehcijevf8a5" path="res://games/Rocket-shooter-minigame/Spawner.tscn" id="4_v466c"]
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/label_hp.gd" id="5_lsyla"]
 [ext_resource type="Texture2D" uid="uid://cplpdtinimy3u" path="res://games/Rocket-shooter-minigame/Textures/360_F_546468872_b9emNBQeVDLbBqicXaFyoBUwutWcHmbl.jpg" id="6_qab24"]
+[ext_resource type="PackedScene" uid="uid://v1gppfd5vqlo" path="res://games/Rocket-shooter-minigame/Bullet_enemy.tscn" id="8_qpjrw"]
 
 [sub_resource type="Curve2D" id="Curve2D_g32qc"]
 _data = {
@@ -172,6 +173,9 @@ z_index = -2
 position = Vector2(0, -6)
 scale = Vector2(1.64, 1.92)
 texture = ExtResource("6_qab24")
+
+[node name="Bullet_enemy" parent="." instance=ExtResource("8_qpjrw")]
+position = Vector2(-192, 95)
 
 [connection signal="player_died" from="player" to="." method="_on_player_player_died"]
 [connection signal="pressed" from="Score/Panel3/BtnRestart" to="player" method="_on_btn_restart_pressed"]
