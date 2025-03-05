@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 size = Vector2(134.98, 162.7)
 
 [node name="Node2D" type="RigidBody2D" groups=["Asteroids", "Enemies"]]
+process_mode = 1
 collision_layer = 4
 collision_mask = 45
 mass = 0.001

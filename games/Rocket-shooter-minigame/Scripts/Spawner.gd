@@ -11,6 +11,9 @@ var turn = 0
 var pos : Vector2
 var pointsArray : Array
 
+@export var timer : Timer
+@export var timerA : Timer
+
 func _ready() -> void:
 	pointsArray = pathAster.curve.get_baked_points()
 	
@@ -21,7 +24,6 @@ func _on_arteroids_timeout() -> void:
 	var ene = enemy2.instantiate()
 	ene.position = pos
 	add_child(ene)
-	#print(pos)
 
 func _on_monsters_timeout() -> void:
 	var ene
@@ -35,10 +37,12 @@ func _on_monsters_timeout() -> void:
 		turn = 0
 	ene.position = pos
 	add_child(ene)
+	timer.wait_time *= 0.998
+	#print(str(timer.wait_time))
+	timer.start()
 
 func _on_pickups_timeout() -> void:
 	var pos = Vector2((randi() % 1000 - 500),(randi() % 570 - 300))
 	var ene = shield.instantiate()
 	ene.position = pos
 	add_child(ene)
-	#print(pos)

@@ -2,15 +2,17 @@
 
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/PlayerMovement.gd" id="1_wks7a"]
 [ext_resource type="Texture2D" uid="uid://bopm7l2fb7agr" path="res://games/Rocket-shooter-minigame/Textures/raketka_better_otocena.png" id="2_tbvm0"]
-[ext_resource type="Texture2D" uid="uid://bp01s317vkld3" path="res://games/Rocket-shooter-minigame/icon.svg" id="3_mwd1c"]
 [ext_resource type="Texture2D" uid="uid://bg01am6i8s21h" path="res://games/Rocket-shooter-minigame/Textures/Cursor.png" id="4_4m2na"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4obwo"]
+load_path = "res://.godot/imported/icon.svg-910b6dea466fefb8084f31a339c23aff.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cj85y"]
 radius = 50.9986
 height = 157.996
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ob205"]
-size = Vector2(5.75, 4.75)
+size = Vector2(3.85891, 3.84645)
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("spawnpoint")]
 process_mode = 1
@@ -29,9 +31,10 @@ texture = ExtResource("2_tbvm0")
 visible = false
 position = Vector2(287.887, 1.10706)
 scale = Vector2(0.209279, -0.0581186)
-texture = ExtResource("3_mwd1c")
+texture = SubResource("CompressedTexture2D_4obwo")
 
 [node name="Area2D" type="Area2D" parent="."]
+process_mode = 1
 position = Vector2(0, -1)
 collision_mask = 86
 
@@ -40,8 +43,8 @@ rotation = 1.57823
 shape = SubResource("CapsuleShape2D_cj85y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.38419e-07)
-scale = Vector2(0.526314, -0.041664)
+position = Vector2(0.5, -1)
+scale = Vector2(28.2463, 21.3183)
 shape = SubResource("RectangleShape2D_ob205")
 debug_color = Color(0.912174, 0.196973, 0.550315, 0.42)
 

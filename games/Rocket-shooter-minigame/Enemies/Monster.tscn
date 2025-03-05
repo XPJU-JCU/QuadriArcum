@@ -11,12 +11,14 @@ radius = 50.9986
 height = 157.996
 
 [node name="Monster" type="CharacterBody2D" groups=["Enemies"]]
+process_mode = 1
 scale = Vector2(0.640003, 0.639999)
 collision_layer = 4
 collision_mask = 45
 motion_mode = 1
 floor_stop_on_slope = false
 script = ExtResource("1_milqg")
+speed = 10000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-2.00023, 9.53674e-07)

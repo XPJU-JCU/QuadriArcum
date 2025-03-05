@@ -1,23 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqbltrucm1yi5"]
 
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/Bullet.gd" id="1_0lpf0"]
-[ext_resource type="Texture2D" uid="uid://bp01s317vkld3" path="res://games/Rocket-shooter-minigame/icon.svg" id="1_n7d24"]
+[ext_resource type="Texture2D" uid="uid://by61yr3bkya45" path="res://games/Rocket-shooter-minigame/Textures/Bullet_rocket.png" id="2_eii8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r440r"]
-size = Vector2(9.9959, 33.8036)
+size = Vector2(9.81728, 63.3824)
 
 [node name="Bullet" type="CharacterBody2D"]
+process_mode = 1
 scale = Vector2(0.160002, 0.32)
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_0lpf0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.571996, 0.0797332)
-texture = ExtResource("1_n7d24")
+process_mode = 1
+scale = Vector2(2.98372, 1.32445)
+texture = ExtResource("2_eii8y")
 
 [node name="Bullet" type="CollisionShape2D" parent="."]
-position = Vector2(6.48997e-08, 0)
+position = Vector2(-3.12496, -7.92235e-06)
 rotation = -3.14159
 scale = Vector2(7.00287, -0.295826)
 shape = SubResource("RectangleShape2D_r440r")

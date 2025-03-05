@@ -17,7 +17,7 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		if (i == get_slide_collision_count()-1):
 			Global.hp -= 1
-			print(str(Global.hp))
+			#print(str(Global.hp))
 		
 
 func _on_timer_timeout() -> void:

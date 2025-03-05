@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/Spawner.gd" id="1_vxv11"]
 
-[node name="Spawner" type="Node2D"]
+[node name="Spawner" type="Node2D" node_paths=PackedStringArray("timer", "timerA")]
 script = ExtResource("1_vxv11")
+timer = NodePath("Monsters")
+timerA = NodePath("Arteroids")
 
 [node name="Monsters" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 3.0
 autostart = true
 
 [node name="Arteroids" type="Timer" parent="."]

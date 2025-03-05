@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 850
+@export var speed = 1000
 @export var rotation_speed = 7 
 var rotation_direction = 0
 
@@ -10,8 +10,9 @@ signal player_died
 	set(newhp):
 		hp = newhp
 		if(hp < 1):
-			$"../Score/Panel3".visible = true
+			$"../Score/Game_over".visible = true
 			Engine.time_scale = 0
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			hp=1
 
 @onready var projectile = preload("res://games/Rocket-shooter-minigame/Bullet.tscn")
@@ -19,12 +20,19 @@ signal player_died
 
 func _ready():
 	Engine.time_scale = 1
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func get_input():
-	look_at(get_global_mouse_position())
-	velocity = transform.x * Input.get_axis("down", "up") * speed
-	if Input.is_action_just_pressed("shoot"):
-		shoot()
+	if (Engine.time_scale == 1):
+		if (global_position.distance_to(get_global_mouse_position()) > 50):	
+			look_at(get_global_mouse_position())
+			velocity = transform.x * Input.get_axis("down", "up") * speed
+		if Input.is_action_just_pressed("shoot"):
+			shoot()
+		if Input.is_action_just_pressed("Pause"):
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene_to_file("res://main/main.tscn")
+	
 
 func _physics_process(delta):	
 	rotation += rotation_direction * rotation_speed * delta
@@ -64,4 +72,6 @@ func _on_btn_restart_pressed() -> void:
 
 
 func _on_btn_menu_pressed() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://main/main.tscn")
+	

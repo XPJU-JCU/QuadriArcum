@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkd54iy6gowyn"
-path="res://.godot/imported/Shield.png-b134cbd36ec3eaabb675951a918b2c49.ctex"
+uid="uid://dss5kfk5tlqle"
+path="res://.godot/imported/Bullet_enemy.png-56445191c46d385eb4b0118b687c2cfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/Rocket-shooter-minigame/Shield.png"
-dest_files=["res://.godot/imported/Shield.png-b134cbd36ec3eaabb675951a918b2c49.ctex"]
+source_file="res://games/Rocket-shooter-minigame/Textures/Bullet_enemy.png"
+dest_files=["res://.godot/imported/Bullet_enemy.png-56445191c46d385eb4b0118b687c2cfc.ctex"]
 
 [params]
 
