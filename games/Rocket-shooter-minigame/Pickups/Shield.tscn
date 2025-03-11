@@ -6,6 +6,7 @@
 height = 28.0
 
 [node name="Shield" type="Area2D" groups=["Shield_collectible"]]
+scale = Vector2(2, 1.84)
 collision_layer = 16
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

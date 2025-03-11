@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqpsvq4dufhum"]
+[gd_scene load_steps=11 format=3 uid="uid://bqpsvq4dufhum"]
 
-[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/main.gd" id="1_1tgxy"]
+[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/main.gd" id="1_1tgxy"]
 [ext_resource type="PackedScene" uid="uid://cpdjan5xgxrr3" path="res://games/Rocket-shooter-minigame/player.tscn" id="1_hwpgt"]
 [ext_resource type="PackedScene" uid="uid://dks0oc7yt3ois" path="res://games/Rocket-shooter-minigame/map.tscn" id="2_hwond"]
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/scorecounter.gd" id="4_4s21o"]
 [ext_resource type="PackedScene" uid="uid://ccehcijevf8a5" path="res://games/Rocket-shooter-minigame/Spawner.tscn" id="4_v466c"]
-[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/label_hp.gd" id="5_lsyla"]
-[ext_resource type="Texture2D" uid="uid://cplpdtinimy3u" path="res://games/Rocket-shooter-minigame/Textures/360_F_546468872_b9emNBQeVDLbBqicXaFyoBUwutWcHmbl.jpg" id="6_qab24"]
+[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/label_hp.gd" id="5_lsyla"]
+[ext_resource type="Texture2D" uid="uid://ofev2p3jxoes" path="res://games/Rocket-shooter-minigame/Textures/Shield.png" id="7_34lhf"]
+[ext_resource type="Texture2D" uid="uid://dldgjgxi8l5lq" path="res://games/Rocket-shooter-minigame/Textures/Space_background.png" id="7_qyy0q"]
 
 [sub_resource type="Curve2D" id="Curve2D_g32qc"]
 _data = {
@@ -17,12 +18,14 @@ point_count = 97
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ps1a"]
 size = Vector2(1147, 80)
 
-[node name="Node2D" type="Node2D"]
+[node name="Main scene" type="Node2D"]
 script = ExtResource("1_1tgxy")
+metadata/_edit_horizontal_guides_ = [642.0, 685.0, 614.0, 324.0]
+metadata/_edit_vertical_guides_ = [576.0]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Map" parent="." instance=ExtResource("2_hwond")]
+[node name="PlayerBounds" parent="." instance=ExtResource("2_hwond")]
 light_mask = 2
 position = Vector2(2, -1)
 
@@ -30,9 +33,10 @@ position = Vector2(2, -1)
 position = Vector2(-1, -4)
 
 [node name="Spawner" parent="EnemyHandler" node_paths=PackedStringArray("pathAster") instance=ExtResource("4_v466c")]
-pathAster = NodePath("../Asteroisds")
+scale = Vector2(1, 0.995685)
+pathAster = NodePath("../Path")
 
-[node name="Asteroisds" type="Path2D" parent="EnemyHandler"]
+[node name="Path" type="Path2D" parent="EnemyHandler"]
 position = Vector2(1, 4)
 curve = SubResource("Curve2D_g32qc")
 
@@ -87,44 +91,102 @@ shape = SubResource("RectangleShape2D_1ps1a")
 
 [node name="Score" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="Score"]
-offset_left = 782.0
-offset_top = 567.0
-offset_right = 1154.0
-offset_bottom = 668.0
+[node name="ScorePanel" type="Panel" parent="Score"]
+offset_left = 920.0
+offset_top = 585.0
+offset_right = 1153.0
+offset_bottom = 686.0
 
-[node name="LabelScore" type="Label" parent="Score/Panel"]
+[node name="LabelScore" type="Label" parent="Score/ScorePanel"]
 layout_mode = 0
 offset_left = 16.0
 offset_top = 9.0
-offset_right = 437.0
+offset_right = 189.0
 offset_bottom = 73.0
 theme_override_font_sizes/font_size = 36
 text = "Score: 0"
 vertical_alignment = 1
 script = ExtResource("4_4s21o")
 
-[node name="Panel2" type="Panel" parent="Score"]
-offset_left = -1.0
-offset_top = 568.0
-offset_right = 352.0
-offset_bottom = 669.0
+[node name="HpPanel" type="Panel" parent="Score"]
+offset_left = -2.0
+offset_top = 586.0
+offset_right = 179.0
+offset_bottom = 685.0
 
-[node name="LabelHp" type="Label" parent="Score/Panel2"]
+[node name="LabelHp" type="Label" parent="Score/HpPanel"]
 layout_mode = 0
-offset_left = 16.0
-offset_top = 9.0
-offset_right = 332.0
-offset_bottom = 73.0
+offset_left = 79.0
+offset_top = 16.0
+offset_right = 176.0
+offset_bottom = 66.0
 theme_override_font_sizes/font_size = 36
-text = "Armor: 0"
+text = "1"
 vertical_alignment = 1
 script = ExtResource("5_lsyla")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="HP_icon" type="TextureRect" parent="Score/HpPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 22.0
+offset_right = 100.0
+offset_bottom = 71.0
+scale = Vector2(0.591721, 0.876878)
+texture = ExtResource("7_34lhf")
+expand_mode = 3
+
+[node name="Game_over" type="Panel" parent="Score"]
+visible = false
+offset_left = 321.0
+offset_top = 185.0
+offset_right = 832.0
+offset_bottom = 459.0
+
+[node name="LostLabel" type="Label" parent="Score/Game_over"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = -55.0
+offset_right = 501.0
+offset_bottom = 132.0
+theme_override_font_sizes/font_size = 68
+text = "You lost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LostScore" type="Label" parent="Score/Game_over"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 54.0
+offset_right = 485.0
+offset_bottom = 142.0
+theme_override_font_sizes/font_size = 27
+text = "With Score: "
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_4s21o")
+
+[node name="BtnRestart" type="Button" parent="Score/Game_over"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 140.0
+offset_right = 230.0
+offset_bottom = 240.0
+text = "Restart"
+
+[node name="BtnMenu" type="Button" parent="Score/Game_over"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 139.0
+offset_right = 459.0
+offset_bottom = 240.0
+text = "Main menu"
+
+[node name="Background" type="Sprite2D" parent="."]
 z_index = -2
 position = Vector2(0, -6)
-scale = Vector2(1.64, 1.92)
-texture = ExtResource("6_qab24")
+scale = Vector2(0.720001, 0.72)
+texture = ExtResource("7_qyy0q")
 
 [connection signal="player_died" from="player" to="." method="_on_player_player_died"]
+[connection signal="pressed" from="Score/Game_over/BtnRestart" to="player" method="_on_btn_restart_pressed"]
+[connection signal="pressed" from="Score/Game_over/BtnMenu" to="player" method="_on_btn_menu_pressed"]

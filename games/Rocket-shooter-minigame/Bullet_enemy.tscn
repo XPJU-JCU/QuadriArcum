@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://v1gppfd5vqlo"]
+
+[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/bullet_enemy.gd" id="1_cmcet"]
+[ext_resource type="Texture2D" uid="uid://dss5kfk5tlqle" path="res://games/Rocket-shooter-minigame/Textures/Bullet_enemy.png" id="2_d3svo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r440r"]
+size = Vector2(27.5397, 69.1454)
+
+[node name="Bullet_enemy" type="CharacterBody2D"]
+process_mode = 1
+scale = Vector2(0.28, 0.880001)
+collision_layer = 4
+script = ExtResource("1_cmcet")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+process_mode = 1
+modulate = Color(0.584357, 0.373527, 0, 1)
+scale = Vector2(6.75692, 1.48479)
+texture = ExtResource("2_d3svo")
+
+[node name="Bullet" type="CollisionShape2D" parent="."]
+position = Vector2(6.48997e-08, 0)
+rotation = -3.14159
+scale = Vector2(7.00287, -0.295826)
+shape = SubResource("RectangleShape2D_r440r")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

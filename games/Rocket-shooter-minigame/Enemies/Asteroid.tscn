@@ -24,12 +24,14 @@ func _process(delta: float) -> void:
 size = Vector2(134.98, 162.7)
 
 [node name="Node2D" type="RigidBody2D" groups=["Asteroids", "Enemies"]]
+process_mode = 1
 collision_layer = 4
 collision_mask = 45
 mass = 0.001
 physics_material_override = SubResource("PhysicsMaterial_1adji")
 gravity_scale = 0.0
 can_sleep = false
+continuous_cd = 1
 contact_monitor = true
 linear_velocity = Vector2(300, 300)
 linear_damp_mode = 1

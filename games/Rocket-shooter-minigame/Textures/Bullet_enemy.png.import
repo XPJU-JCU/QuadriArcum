@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cplpdtinimy3u"
-path="res://.godot/imported/360_F_546468872_b9emNBQeVDLbBqicXaFyoBUwutWcHmbl.jpg-2cd5126029f775917101fd623c3d359b.ctex"
+uid="uid://dss5kfk5tlqle"
+path="res://.godot/imported/Bullet_enemy.png-56445191c46d385eb4b0118b687c2cfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://games/Rocket-shooter-minigame/Textures/360_F_546468872_b9emNBQeVDLbBqicXaFyoBUwutWcHmbl.jpg"
-dest_files=["res://.godot/imported/360_F_546468872_b9emNBQeVDLbBqicXaFyoBUwutWcHmbl.jpg-2cd5126029f775917101fd623c3d359b.ctex"]
+source_file="res://games/Rocket-shooter-minigame/Textures/Bullet_enemy.png"
+dest_files=["res://.godot/imported/Bullet_enemy.png-56445191c46d385eb4b0118b687c2cfc.ctex"]
 
 [params]
 
