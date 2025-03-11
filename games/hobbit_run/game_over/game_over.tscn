@@ -1,36 +1,37 @@
-[gd_scene load_steps=6 format=3 uid="uid://62v4c8nnjei6"]
+[gd_scene load_steps=3 format=3 uid="uid://62v4c8nnjei6"]
 
-[ext_resource type="Script" path="res://games/hobbit_run/game_over/game_over.gd" id="1_m8y6b"]
 [ext_resource type="FontFile" uid="uid://bapa2qf7cgk4d" path="res://games/hobbit_run/retro_font/Retro Gaming.ttf" id="1_rrgx4"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnh0c"]
-bg_color = Color(0.721109, 0.544329, 0.594484, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d38rv"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wgka"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6x27"]
 
 [node name="GameOver" type="CanvasLayer"]
-script = ExtResource("1_m8y6b")
 
-[node name="Button" type="Button" parent="."]
+[node name="GameOverLabel" type="Label" parent="."]
+z_index = 2
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -37.5
-offset_top = -15.5
-offset_right = 37.5
-offset_bottom = 15.5
+offset_left = -191.5
+offset_top = -142.5
+offset_right = 191.5
+offset_bottom = 142.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_rrgx4")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_wnh0c")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_d38rv")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_0wgka")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxTexture_b6x27")
 text = "Frodo died.
 You suck.
 
 RESTART?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+z_index = 1
+offset_left = 320.0
+offset_top = 128.0
+offset_right = 832.0
+offset_bottom = 512.0

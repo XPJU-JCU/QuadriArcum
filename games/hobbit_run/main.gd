@@ -25,12 +25,12 @@ const CAM_START_POS := Vector2i(0, 0)
 var difficulty
 const MAX_DIFFICULTY : int = 2
 var score : int
-const SCORE_MODIFIER : int = 250
+const SCORE_MODIFIER : int = 250 #250
 var high_score : int
 var speed : float
 const START_SPEED : float = 10  #used to be 10
 @export var MAX_SPEED : int = 22  
-const SPEED_MODIFIER : int = 13000  #(13000) is good - no its not
+const SPEED_MODIFIER : int = 10000  #(13000) is good - no its not
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -42,7 +42,7 @@ signal game_exited
 func _ready():
 	screen_size = get_window().size
 	ground_height = 110 #trust me on this one - $Ground.get_node("JungleTileset").texture.get_height()
-	$GameOver.get_node("Button").pressed.connect(new_game)   #annoying
+	#$GameOver.get_node("Button").pressed.connect(new_game)   #annoying
 	$RingSpawnTimer.timeout.connect(generate_one_ring)
 	$SBTimer.timeout.connect(generate_second_breakfast)
 	new_game()
@@ -79,6 +79,7 @@ func new_game():
 	#reset HUD and hide game Over
 	$HUD.get_node("StartLabel").show()
 	$PlusScoreLabel.hide()
+	#$GameOverLabel.hide()
 	$GameOver.hide()
 	
 	$death_sound.stop()
@@ -87,7 +88,7 @@ func new_game():
 func _process(delta):
 	if game_running:
 		#speed up and adjust difficulty
-		speed = START_SPEED + score / SPEED_MODIFIER
+		speed = (START_SPEED + score / SPEED_MODIFIER) * delta # deleno SPEED_MODIFIER
 		if speed > MAX_SPEED:
 			speed = MAX_SPEED
 		adjust_difficulty()
@@ -96,15 +97,15 @@ func _process(delta):
 		generate_obs()
 
 	#move hobbit and camera
-		$hobbit.position.x += speed
-		$Camera2D.position.x += speed
+		$hobbit.position.x += speed * delta * (SPEED_MODIFIER / 2)
+		$Camera2D.position.x += speed * delta * (SPEED_MODIFIER / 2)
 		
 		#update score
-		score += speed
+		score += speed * 60
 		show_score() 
 		
 		if $Camera2D.position.x - $Ground.position.x > screen_size.x:
-			$Ground.position.x += screen_size.x
+			$Ground.position.x += screen_size.x 
 			
 		#remove obstacles that have gone off screen
 		for obs in obstacles:
@@ -128,29 +129,37 @@ func _process(delta):
 			
 			
 
+#jablka + lembas to rozbíjejí
 func generate_obs():
 	#generate only ground obstacles
-	
-	if obstacles.is_empty() or last_obs.position.x < score + randi_range(200, 400):
-		var obs_type = obstacle_types[randi() % obstacle_types.size()]
-		var obs
-		var max_obs = difficulty + 1
-		for i in range(randi() % max_obs + 1):
-			obs = obs_type.instantiate()
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_x : int = screen_size.x + score + (i * 100) + randi_range(40, 80)
-			var obs_y : int = screen_size.y - ground_height / 1.2
-			last_obs = obs
-			add_obs(obs, obs_x, obs_y)
-			
-		#additionally random chance to spam a bird man!!!
-		#if difficulty <= MAX_DIFFICULTY:
-		if (randi() % 2) == 0:
-			obs = bird_scene.instantiate()
-			var obs_x : int = screen_size.x + score + 150 #dříve 100
-			var obs_y : int = bird_heights[randi() % bird_heights.size()]
-			add_obs(obs, obs_x, obs_y)
+	if obstacles.is_empty():
+		funkce()
+	elif last_obs != null:
+		if last_obs.position.x < $Camera2D.position.x: #score + randi_range(200, 400):
+			funkce()
+
+
+func funkce():
+	#generate only ground obstacles
+	var obs_type = obstacle_types[randi() % obstacle_types.size()]
+	var obs
+	var max_obs = difficulty + 1
+	for i in range(randi() % max_obs + 1):
+		obs = obs_type.instantiate()
+		var obs_height = obs.get_node("Sprite2D").texture.get_height()
+		var obs_scale = obs.get_node("Sprite2D").scale
+		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(100, 2000) #(i * 100) + randi_range(2000, 2000)
+		var obs_y : int = screen_size.y - ground_height / 1.2
+		print(obs_x)
+		last_obs = obs
+		add_obs(obs, obs_x, obs_y)
+		
+	#additionally random chance to spam a bird man!!!
+	if (randi() % 2) == 0:
+		obs = bird_scene.instantiate()
+		var obs_x : int = screen_size.x + score + 150 #dříve 100
+		var obs_y : int = bird_heights[randi() % bird_heights.size()]
+		add_obs(obs, obs_x, obs_y)
 
 func generate_one_ring():
 	var ring = ring_scene.instantiate()
@@ -254,13 +263,6 @@ func adjust_difficulty():
 	if difficulty > MAX_DIFFICULTY:
 		difficulty = MAX_DIFFICULTY
 
-#deleting lembas, apples and rings at the start of the game
-func delete_children(node):
-	var children = node.get_children()
-	for child in children:
-		child.queue_free()
-		print("Happened, lol")
-
 func game_over():
 	$main_soundtrack.stop()
 	$RingSpawnTimer.stop()
@@ -270,6 +272,7 @@ func game_over():
 	$death_sound.play()
 	game_running = false
 	$GameOver.show()
+	
 
 func reset_music():
 	#play some light jazz

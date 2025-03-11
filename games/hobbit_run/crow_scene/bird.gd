@@ -5,7 +5,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	position.x -= get_parent().speed / 3 #bývalo :2, ale to se nedalo :D :D
+	position.x -= (delta * 150) #bývalo :2, ale to se nedalo :D :D get_parent().speed * delta 
 	
 	#sauron phase
 	var main_node = get_parent() 

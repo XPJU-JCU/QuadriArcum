@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnitjn0hl4ks3"]
+[gd_scene load_steps=18 format=3 uid="uid://cnitjn0hl4ks3"]
 
 [ext_resource type="PackedScene" uid="uid://kc4m66sedxti" path="res://games/hobbit_run/ground/ground.tscn" id="1_3l1yw"]
 [ext_resource type="Script" path="res://games/hobbit_run/main.gd" id="1_8aslt"]
@@ -8,16 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://62v4c8nnjei6" path="res://games/hobbit_run/game_over/game_over.tscn" id="7_lcrr6"]
 [ext_resource type="PackedScene" uid="uid://cu3ir6wmh4c2s" path="res://games/hobbit_run/sauron_phase/sauron_sees_you.tscn" id="8_0akys"]
 [ext_resource type="PackedScene" uid="uid://bdnirugwvib11" path="res://games/hobbit_run/parallax background/new_bg.tscn" id="8_jwtax"]
-[ext_resource type="AudioStream" uid="uid://cwefjgyb6ogbq" path="res://games/hobbit_run/hobbit_sound (mp3cut (mp3cut.net).mp3" id="9_ol2dg"]
+[ext_resource type="AudioStream" uid="uid://b6ij71v8hgrft" path="res://games/hobbit_run/MAIN/main_trash.mp3" id="9_dowwk"]
+[ext_resource type="AudioStream" uid="uid://cjd7tsko1a6gu" path="res://games/hobbit_run/game_over/game_over (mp3cut.net).mp3" id="10_r654i"]
 [ext_resource type="Script" path="res://games/hobbit_run/main_soundtrack.gd" id="10_yta3w"]
 [ext_resource type="AudioStream" uid="uid://cu1s7s2c6avqo" path="res://games/hobbit_run/ring_scene/coin.mp3" id="11_4jvtc"]
 [ext_resource type="PackedScene" uid="uid://i37fprmkrtsd" path="res://games/hobbit_run/apple_scene/apple.tscn" id="11_bw4ce"]
 [ext_resource type="PackedScene" uid="uid://dgtbqm1xoqy0o" path="res://games/hobbit_run/lembas_scene/lembas.tscn" id="11_yr4er"]
-[ext_resource type="AudioStream" uid="uid://pkwduq7jf3ub" path="res://games/hobbit_run/game_over_dsound (mp3cut.net).mp3" id="11_ywywd"]
 [ext_resource type="AudioStream" uid="uid://dwnpt12ytq3wp" path="res://games/hobbit_run/apple_scene/bit-coin-sound-effect-copyright-free (mp3cut.net).mp3" id="12_47yu4"]
 [ext_resource type="PackedScene" uid="uid://dpjyseak5vqdk" path="res://games/hobbit_run/ring_scene/ring.tscn" id="13_mvbwf"]
 [ext_resource type="Script" path="res://games/hobbit_run/zong.gd" id="15_52uta"]
-[ext_resource type="PackedScene" uid="uid://dqadsdwy2pga3" path="res://games/hobbit_run/crow_scene/bird.tscn" id="18_iwydf"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8aslt")
@@ -60,12 +59,12 @@ process_mode = 1
 
 [node name="main_soundtrack" type="AudioStreamPlayer" parent="."]
 process_mode = 1
-stream = ExtResource("9_ol2dg")
+stream = ExtResource("9_dowwk")
 script = ExtResource("10_yta3w")
 
 [node name="death_sound" type="AudioStreamPlayer" parent="."]
 process_mode = 1
-stream = ExtResource("11_ywywd")
+stream = ExtResource("10_r654i")
 
 [node name="zing" type="AudioStreamPlayer" parent="."]
 process_mode = 1
@@ -87,5 +86,3 @@ visible = false
 [node name="ring" parent="." instance=ExtResource("13_mvbwf")]
 visible = false
 script = null
-
-[node name="bird" parent="." instance=ExtResource("18_iwydf")]

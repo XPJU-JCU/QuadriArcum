@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cwefjgyb6ogbq"
+path="res://.godot/imported/hobbit_sound (mp3cut (mp3cut.net).mp3-26d39da5d6288be9e9c4015ff8e43058.mp3str"
+
+[deps]
+
+source_file="res://games/hobbit_run/hobbit_sound (mp3cut (mp3cut.net).mp3"
+dest_files=["res://.godot/imported/hobbit_sound (mp3cut (mp3cut.net).mp3-26d39da5d6288be9e9c4015ff8e43058.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
