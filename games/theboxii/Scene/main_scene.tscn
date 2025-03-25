@@ -1,0 +1,227 @@
+[gd_scene load_steps=24 format=3 uid="uid://bjafqh1wwl2l7"]
+
+[ext_resource type="PackedScene" uid="uid://borhiyvvc6d1i" path="res://games/theboxii/Object/player.tscn" id="1_31fxm"]
+[ext_resource type="Script" uid="uid://djpdtpgauru78" path="res://games/theboxii/Scene/main_scene.gd" id="1_u7epo"]
+[ext_resource type="PhysicsMaterial" uid="uid://tdeslemurasf" path="res://games/theboxii/Material/playerPhysicsMat.tres" id="2_4kvl3"]
+[ext_resource type="Script" uid="uid://dmiitx8fsf2t3" path="res://games/theboxii/Script/playerScript.gd" id="3_4kvl3"]
+[ext_resource type="PackedScene" uid="uid://dg7q715t2hj84" path="res://games/theboxii/Object/mainPlate1.tscn" id="3_06yma"]
+[ext_resource type="PackedScene" uid="uid://bkb21xr0og55r" path="res://games/theboxii/Object/mainPlate2.tscn" id="5_lttqn"]
+[ext_resource type="PackedScene" uid="uid://cntq6dip2gmfu" path="res://games/theboxii/Object/mainPlate3.tscn" id="6_i64o6"]
+[ext_resource type="PackedScene" uid="uid://irqgvfx2nuud" path="res://games/theboxii/Object/mainPlate4.tscn" id="7_0xtjt"]
+[ext_resource type="PackedScene" uid="uid://yid37uw4ob6a" path="res://games/theboxii/Object/mainPlate5.tscn" id="8_g51t8"]
+[ext_resource type="PackedScene" uid="uid://d0q75gnqv41g" path="res://games/theboxii/Object/mainPlate6.tscn" id="9_j1xvy"]
+[ext_resource type="Script" uid="uid://dgj350hq1od4j" path="res://games/theboxii/Script/cameraControl.gd" id="10_0xtjt"]
+[ext_resource type="PackedScene" uid="uid://12bs205802rb" path="res://games/theboxii/Object/enemy.tscn" id="11_g51t8"]
+[ext_resource type="Material" uid="uid://csm1atpeirixb" path="res://games/theboxii/Material/green.tres" id="11_k87s1"]
+[ext_resource type="Script" uid="uid://l2v8jlqq66hh" path="res://games/theboxii/Script/gameControl.gd" id="11_kx01p"]
+[ext_resource type="Material" uid="uid://cx8hse1dm61oj" path="res://games/theboxii/Material/orange.tres" id="12_kx01p"]
+[ext_resource type="Material" uid="uid://bnyhk15stjf5d" path="res://games/theboxii/Material/white.tres" id="13_c1vcm"]
+[ext_resource type="FontFile" uid="uid://wt4mesltkpty" path="res://games/theboxii/Font/Galindo-Regular.ttf" id="16_c1vcm"]
+[ext_resource type="FontFile" uid="uid://cbli01rvttx0i" path="res://games/theboxii/Font/Logirent-Regular Demo.otf" id="17_n7l00"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xtjt"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_g51t8"]
+sky_material = SubResource("ProceduralSkyMaterial_0xtjt")
+
+[sub_resource type="Environment" id="Environment_j1xvy"]
+background_mode = 2
+background_energy_multiplier = 2.0
+sky = SubResource("Sky_g51t8")
+ambient_light_color = Color(0.192157, 0.301961, 0.47451, 1)
+tonemap_mode = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.192157, 0.301961, 0.47451, 1)
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.192157, 0.301961, 0.47451, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_7riyq"]
+dof_blur_far_distance = 90.0
+dof_blur_far_transition = 50.0
+
+[sub_resource type="Compositor" id="Compositor_k87s1"]
+
+[node name="MainScene" type="Node"]
+script = ExtResource("1_u7epo")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j1xvy")
+camera_attributes = SubResource("CameraAttributesPractical_7riyq")
+compositor = SubResource("Compositor_k87s1")
+
+[node name="Player" parent="." node_paths=PackedStringArray("scoreLabel", "scoreLayer", "endScoreLabel", "endHightLabel", "nameLabel", "endLayer", "gameControl") groups=["player"] instance=ExtResource("1_31fxm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
+physics_material_override = ExtResource("2_4kvl3")
+contact_monitor = true
+max_contacts_reported = 2
+script = ExtResource("3_4kvl3")
+prefabs = Array[PackedScene]([ExtResource("3_06yma"), ExtResource("5_lttqn"), ExtResource("6_i64o6"), ExtResource("7_0xtjt"), ExtResource("8_g51t8"), ExtResource("9_j1xvy")])
+horizontalSpeed = 7
+forwardSpeed = 12
+playerControl = false
+scoreLabel = NodePath("../UI/ScoreCanvas/Label")
+scoreLayer = NodePath("../UI/ScoreCanvas")
+endScoreLabel = NodePath("../UI/EndCanvas/CenterContainer3/actual")
+endHightLabel = NodePath("../UI/EndCanvas/CenterContainer2/hight")
+nameLabel = NodePath("../UI/EndCanvas/CenterContainer/Label")
+endLayer = NodePath("../UI/EndCanvas")
+gameControl = NodePath("../GameControl")
+
+[node name="LevelBase" type="Node" parent="."]
+
+[node name="LightBase" type="Node3D" parent="LevelBase"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="LevelBase/LightBase"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 5, 0)
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="LevelBase/LightBase"]
+transform = Transform3D(1, 0, 0, 0, -0.707107, 0.707107, 0, -0.707107, -0.707107, 0, 8.53553, -3.53553)
+light_energy = 0.2
+
+[node name="Camera3D" type="Camera3D" parent="LevelBase" node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.906308, 0.422618, 0, -0.422618, 0.906308, 0, 3, 3)
+script = ExtResource("10_0xtjt")
+target = NodePath("../../Player")
+spring_strength = Vector3(2, 2, 2)
+damping = Vector3(2, 2, 2)
+rotation_spring_strength = Vector3(0, 0, 0)
+rotation_damping = Vector3(0, 0, 0)
+
+[node name="StartMainPlate" parent="." instance=ExtResource("3_06yma")]
+
+[node name="StartMainPlate2" parent="." instance=ExtResource("3_06yma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+
+[node name="GameControl" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("11_kx01p")
+enemy = ExtResource("11_g51t8")
+materialList = Array[StandardMaterial3D]([ExtResource("11_k87s1"), ExtResource("12_kx01p"), ExtResource("13_c1vcm")])
+player = NodePath("../Player")
+
+[node name="Timer" type="Timer" parent="GameControl"]
+wait_time = 2.0
+autostart = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreCanvas" type="CanvasLayer" parent="UI"]
+
+[node name="Label" type="Label" parent="UI/ScoreCanvas"]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 224.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("16_c1vcm")
+theme_override_font_sizes/font_size = 30
+
+[node name="EndCanvas" type="CanvasLayer" parent="UI"]
+
+[node name="Panel" type="Panel" parent="UI/EndCanvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="UI/EndCanvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 120.0
+offset_right = 150.0
+offset_bottom = 171.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI/EndCanvas/CenterContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_n7l00")
+theme_override_font_sizes/font_size = 50
+text = "THE BOX - GODOT EDITION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="UI/EndCanvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 250.0
+offset_right = 150.0
+offset_bottom = 301.0
+grow_horizontal = 2
+
+[node name="hight" type="Label" parent="UI/EndCanvas/CenterContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_c1vcm")
+theme_override_font_sizes/font_size = 30
+text = "No data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer3" type="CenterContainer" parent="UI/EndCanvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 300.0
+offset_right = 150.0
+offset_bottom = 351.0
+grow_horizontal = 2
+
+[node name="actual" type="Label" parent="UI/EndCanvas/CenterContainer3"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_c1vcm")
+theme_override_font_sizes/font_size = 30
+text = "No data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer4" type="CenterContainer" parent="UI/EndCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -98.0
+offset_right = 155.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="UI/EndCanvas/CenterContainer4"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("16_c1vcm")
+theme_override_font_sizes/font_size = 20
+text = "Press any button to continue."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer5" type="CenterContainer" parent="UI/EndCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.0
+offset_top = -48.0
+offset_right = 155.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="UI/EndCanvas/CenterContainer5"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("17_n7l00")
+theme_override_font_sizes/font_size = 20
+text = "Ad Moop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[connection signal="timeout" from="GameControl/Timer" to="GameControl" method="_on_timer_timeout"]

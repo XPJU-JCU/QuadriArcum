@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://borhiyvvc6d1i"]
+
+[ext_resource type="Texture2D" uid="uid://cfuwqh2rk1ohg" path="res://games/theboxii/Base/Red/texture_05.png" id="1_b7k48"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lwscp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kwdud"]
+albedo_texture = ExtResource("1_b7k48")
+uv1_triplanar = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j4qrl"]
+size = Vector3(1.5, 1.5, 1.5)
+
+[node name="Player" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 12
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_lwscp")
+surface_material_override/0 = SubResource("StandardMaterial3D_kwdud")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_j4qrl")

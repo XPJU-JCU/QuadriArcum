@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://yid37uw4ob6a"]
+
+[ext_resource type="PackedScene" uid="uid://36scyn5iul5m" path="res://Object/floor.tscn" id="1_phtvi"]
+
+[node name="MainPlate6" type="Node3D"]
+
+[node name="Floor2" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 2.5)
+
+[node name="Floor3" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 2.5)
+
+[node name="Floor8" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 7.5)
+
+[node name="Floor9" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -2.5)
+
+[node name="Floor11" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 7.5)
+
+[node name="Floor12" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, -2.5)
+
+[node name="Floor13" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, -7.5)
+
+[node name="Floor15" parent="." instance=ExtResource("1_phtvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, -7.5)

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://36scyn5iul5m"]
+
+[ext_resource type="Shape3D" uid="uid://bt545so54fwa7" path="res://Material/boxShape_3d.tres" id="1_bsirf"]
+[ext_resource type="Texture2D" uid="uid://jxm7eflv5tn8" path="res://Base/Dark/texture_09.png" id="1_sfldf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lwscp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4edxg"]
+albedo_texture = ExtResource("1_sfldf")
+uv1_triplanar = true
+billboard_keep_scale = true
+
+[node name="Floor" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 2
+gravity_scale = 0.0
+freeze = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_lwscp")
+surface_material_override/0 = SubResource("StandardMaterial3D_4edxg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = ExtResource("1_bsirf")
