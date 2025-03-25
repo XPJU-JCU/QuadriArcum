@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dl8msltia7oyu"]
 
 [ext_resource type="Texture2D" uid="uid://udhba6o7q2tu" path="res://games/hobbit_run/rock/rock.png" id="1_1rqtm"]
-[ext_resource type="Script" path="res://games/hobbit_run/rock/rock.gd" id="1_fco1i"]
+[ext_resource type="Script" uid="uid://dwl7lxflbv7pn" path="res://games/hobbit_run/rock/rock.gd" id="1_fco1i"]
 
 [node name="rock" type="Area2D"]
 process_mode = 1

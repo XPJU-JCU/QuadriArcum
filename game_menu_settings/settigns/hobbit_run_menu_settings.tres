@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GameMenuSettings" load_steps=5 format=3 uid="uid://xvyo0oauwnkm"]
 
-[ext_resource type="Script" path="res://game_menu_settings/game_menu_settings.gd" id="1_0s4bv"]
+[ext_resource type="Script" uid="uid://gosrlvrt8i4c" path="res://game_menu_settings/game_menu_settings.gd" id="1_0s4bv"]
 [ext_resource type="PackedScene" uid="uid://cnitjn0hl4ks3" path="res://games/hobbit_run/main.tscn" id="1_dh30p"]
 
 [sub_resource type="Gradient" id="Gradient_ngamp"]

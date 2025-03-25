@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnitjn0hl4ks3"]
+[gd_scene load_steps=20 format=3 uid="uid://cnitjn0hl4ks3"]
 
 [ext_resource type="PackedScene" uid="uid://kc4m66sedxti" path="res://games/hobbit_run/ground/ground.tscn" id="1_3l1yw"]
 [ext_resource type="Script" path="res://games/hobbit_run/main.gd" id="1_8aslt"]
@@ -19,6 +19,8 @@
 [ext_resource type="Script" path="res://games/hobbit_run/zong.gd" id="15_52uta"]
 [ext_resource type="PackedScene" uid="uid://dqadsdwy2pga3" path="res://games/hobbit_run/crow_scene/bird.tscn" id="18_iwydf"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2kq65"]
+
 [node name="Main" type="Node"]
 script = ExtResource("1_8aslt")
 MAX_SPEED = 500
@@ -28,7 +30,7 @@ visible = false
 
 [node name="Ground" parent="." instance=ExtResource("1_3l1yw")]
 process_mode = 1
-position = Vector2(24, -22)
+position = Vector2(5, -22)
 
 [node name="hobbit" parent="." instance=ExtResource("2_nk0di")]
 process_mode = 1
@@ -89,3 +91,10 @@ visible = false
 script = null
 
 [node name="bird" parent="." instance=ExtResource("18_iwydf")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(742, 582)
+scale = Vector2(8, 8)
+shape = SubResource("WorldBoundaryShape2D_2kq65")

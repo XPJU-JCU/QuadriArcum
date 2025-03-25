@@ -8,5 +8,4 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_accept"):
 		velocity.y = JUMP_SPEED
 		#$jump-sound-14839.play()
-		
-		move_and_slide()
+	move_and_slide()

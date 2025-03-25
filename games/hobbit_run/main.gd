@@ -150,7 +150,7 @@ func funkce():
 		var obs_scale = obs.get_node("Sprite2D").scale
 		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(100, 2000) #(i * 100) + randi_range(2000, 2000)
 		var obs_y : int = screen_size.y - ground_height / 1.2
-		print(obs_x)
+		#print(obs_x)
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
 		

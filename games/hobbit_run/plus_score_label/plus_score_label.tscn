@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://boo2brhrwyt03"]
 
-[ext_resource type="Script" path="res://games/hobbit_run/plus_score_label/plus_score_label.gd" id="1_6xkx1"]
+[ext_resource type="Script" uid="uid://bhfr8xxly8afi" path="res://games/hobbit_run/plus_score_label/plus_score_label.gd" id="1_6xkx1"]
 [ext_resource type="FontFile" uid="uid://bapa2qf7cgk4d" path="res://games/hobbit_run/retro_font/Retro Gaming.ttf" id="1_cj43c"]
 
 [node name="PlusScoreLabel" type="Control"]

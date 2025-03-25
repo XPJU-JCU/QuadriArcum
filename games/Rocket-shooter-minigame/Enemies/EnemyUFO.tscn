@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwjuij5e75x23"]
 
-[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/Enemy.gd" id="1_x28ot"]
+[ext_resource type="Script" uid="uid://dwkvc4mbpa0wi" path="res://games/Rocket-shooter-minigame/Scripts/Enemy.gd" id="1_x28ot"]
 [ext_resource type="Texture2D" uid="uid://dseb6e60wlxh3" path="res://games/Rocket-shooter-minigame/Textures/Monster2.png" id="2_bpixv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnky5"]

@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/scorecounter.gd" id="4_4s21o"]
 [ext_resource type="PackedScene" uid="uid://ccehcijevf8a5" path="res://games/Rocket-shooter-minigame/Spawner.tscn" id="4_v466c"]
 [ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/label_hp.gd" id="5_lsyla"]
-[ext_resource type="Texture2D" uid="uid://ofev2p3jxoes" path="res://games/Rocket-shooter-minigame/Textures/Shield.png" id="7_34lhf"]
+[ext_resource type="Texture2D" uid="uid://dkd54iy6gowyn" path="res://games/Rocket-shooter-minigame/Textures/Shield.png" id="7_34lhf"]
 [ext_resource type="Texture2D" uid="uid://dldgjgxi8l5lq" path="res://games/Rocket-shooter-minigame/Textures/Space_background.png" id="7_qyy0q"]
 
 [sub_resource type="Curve2D" id="Curve2D_g32qc"]

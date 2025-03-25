@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://cu3ir6wmh4c2s"]
 
-[ext_resource type="Script" path="res://games/hobbit_run/sauron_phase/sauron_sees_you.gd" id="1_kpknl"]
+[ext_resource type="Script" uid="uid://76df2ln6rgmi" path="res://games/hobbit_run/sauron_phase/sauron_sees_you.gd" id="1_kpknl"]
 [ext_resource type="Texture2D" uid="uid://d1iq33jcix84u" path="res://games/hobbit_run/sauron_phase/sauron_background.png" id="1_o740f"]
 [ext_resource type="Texture2D" uid="uid://vh5ij34ilrta" path="res://games/hobbit_run/sauron_phase/only_flamespiskel.png" id="2_r3eqy"]
 [ext_resource type="Texture2D" uid="uid://ililva07qmlp" path="res://games/hobbit_run/sauron_phase/paralax_sauron.png" id="3_dv2mr"]

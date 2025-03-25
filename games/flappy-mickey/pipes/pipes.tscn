@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b2r6jp2fvxhje"]
 
-[ext_resource type="Script" path="res://games/flappy-mickey/pipes/pipes.gd" id="1_ilyv3"]
+[ext_resource type="Script" uid="uid://76jjsahw3s4a" path="res://games/flappy-mickey/pipes/pipes.gd" id="1_ilyv3"]
 [ext_resource type="Texture2D" uid="uid://ckj3llgqf4qir" path="res://games/flappy-mickey/icon.svg" id="2_0m2e3"]
-[ext_resource type="Script" path="res://games/flappy-mickey/pipes/pipe.gd" id="2_dmsvv"]
+[ext_resource type="Script" uid="uid://clorcj8gyjmrt" path="res://games/flappy-mickey/pipes/pipe.gd" id="2_dmsvv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xeg1"]
 size = Vector2(66.3676, 732)

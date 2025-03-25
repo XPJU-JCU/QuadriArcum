@@ -6,6 +6,8 @@ func _on_menu_game_selected(game_launch_resource: GameMenuSettings) -> void:
 	load_game(game_launch_resource)
 	
 
+func _ready() -> void:
+	Engine.time_scale = 1
 
 func load_game(game_launch_resource: GameMenuSettings):
 	var config = ConfigFile.new()

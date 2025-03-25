@@ -18,6 +18,8 @@ func _physics_process(delta):
 		$AnimatedSprite2D.visible = true
 		
 	velocity.y += GRAVITY * delta
+	if Input.is_action_pressed("Pause"):
+		get_tree().change_scene_to_file("res://main/main.tscn")
 	if is_on_floor():
 		if not get_parent().game_running:
 			sprite.play("still")

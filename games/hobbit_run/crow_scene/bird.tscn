@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://dqadsdwy2pga3"]
 
 [ext_resource type="Texture2D" uid="uid://b2a7vikn0n1ls" path="res://games/hobbit_run/crow_scene/crow.png" id="1_02gsq"]
-[ext_resource type="Script" path="res://games/hobbit_run/crow_scene/bird.gd" id="1_erscw"]
+[ext_resource type="Script" uid="uid://bq02cp7qxqu5v" path="res://games/hobbit_run/crow_scene/bird.gd" id="1_erscw"]
 [ext_resource type="AudioStream" uid="uid://cnyxujiyxym1b" path="res://games/hobbit_run/crow_scene/crow-sound-effect (mp3cut.net).mp3" id="3_lg082"]
 [ext_resource type="Texture2D" uid="uid://bf3amxonjq1tw" path="res://games/hobbit_run/crow_scene/sauron_crow_better.png" id="3_qxns4"]
-[ext_resource type="Script" path="res://games/hobbit_run/crow_scene/kra.gd" id="5_bajyj"]
+[ext_resource type="Script" uid="uid://bk35m1pffw633" path="res://games/hobbit_run/crow_scene/kra.gd" id="5_bajyj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o85o7"]
 atlas = ExtResource("1_02gsq")

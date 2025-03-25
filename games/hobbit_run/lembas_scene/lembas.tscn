@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dgtbqm1xoqy0o"]
 
-[ext_resource type="Script" path="res://games/hobbit_run/lembas_scene/lembas.gd" id="1_vmb6r"]
+[ext_resource type="Script" uid="uid://bvcl3xgsoyran" path="res://games/hobbit_run/lembas_scene/lembas.gd" id="1_vmb6r"]
 [ext_resource type="Texture2D" uid="uid://lk4gxdcyar2s" path="res://games/hobbit_run/lembas_scene/lembas_my_version.png" id="2_3a25u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dpue"]
