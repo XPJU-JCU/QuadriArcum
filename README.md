@@ -5,3 +5,4 @@
 - **Hobbit run** - Dinorun but with theme and special features of LOTR and Hobbit
 - **Flappy Mickey** - Flappy bird
 - **Rocket lock** - Shooting game as a rocket against a wave of aliens and randomly flying asteroids
+- **The Box II** - Continuation of a well know IP
