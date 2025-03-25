@@ -28,9 +28,9 @@ var score : int
 const SCORE_MODIFIER : int = 250 #250
 var high_score : int
 var speed : float
-const START_SPEED : float = 30  #used to be 10
+const START_SPEED : float = 10  #used to be 10
 @export var MAX_SPEED : int = 22  
-const SPEED_MODIFIER : int = 10000  #(13000) is good - no its not
+const SPEED_MODIFIER : int = 4  #(13000) is good - no its not
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -91,7 +91,7 @@ func _process(delta):
 	
 	if game_running:
 		#speed up and adjust difficulty
-		speed = (START_SPEED + score / SPEED_MODIFIER) * delta # deleno SPEED_MODIFIER
+		speed = (START_SPEED + score / SPEED_MODIFIER) #* delta # deleno SPEED_MODIFIER
 		if speed > MAX_SPEED:
 			speed = MAX_SPEED
 		adjust_difficulty()
@@ -160,7 +160,7 @@ func funkce():
 	#additionally random chance to spam a bird man!!!
 	if (randi() % 2) == 0:
 		obs = bird_scene.instantiate()
-		var obs_x : int = screen_size.x + score + 150 #dříve 100
+		var obs_x : int = $Camera2D.global_position.x + screen_size.x + 150 #dříve 100
 		var obs_y : int = bird_heights[randi() % bird_heights.size()]
 		add_obs(obs, obs_x, obs_y)
 
