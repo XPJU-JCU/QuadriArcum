@@ -8,7 +8,5 @@ func _process(delta):
 	var main_node = get_parent()
 	if main_node.sauron_phase_active:
 		$Grass.texture = sauron
-		$Grass2.texture = sauron
 	else:
 		$Grass.texture = normal
-		$Grass2.texture = normal

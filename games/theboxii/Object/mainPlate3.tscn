@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cntq6dip2gmfu"]
 
-[ext_resource type="PackedScene" uid="uid://36scyn5iul5m" path="res://Object/floor.tscn" id="1_88m82"]
+[ext_resource type="PackedScene" uid="uid://36scyn5iul5m" path="res://games/theboxii/Object/floor.tscn" id="1_88m82"]
 
 [node name="MainPlate4" type="Node3D"]
 

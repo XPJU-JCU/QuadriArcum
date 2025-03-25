@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://kc4m66sedxti"]
 
 [ext_resource type="Texture2D" uid="uid://vhbxsi4xc3vm" path="res://games/hobbit_run/ground/ground (2).png" id="1_8vdvc"]
-[ext_resource type="Script" path="res://games/hobbit_run/ground/ground.gd" id="1_sr04a"]
+[ext_resource type="Script" uid="uid://dvce868suh72b" path="res://games/hobbit_run/ground/ground.gd" id="1_sr04a"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_mal30"]
 
@@ -10,22 +10,13 @@ position = Vector2(10, -31)
 script = ExtResource("1_sr04a")
 
 [node name="Grass" type="Sprite2D" parent="."]
+texture_repeat = 2
 position = Vector2(-8, -101)
 scale = Vector2(2.70726, 2.90217)
 texture = ExtResource("1_8vdvc")
 centered = false
-
-[node name="Grass2" type="Sprite2D" parent="."]
-position = Vector2(1148, -101)
-scale = Vector2(2.6815, 2.90217)
-texture = ExtResource("1_8vdvc")
-centered = false
-
-[node name="Grass3" type="Sprite2D" parent="."]
-position = Vector2(2288, -101)
-scale = Vector2(2.70726, 2.90217)
-texture = ExtResource("1_8vdvc")
-centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 1e+08, 280)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1132, 586)

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://12bs205802rb"]
 
-[ext_resource type="Script" uid="uid://dehmtlqyr02c5" path="res://Script/enemy.gd" id="1_mvfex"]
-[ext_resource type="Material" uid="uid://c17l3fwtew0uu" path="res://Material/red.tres" id="2_gpg38"]
-[ext_resource type="Material" uid="uid://csm1atpeirixb" path="res://Material/green.tres" id="2_mvfex"]
+[ext_resource type="Script" uid="uid://dehmtlqyr02c5" path="res://games/theboxii/Script/enemy.gd" id="1_mvfex"]
+[ext_resource type="Material" uid="uid://c17l3fwtew0uu" path="res://games/theboxii/Material/red.tres" id="2_gpg38"]
+[ext_resource type="Material" uid="uid://csm1atpeirixb" path="res://games/theboxii/Material/green.tres" id="2_mvfex"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lwscp"]
 

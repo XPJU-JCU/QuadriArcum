@@ -28,7 +28,7 @@ var score : int
 const SCORE_MODIFIER : int = 250 #250
 var high_score : int
 var speed : float
-const START_SPEED : float = 10  #used to be 10
+const START_SPEED : float = 30  #used to be 10
 @export var MAX_SPEED : int = 22  
 const SPEED_MODIFIER : int = 10000  #(13000) is good - no its not
 var screen_size : Vector2i
@@ -86,6 +86,9 @@ func new_game():
 	
 #Called every frame. 'delta' is the elapsed time since the previous frame. 
 func _process(delta):
+	screen_size = get_window().size
+	
+	
 	if game_running:
 		#speed up and adjust difficulty
 		speed = (START_SPEED + score / SPEED_MODIFIER) * delta # deleno SPEED_MODIFIER
@@ -148,8 +151,8 @@ func funkce():
 		obs = obs_type.instantiate()
 		var obs_height = obs.get_node("Sprite2D").texture.get_height()
 		var obs_scale = obs.get_node("Sprite2D").scale
-		var obs_x : int = $Camera2D.position.x + screen_size.x + randi_range(100, 2000) #(i * 100) + randi_range(2000, 2000)
-		var obs_y : int = screen_size.y - ground_height / 1.2
+		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(100, 200) #(i * 100) + randi_range(2000, 2000)
+		var obs_y : int = 450 + ground_height / 1.2
 		#print(obs_x)
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
@@ -222,7 +225,7 @@ func sauron_phase():
 	$RingSpawnTimer.start()
 
 func add_obs(obs, x, y):
-	obs.position = Vector2i(x, y)
+	obs.global_position = Vector2(x, y)
 	obs.body_entered.connect(hit_obs)
 	add_child(obs)
 	obstacles.append(obs)
