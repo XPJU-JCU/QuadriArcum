@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GameMenuSettings" load_steps=5 format=3 uid="uid://d17ki64hvnlt"]
 
 [ext_resource type="PackedScene" uid="uid://ck5t70syhfvs2" path="res://games/flappy-mickey/game/game.tscn" id="1_gn3h2"]
-[ext_resource type="Script" path="res://game_menu_settings/game_menu_settings.gd" id="2_hro0r"]
+[ext_resource type="Script" uid="uid://gosrlvrt8i4c" path="res://game_menu_settings/game_menu_settings.gd" id="2_hro0r"]
 
 [sub_resource type="Gradient" id="Gradient_0e5x8"]
 

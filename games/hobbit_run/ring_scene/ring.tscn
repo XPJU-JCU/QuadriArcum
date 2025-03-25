@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpjyseak5vqdk"]
 
-[ext_resource type="Script" path="res://games/hobbit_run/ring_scene/ring.gd" id="1_psf1o"]
+[ext_resource type="Script" uid="uid://dpwfxxl6n7dwr" path="res://games/hobbit_run/ring_scene/ring.gd" id="1_psf1o"]
 [ext_resource type="Texture2D" uid="uid://ck4rjey01dde2" path="res://games/hobbit_run/ring_scene/ring.png" id="1_qcfar"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ywy51"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2v7rn2q832n1"]
 
-[ext_resource type="Script" path="res://menu/menu.gd" id="1_uin05"]
+[ext_resource type="Script" uid="uid://08msjp7jwiwt" path="res://menu/menu.gd" id="1_uin05"]
 [ext_resource type="PackedScene" uid="uid://dgkgwdex4c1qs" path="res://menu/menu_game_item/menu_game_item.tscn" id="2_36thy"]
 
 [node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("hbox")]

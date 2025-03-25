@@ -1,11 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cpdjan5xgxrr3"]
 
-[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/PlayerMovement.gd" id="1_wks7a"]
+[ext_resource type="Script" uid="uid://bkblvo5ep1ggw" path="res://games/Rocket-shooter-minigame/Scripts/PlayerMovement.gd" id="1_wks7a"]
 [ext_resource type="Texture2D" uid="uid://bopm7l2fb7agr" path="res://games/Rocket-shooter-minigame/Textures/raketka_better_otocena.png" id="2_tbvm0"]
 [ext_resource type="Texture2D" uid="uid://bg01am6i8s21h" path="res://games/Rocket-shooter-minigame/Textures/Cursor.png" id="4_4m2na"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4obwo"]
-load_path = "res://.godot/imported/icon.svg-910b6dea466fefb8084f31a339c23aff.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cj85y"]
 radius = 50.9986

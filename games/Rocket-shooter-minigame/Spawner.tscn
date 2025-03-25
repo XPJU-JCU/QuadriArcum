@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ccehcijevf8a5"]
 
-[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/Spawner.gd" id="1_vxv11"]
+[ext_resource type="Script" uid="uid://dddifnl1c7yu1" path="res://games/Rocket-shooter-minigame/Scripts/Spawner.gd" id="1_vxv11"]
 
 [node name="Spawner" type="Node2D" node_paths=PackedStringArray("timer", "timerA")]
 script = ExtResource("1_vxv11")

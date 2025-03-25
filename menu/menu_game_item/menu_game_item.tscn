@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgkgwdex4c1qs"]
 
 [ext_resource type="Texture2D" uid="uid://pynnbu56a6q5" path="res://icon.svg" id="1_44mh4"]
-[ext_resource type="Script" path="res://menu/menu_game_item/menu_game_item.gd" id="1_o02wi"]
+[ext_resource type="Script" uid="uid://dtksxogf0u5fy" path="res://menu/menu_game_item/menu_game_item.gd" id="1_o02wi"]
 
 [node name="MenuGameItem" type="MarginContainer" node_paths=PackedStringArray("button")]
 custom_minimum_size = Vector2(300, 0)

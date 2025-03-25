@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://ck5t70syhfvs2"]
 
-[ext_resource type="Script" path="res://games/flappy-mickey/game/game.gd" id="1_iekg0"]
+[ext_resource type="Script" uid="uid://37spli1cu4b6" path="res://games/flappy-mickey/game/game.gd" id="1_iekg0"]
 [ext_resource type="PackedScene" uid="uid://buy8nep2jm3xk" path="res://games/flappy-mickey/level/level.tscn" id="2_a8nuv"]
 [ext_resource type="PackedScene" uid="uid://bq6w2ni1ktr2n" path="res://games/flappy-mickey/bird/bird.tscn" id="3_r3pr2"]
 [ext_resource type="PackedScene" uid="uid://b2r6jp2fvxhje" path="res://games/flappy-mickey/pipes/pipes.tscn" id="4_a6oru"]
-[ext_resource type="Script" path="res://games/flappy-mickey/scripts/pipe_kill_zone.gd" id="5_a84ym"]
+[ext_resource type="Script" uid="uid://c6sdxle62wbw5" path="res://games/flappy-mickey/scripts/pipe_kill_zone.gd" id="5_a84ym"]
 [ext_resource type="Texture2D" uid="uid://pynnbu56a6q5" path="res://icon.svg" id="6_mlhl0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfmgv"]

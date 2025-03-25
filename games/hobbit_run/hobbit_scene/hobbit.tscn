@@ -1,11 +1,11 @@
 [gd_scene load_steps=21 format=3 uid="uid://dmlwuropqu5l4"]
 
 [ext_resource type="Texture2D" uid="uid://bbs7oucsicqhf" path="res://games/hobbit_run/hobbit_scene/hobbit_full_animations.png" id="1_6sgq6"]
-[ext_resource type="Script" path="res://games/hobbit_run/hobbit_scene/hobbit.gd" id="1_c0mkj"]
+[ext_resource type="Script" uid="uid://coebc4o1l2ejp" path="res://games/hobbit_run/hobbit_scene/hobbit.gd" id="1_c0mkj"]
 [ext_resource type="AudioStream" uid="uid://xml4ull0nfor" path="res://games/hobbit_run/hobbit_scene/mario-jump-sound-effect (mp3cut.net).mp3" id="2_xva5l"]
-[ext_resource type="Script" path="res://games/hobbit_run/hobbit_scene/jump_sound.gd" id="3_r3e1v"]
+[ext_resource type="Script" uid="uid://cgyj56qv8qvck" path="res://games/hobbit_run/hobbit_scene/jump_sound.gd" id="3_r3e1v"]
 [ext_resource type="Texture2D" uid="uid://cqk8u56v2svc8" path="res://games/hobbit_run/hobbit_scene/hobbit_piksel_sauron.png" id="4_ihucr"]
-[ext_resource type="Script" path="res://games/hobbit_run/hobbit_scene/run_sound.gd" id="4_jchny"]
+[ext_resource type="Script" uid="uid://bjm175gdpusce" path="res://games/hobbit_run/hobbit_scene/run_sound.gd" id="4_jchny"]
 [ext_resource type="AudioStream" uid="uid://bhjj6uatccabl" path="res://games/hobbit_run/hobbit_scene/footsteps (1) (mp3cut.net).mp3" id="4_tv51f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i60f2"]

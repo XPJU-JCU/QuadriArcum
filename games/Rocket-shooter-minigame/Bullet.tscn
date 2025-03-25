@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dqbltrucm1yi5"]
 
-[ext_resource type="Script" path="res://games/Rocket-shooter-minigame/Scripts/Bullet.gd" id="1_0lpf0"]
+[ext_resource type="Script" uid="uid://bvocppxlu5p2g" path="res://games/Rocket-shooter-minigame/Scripts/Bullet.gd" id="1_0lpf0"]
 [ext_resource type="Texture2D" uid="uid://by61yr3bkya45" path="res://games/Rocket-shooter-minigame/Textures/Bullet_rocket.png" id="2_eii8y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r440r"]
