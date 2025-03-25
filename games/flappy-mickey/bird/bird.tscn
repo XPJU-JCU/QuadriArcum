@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bq6w2ni1ktr2n"]
 
 [ext_resource type="Script" uid="uid://bhxxbo81jefud" path="res://games/flappy-mickey/bird/bird.gd" id="1_qkqt8"]
-[ext_resource type="Texture2D" uid="uid://ckj3llgqf4qir" path="res://games/flappy-mickey/icon.svg" id="2_52qsf"]
+[ext_resource type="Texture2D" uid="uid://2rmhpq40xe4o" path="res://games/flappy-mickey/bird/icon.png" id="2_0wqm0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7kp37"]
 radius = 12.1963
@@ -23,6 +23,6 @@ shape = SubResource("CircleShape2D_7kp37")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.36, 0.36)
-texture = ExtResource("2_52qsf")
+texture = ExtResource("2_0wqm0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
