@@ -27,7 +27,7 @@ const MAX_DIFFICULTY : int = 2
 var score : float
 var high_score : int
 var speed : float
-const START_SPEED : float = 500  #used to be 10
+const START_SPEED : float = 500
 @export var MAX_SPEED : float = 10000  	
 #const SPEED_MODIFIER : int = 4  #(13000) is good - no its not
 var screen_size : Vector2i
@@ -86,7 +86,7 @@ func new_game():
 	
 func _physics_process(delta: float) -> void:
 	if game_running:
-		score += (speed - START_SPEED)/5 * delta
+		score += delta * 2 #(speed - START_SPEED)/7 * delta
 		show_score() 
 	
 	
