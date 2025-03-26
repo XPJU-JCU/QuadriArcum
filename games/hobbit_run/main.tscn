@@ -23,25 +23,26 @@
 
 [node name="Main" type="Node"]
 script = ExtResource("1_8aslt")
-MAX_SPEED = 500
 
 [node name="PlusScoreLabel" parent="." instance=ExtResource("6_m4pmm")]
 visible = false
 
 [node name="Ground" parent="." instance=ExtResource("1_3l1yw")]
 process_mode = 1
-position = Vector2(-69, -22)
+position = Vector2(-497, -130)
 
 [node name="hobbit" parent="." instance=ExtResource("2_nk0di")]
 process_mode = 1
 position = Vector2(155, 491)
 scale = Vector2(8, 8)
+collision_layer = 2048
 
 [node name="sauron_sees_you" parent="." instance=ExtResource("8_0akys")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 process_mode = 1
-offset = Vector2(576, 324)
+position = Vector2(155, 0)
+offset = Vector2(421, 324)
 
 [node name="HUD" parent="." instance=ExtResource("5_bsv0a")]
 process_mode = 1
@@ -93,6 +94,7 @@ script = null
 [node name="bird" parent="." instance=ExtResource("18_iwydf")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(742, 582)

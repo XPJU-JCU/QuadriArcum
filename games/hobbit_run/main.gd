@@ -20,17 +20,16 @@ var which_one
 
 #game variables
 const HOBBIT_START_POS := Vector2i(150, 490)
-const CAM_START_POS := Vector2i(0, 0)
+const CAM_START_POS := Vector2i(155, 0)
 
 var difficulty
 const MAX_DIFFICULTY : int = 2
-var score : int
-const SCORE_MODIFIER : int = 250 #250
+var score : float
 var high_score : int
 var speed : float
-const START_SPEED : float = 10  #used to be 10
-@export var MAX_SPEED : int = 22  
-const SPEED_MODIFIER : int = 4  #(13000) is good - no its not
+const START_SPEED : float = 500  #used to be 10
+@export var MAX_SPEED : float = 10000  	
+#const SPEED_MODIFIER : int = 4  #(13000) is good - no its not
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -74,7 +73,7 @@ func new_game():
 	$hobbit.position = HOBBIT_START_POS
 	$hobbit.velocity = Vector2i(0, 0)
 	$Camera2D.position = CAM_START_POS
-	$Ground.position = Vector2i(0, 0)
+	$Ground.position = Vector2i(-500, -100)
 	
 	#reset HUD and hide game Over
 	$HUD.get_node("StartLabel").show()
@@ -84,6 +83,13 @@ func new_game():
 	
 	$death_sound.stop()
 	
+	
+func _physics_process(delta: float) -> void:
+	if game_running:
+		score += (speed - START_SPEED)/5 * delta
+		show_score() 
+	
+	
 #Called every frame. 'delta' is the elapsed time since the previous frame. 
 func _process(delta):
 	screen_size = get_window().size
@@ -91,24 +97,28 @@ func _process(delta):
 	
 	if game_running:
 		#speed up and adjust difficulty
-		speed = (START_SPEED + score / SPEED_MODIFIER) #* delta # deleno SPEED_MODIFIER
+		if not speed >= MAX_SPEED:
+			speed += 10 * delta #* delta # deleno SPEED_MODIFIER
+			
 		if speed > MAX_SPEED:
+			pass
 			speed = MAX_SPEED
 		adjust_difficulty()
-		
+
 	#moving the fricking obstacles
 		generate_obs()
 
 	#move hobbit and camera
-		$hobbit.position.x += speed * delta * (SPEED_MODIFIER / 2)
-		$Camera2D.position.x += speed * delta * (SPEED_MODIFIER / 2)
+		$hobbit.position.x += speed * delta
+		$Camera2D.position.x = $hobbit.position.x
+		
 		
 		#update score
-		score += speed * 60
-		show_score() 
+		#score += 60 * delta
+		#show_score() 
 		
-		if $Camera2D.position.x - $Ground.position.x > screen_size.x:
-			$Ground.position.x += screen_size.x 
+		#if $Camera2D.position.x > $Ground.position.x * 100000000:
+		#	$Ground.position.x += 100000000.0
 			
 		#remove obstacles that have gone off screen
 		for obs in obstacles:
@@ -124,6 +134,7 @@ func _process(delta):
 			new_game()
 			
 			game_running = true
+			speed = START_SPEED
 			reset_music()
 			$RingSpawnTimer.start()
 			$SBTimer.start()
@@ -195,11 +206,11 @@ func generate_second_breakfast():
 func eat_before_aragorn_takes_it_away(is_lembas): 
 	if is_lembas: 
 		#lembas +30 score
-		score += SCORE_MODIFIER * 20
+		score += 20
 		
 	else:
 		#apple +15 score
-		score += SCORE_MODIFIER * 10
+		score += 10
 
 func sauron_phase():   
 	sauron_phase_active = true       #important in game over
@@ -254,15 +265,15 @@ func hit_obs(body):
 		game_over()
 
 func show_score():
-	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(score / SCORE_MODIFIER)
+	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(int(score))
 
 func check_high_score():
 	if score > high_score:
 		high_score = score
-		$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(high_score / SCORE_MODIFIER)
+		$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
 
 func adjust_difficulty():
-	difficulty = score / SPEED_MODIFIER
+	difficulty = int(score)
 	if difficulty > MAX_DIFFICULTY:
 		difficulty = MAX_DIFFICULTY
 
