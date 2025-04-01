@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bq6w2ni1ktr2n" path="res://games/flappy-mickey/bird/bird.tscn" id="3_r3pr2"]
 [ext_resource type="PackedScene" uid="uid://b2r6jp2fvxhje" path="res://games/flappy-mickey/pipes/pipes.tscn" id="4_a6oru"]
 [ext_resource type="Script" uid="uid://c6sdxle62wbw5" path="res://games/flappy-mickey/scripts/pipe_kill_zone.gd" id="5_a84ym"]
-[ext_resource type="Texture2D" uid="uid://pynnbu56a6q5" path="res://icon.svg" id="6_mlhl0"]
+[ext_resource type="Texture2D" uid="uid://pvgb5r44xw6c" path="res://games/flappy-mickey/game/New Piskel.png" id="6_bgd7o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfmgv"]
 size = Vector2(98, 1147)
@@ -76,13 +76,12 @@ text = "0"
 label_settings = SubResource("LabelSettings_wpmla")
 horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
+[node name="background" type="Sprite2D" parent="."]
 visibility_layer = 513
 z_index = -9
-position = Vector2(11.4999, -282.5)
-scale = Vector2(10.7578, 4.52344)
-texture = ExtResource("6_mlhl0")
+position = Vector2(24.9999, -273)
+scale = Vector2(0.998264, 1.04012)
+texture = ExtResource("6_bgd7o")
 
 [connection signal="pipe_cleared" from="Bird" to="." method="_on_bird_pipe_cleared"]
 [connection signal="pipe_touched" from="Bird" to="." method="_on_bird_pipe_touched"]
