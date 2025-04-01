@@ -23,7 +23,6 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.get_collision_layer() == 4:
-		pipe_touched.emit()
+	pipe_touched.emit()
 	# Když se pták dotkne tělesa v kolizní vrstvě 4(vrstva pro trubky),
 	#	tak vyšle signál pipe_touched
