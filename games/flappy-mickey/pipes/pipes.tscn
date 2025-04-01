@@ -26,9 +26,9 @@ custom_integrator = true
 script = ExtResource("2_dmsvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="PipeTop"]
-position = Vector2(-71, -214)
+position = Vector2(-19, -214)
 rotation = 3.14159
-scale = Vector2(2.94861, 6.26452)
+scale = Vector2(-2.949, 6.265)
 texture = ExtResource("4_8pmu4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop"]

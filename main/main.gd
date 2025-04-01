@@ -8,10 +8,18 @@ func _on_menu_game_selected(game_launch_resource: GameMenuSettings) -> void:
 
 func _ready() -> void:
 	Engine.time_scale = 1
-
+	
+	
 func load_game(game_launch_resource: GameMenuSettings):
+	get_tree().set_physics_interpolation_enabled(false)
+	
+	if game_launch_resource.game_name == "Flappy Mickey" or game_launch_resource.game_name == "The Box II":
+		get_tree().set_physics_interpolation_enabled(true)
+	
 	if game_launch_resource.game_name == "The Box II":
 		get_tree().change_scene_to_packed(game_launch_resource.launch_scene)
+		
+	
 	
 	var config = ConfigFile.new()
 	var err = config.load(game_launch_resource.game_config)
