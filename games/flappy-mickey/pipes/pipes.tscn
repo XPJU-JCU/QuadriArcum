@@ -26,7 +26,7 @@ custom_integrator = true
 script = ExtResource("2_dmsvv")
 
 [node name="Sprite2D" type="Sprite2D" parent="PipeTop"]
-position = Vector2(-71, 103)
+position = Vector2(-71, -214)
 rotation = 3.14159
 scale = Vector2(2.94861, 6.26452)
 texture = ExtResource("4_8pmu4")
@@ -48,7 +48,7 @@ position = Vector2(-18.5, -281.5)
 shape = SubResource("RectangleShape2D_5xeg1")
 
 [node name="Sprite2D" type="Sprite2D" parent="PipeBottom"]
-position = Vector2(9, -594)
+position = Vector2(9, -273)
 scale = Vector2(3.13, 5.46)
 texture = ExtResource("4_8pmu4")
 
