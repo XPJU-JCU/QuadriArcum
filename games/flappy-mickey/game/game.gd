@@ -42,6 +42,7 @@ func _on_spawn_timer_timeout() -> void:
 
 # Volá se po clearnutí trubky
 func _on_bird_pipe_cleared() -> void:
+	$PipeClearedSound.play()
 	score += 1							# Přidám bod
 	score_label.text = str(score) 		# Aktualizuji text
 	
@@ -55,5 +56,6 @@ func reset_game() -> void:
 
 # Volá se při dotknutí trubky
 func _on_bird_pipe_touched() -> void:
+	$GameOverSound.play()
 	is_game_over = true
 	get_tree().paused = true		# Pauzuje hru(jakoby, né úpně, není podstatný)

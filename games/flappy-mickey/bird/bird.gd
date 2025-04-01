@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("Pause"):
 		get_tree().change_scene_to_file("res://main/main.tscn")
 	if Input.is_action_just_pressed("flap"):		# Když jsem práve zmáčknou mnou definovaný input flap
+		$AudioStreamPlayer2D.play()
 		if linear_velocity.y > 0:					# Když pták padá, nastavím jeho vertikální rychlost na 0,
 			linear_velocity.y = 0					# 	aby měl hráč lepší kontrolu nad ovládáním ptáka
 		apply_impulse(Vector2(0, -flap_force))		# Aplikuji flap_force na sebe(což je pták, který je fyzický těleso)

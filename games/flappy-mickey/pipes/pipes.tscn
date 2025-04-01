@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2r6jp2fvxhje"]
+[gd_scene load_steps=5 format=3 uid="uid://b2r6jp2fvxhje"]
 
 [ext_resource type="Script" uid="uid://76jjsahw3s4a" path="res://games/flappy-mickey/pipes/pipes.gd" id="1_ilyv3"]
-[ext_resource type="Script" uid="uid://clorcj8gyjmrt" path="res://games/flappy-mickey/pipes/pipe.gd" id="2_dmsvv"]
 [ext_resource type="Texture2D" uid="uid://b14euys7k6jq6" path="res://games/flappy-mickey/pipes/pixilart-drawing (2).png" id="4_8pmu4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xeg1"]
@@ -17,31 +16,26 @@ script = ExtResource("1_ilyv3")
 move_amount = 300.0
 randomize_amount = 150.0
 
-[node name="PipeTop" type="RigidBody2D" parent="."]
+[node name="PipeTop" type="AnimatableBody2D" parent="."]
 position = Vector2(68, -317)
 collision_layer = 4
 collision_mask = 2
-lock_rotation = true
-custom_integrator = true
-script = ExtResource("2_dmsvv")
+sync_to_physics = false
 
 [node name="Sprite2D" type="Sprite2D" parent="PipeTop"]
 position = Vector2(-19, -214)
-rotation = 3.14159
-scale = Vector2(-2.949, 6.265)
+scale = Vector2(2.949, -6.265)
 texture = ExtResource("4_8pmu4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeTop"]
 position = Vector2(-45.1838, -149)
 shape = SubResource("RectangleShape2D_5xeg1")
 
-[node name="PipeBottom" type="RigidBody2D" parent="."]
+[node name="PipeBottom" type="AnimatableBody2D" parent="."]
 position = Vector2(44, 755)
 collision_layer = 4
 collision_mask = 2
-lock_rotation = true
-custom_integrator = true
-script = ExtResource("2_dmsvv")
+sync_to_physics = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PipeBottom"]
 position = Vector2(-18.5, -281.5)
@@ -58,7 +52,6 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreZone"]
-visible = false
 position = Vector2(7, 0.999995)
 shape = SubResource("RectangleShape2D_6d3my")
 
