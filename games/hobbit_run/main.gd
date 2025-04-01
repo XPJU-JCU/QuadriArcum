@@ -76,7 +76,7 @@ func new_game():
 	$Ground.position = Vector2i(-500, -100)
 	
 	#reset HUD and hide game Over
-	$HUD.get_node("StartLabel").show()
+	$HUD/MarginContainer.get_node("StartLabel").show()
 	$PlusScoreLabel.hide()
 	#$GameOverLabel.hide()
 	$GameOver.hide()
@@ -138,7 +138,7 @@ func _process(delta):
 			reset_music()
 			$RingSpawnTimer.start()
 			$SBTimer.start()
-			$HUD.get_node("StartLabel").hide()
+			$HUD/MarginContainer.get_node("StartLabel").hide()
 			
 			
 			
@@ -265,12 +265,12 @@ func hit_obs(body):
 		game_over()
 
 func show_score():
-	$HUD.get_node("ScoreLabel").text = "SCORE: " + str(int(score))
+	$HUD/MarginContainer.get_node("ScoreLabel").text = "SCORE: " + str(int(score))
 
 func check_high_score():
 	if score > high_score:
 		high_score = score
-		$HUD.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
+		$HUD/MarginContainer.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
 
 func adjust_difficulty():
 	difficulty = int(score)
