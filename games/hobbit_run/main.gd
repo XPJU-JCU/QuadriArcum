@@ -171,7 +171,7 @@ func funkce():
 	#additionally random chance to spam a bird man!!!
 	if (randi() % 2) == 0:
 		obs = bird_scene.instantiate()
-		var obs_x : int = $Camera2D.global_position.x + screen_size.x + 150 #dříve 100
+		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(0, 80) #dříve 200
 		var obs_y : int = bird_heights[randi() % bird_heights.size()]
 		add_obs(obs, obs_x, obs_y)
 
