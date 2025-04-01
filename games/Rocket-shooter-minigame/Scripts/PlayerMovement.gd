@@ -20,13 +20,15 @@ signal player_died
 
 func _ready():
 	Engine.time_scale = 1
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_MAX)
 
 func get_input():
 	if (Engine.time_scale == 1):
 		if (global_position.distance_to(get_global_mouse_position()) > 50):	
 			look_at(get_global_mouse_position())
-			velocity = transform.x * Input.get_axis("down", "up") * speed
+		velocity = transform.x * Input.get_axis("down", "up") * speed
+			
 		if Input.is_action_just_pressed("shoot"):
 			shoot()
 		if Input.is_action_just_pressed("Pause"):

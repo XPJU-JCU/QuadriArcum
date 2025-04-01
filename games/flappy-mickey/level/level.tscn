@@ -10,13 +10,14 @@
 position = Vector2(2, 41)
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-shape = SubResource("WorldBoundaryShape2D_2axn3")
-
 [node name="Sprite2D" type="Sprite2D" parent="Ground"]
 position = Vector2(-22, 35)
 scale = Vector2(11.7266, 0.5)
 texture = ExtResource("1_3clhr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+light_mask = 13
+shape = SubResource("WorldBoundaryShape2D_2axn3")
 
 [node name="Roof" type="StaticBody2D" parent="."]
 position = Vector2(4, -602)
