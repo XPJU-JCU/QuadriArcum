@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bq6w2ni1ktr2n"]
 
 [ext_resource type="Script" uid="uid://bhxxbo81jefud" path="res://games/flappy-mickey/bird/bird.gd" id="1_qkqt8"]
-[ext_resource type="Texture2D" uid="uid://2rmhpq40xe4o" path="res://games/flappy-mickey/bird/icon.png" id="2_0wqm0"]
+[ext_resource type="Texture2D" uid="uid://m83psd4x2yt4" path="res://games/flappy-mickey/bird/mickey.png" id="2_3gdfl"]
 [ext_resource type="AudioStream" uid="uid://bk2i6x3srmfao" path="res://games/flappy-mickey/bird/flap.wav" id="3_3gdfl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7kp37"]
@@ -24,13 +24,14 @@ max_contacts_reported = 5
 script = ExtResource("1_qkqt8")
 sprite = NodePath("Sprite2D")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 4)
+scale = Vector2(2.28231, 2.28231)
+texture = ExtResource("2_3gdfl")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.56, 1.56)
 shape = SubResource("CircleShape2D_7kp37")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.36, 0.36)
-texture = ExtResource("2_0wqm0")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_xnpmm")

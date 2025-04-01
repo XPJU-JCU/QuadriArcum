@@ -19,10 +19,11 @@ subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_wpmla"]
 font = SubResource("SystemFont_bf85l")
-font_size = 32
-font_color = Color(1, 1, 0.203922, 1)
-outline_size = 2
+font_size = 64
+font_color = Color(0.960784, 0.490196, 0.290196, 1)
+outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v5igq"]
 random_pitch = 1.26
