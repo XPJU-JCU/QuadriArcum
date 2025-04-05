@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b7braajl4wouj"
+path="res://.godot/imported/Doobly Doo.mp3-7404adb118355340541962d914300d3e.mp3str"
+
+[deps]
+
+source_file="res://games/flappy-mickey/game/Doobly Doo.mp3"
+dest_files=["res://.godot/imported/Doobly Doo.mp3-7404adb118355340541962d914300d3e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
