@@ -1,13 +1,425 @@
-[gd_scene load_steps=3 format=3 uid="uid://bagktvrnjdp4q"]
+[gd_scene load_steps=22 format=3 uid="uid://bagktvrnjdp4q"]
 
 [ext_resource type="Script" uid="uid://ds00gpi32lwf7" path="res://main/main.gd" id="1_ew70g"]
 [ext_resource type="PackedScene" uid="uid://c2v7rn2q832n1" path="res://menu/menu.tscn" id="2_wytk8"]
+[ext_resource type="Texture2D" uid="uid://bhae2j1qpk117" path="res://menu/NewMainMenu/Base/BackMain3.png" id="3_c651c"]
+[ext_resource type="PackedScene" uid="uid://bb42qdoy2bk7a" path="res://menu/NewMainMenu/button_prefab.tscn" id="4_0i4oc"]
+[ext_resource type="StyleBox" uid="uid://kgt2a6mw6ood" path="res://menu/NewMainMenu/Style/FloatStyleBoxFlat.tres" id="4_3wy1v"]
+[ext_resource type="FontFile" uid="uid://dqhlocn1gl00x" path="res://menu/NewMainMenu/Font/Kenney Pixel.ttf" id="4_c651c"]
+[ext_resource type="FontFile" uid="uid://3l1qoeo4o12u" path="res://menu/NewMainMenu/Font/Kenney Mini.ttf" id="5_grrlh"]
+[ext_resource type="Texture2D" uid="uid://bxhp4ji3qjwey" path="res://menu/NewMainMenu/Base/istockphoto-1409329028-612x612.jpg" id="6_kfbq2"]
+[ext_resource type="LabelSettings" uid="uid://bdja5ndbr6ucq" path="res://menu/NewMainMenu/Style/MainMenuLabel.tres" id="7_67ri8"]
+[ext_resource type="Texture2D" uid="uid://dejft0145vcfq" path="res://menu/NewMainMenu/Base/ButtonIcon.png" id="11_bsumw"]
+[ext_resource type="Texture2D" uid="uid://bgsum3psnrlor" path="res://menu/NewMainMenu/Base/BallIcon.png" id="11_fwcvl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c651c"]
+line_spacing = 0.0
+font = ExtResource("5_grrlh")
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dugh"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_detail = 20
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67ri8"]
+bg_color = Color(0.5, 0.5, 0.5, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+corner_detail = 20
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="FontVariation" id="FontVariation_qrym3"]
+base_font = ExtResource("5_grrlh")
+spacing_glyph = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_0i4oc"]
+font = SubResource("FontVariation_qrym3")
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_kfbq2"]
+line_spacing = 0.0
+font = ExtResource("5_grrlh")
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[sub_resource type="FontVariation" id="FontVariation_4dugh"]
+base_font = ExtResource("5_grrlh")
+spacing_glyph = 10
+spacing_space = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_3wy1v"]
+line_spacing = 0.0
+font = SubResource("FontVariation_4dugh")
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+outline_size = 15
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0i4oc"]
+bg_color = Color(0.158472, 0.158472, 0.158472, 0.882353)
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsumw"]
+bg_color = Color(0.133196, 0.133196, 0.133196, 1)
+corner_detail = 20
 
 [node name="Main" type="Node"]
 process_mode = 3
 script = ExtResource("1_ew70g")
+menuColorList = Array[Color]([Color(0.0705882, 0.572549, 0.678431, 1), Color(0.678431, 0.0705882, 0.52549, 1), Color(0.678431, 0.52549, 0.0705882, 1), Color(0.768627, 0.678431, 0.0705882, 1), Color(0.52549, 0.678431, 0.0705882, 1), Color(0.0705882, 0.678431, 0.34902, 1), Color(0.0705882, 0.678431, 0.52549, 1), Color(0.0705882, 0.678431, 0.768627, 1), Color(0.239216, 0.52549, 0.678431, 1), Color(0.34902, 0.239216, 0.678431, 1), Color(0.52549, 0.0705882, 0.678431, 1), Color(0.678431, 0.0705882, 0.768627, 1), Color(0.678431, 0.34902, 0.0705882, 1), Color(0.678431, 0.678431, 0.0705882, 1), Color(0.34902, 0.678431, 0.0705882, 1)])
 
-[node name="Menu" parent="." instance=ExtResource("2_wytk8")]
+[node name="Menu" parent="." node_paths=PackedStringArray("vbox", "mainColor", "textureColor", "pictureColor", "infoName", "infoImage", "infoDescription") instance=ExtResource("2_wytk8")]
 process_mode = 3
+newGameItem = ExtResource("4_0i4oc")
+vbox = NodePath("NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameSelect/Panel3/VBoxContainer")
+mainColor = NodePath("NewMenu/MainColorRect")
+textureColor = NodePath("NewMenu/TextureRect")
+colorPicture = true
+pictureColor = NodePath("NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer/Control/GameImage")
+infoName = NodePath("NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer/CenterContainer/Label")
+infoImage = NodePath("NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer/Control/GameImage")
+infoDescription = NodePath("NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer/CenterContainer2/Label")
+
+[node name="NewMenu" type="Node" parent="Menu"]
+
+[node name="DarkColorRect" type="ColorRect" parent="Menu/NewMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainColorRect" type="ColorRect" parent="Menu/NewMenu"]
+modulate = Color(0.509804, 0.596078, 0.639216, 0.588235)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.572549, 0.678431, 0.588235)
+
+[node name="TextureRect" type="TextureRect" parent="Menu/NewMenu"]
+modulate = Color(0.0705882, 0.572549, 0.678431, 0.882353)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_c651c")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/NewMenu/TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.5
+offset_top = -212.5
+offset_right = 283.5
+offset_bottom = 212.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameSelectLabel" type="Panel" parent="Menu/NewMenu/TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("4_3wy1v")
+
+[node name="Label" type="Label" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameSelectLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME SELECT"
+label_settings = SubResource("LabelSettings_c651c")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameChoose" type="Panel" parent="Menu/NewMenu/TextureRect/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("4_3wy1v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameSelect" type="Control" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel3" type="Panel" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameSelect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dugh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameSelect/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameInfo" type="Control" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="Panel" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_67ri8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GameImage" type="TextureRect" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer/Control"]
+top_level = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 594.0
+offset_top = 202.0
+offset_right = -324.0
+offset_bottom = -322.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture = ExtResource("6_kfbq2")
+expand_mode = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "GAME NAME"
+label_settings = ExtResource("7_67ri8")
+uppercase = true
+
+[node name="CenterContainer2" type="CenterContainer" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(266, 90)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Menu/NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameInfo/Panel/VBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(234, 90)
+layout_mode = 2
+text = "description description
+description description"
+label_settings = SubResource("LabelSettings_0i4oc")
+horizontal_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="CreditsLabel" type="Panel" parent="Menu/NewMenu/TextureRect/VBoxContainer"]
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("4_3wy1v")
+
+[node name="Label" type="Label" parent="Menu/NewMenu/TextureRect/VBoxContainer/CreditsLabel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "XPJU"
+label_settings = SubResource("LabelSettings_kfbq2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameNameLabel" type="Label" parent="Menu/NewMenu/TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -351.0
+offset_right = 356.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_c651c")
+theme_override_font_sizes/font_size = 50
+text = "PLACE HOLDER NAME"
+label_settings = SubResource("LabelSettings_3wy1v")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Decor" type="Node" parent="Menu/NewMenu"]
+
+[node name="TextureRect4" type="TextureRect" parent="Menu/NewMenu/Decor"]
+modulate = Color(1.44392e-07, 0.751954, 0.176986, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -81.0
+offset_right = 31.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("11_bsumw")
+
+[node name="TextureRect3" type="TextureRect" parent="Menu/NewMenu/Decor"]
+modulate = Color(5.0056e-06, 0.68443, 0.8697, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -81.0
+offset_right = -95.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("11_bsumw")
+
+[node name="TextureRect2" type="TextureRect" parent="Menu/NewMenu/Decor"]
+modulate = Color(0.84, 0, 0.0139998, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -311.0
+offset_top = -81.0
+offset_right = -221.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("11_bsumw")
+
+[node name="ShadowColorRect" type="ColorRect" parent="Menu/NewMenu/Decor"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -327.0
+offset_top = 97.0
+offset_right = 332.0
+offset_bottom = 142.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 0.34902)
+
+[node name="TextureRect5" type="TextureRect" parent="Menu/NewMenu/Decor"]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 218.0
+offset_top = -81.0
+offset_right = 308.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("11_bsumw")
+
+[node name="Panel" type="Panel" parent="Menu/NewMenu/Decor/TextureRect5"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -30.0
+offset_right = 13.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 0
+rotation = 3.14159
+pivot_offset = Vector2(12, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_0i4oc")
+
+[node name="Panel" type="Panel" parent="Menu/NewMenu/Decor/TextureRect5/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -54.5
+offset_right = 4.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bsumw")
+
+[node name="TextureButton" type="TextureButton" parent="Menu/NewMenu/Decor/TextureRect5/Panel"]
+self_modulate = Color(0.552956, 0.552956, 0.552956, 1)
+layout_mode = 0
+offset_left = 56.0
+offset_top = 189.0
+offset_right = 146.0
+offset_bottom = 269.0
+rotation = 3.14159
+focus_mode = 0
+button_mask = 0
+texture_normal = ExtResource("11_fwcvl")
+stretch_mode = 0
 
 [connection signal="game_selected" from="Menu" to="." method="_on_menu_game_selected"]

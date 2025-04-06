@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://games/Rocket-shooter-minigame/Scripts/Global.gd"
 GlobalBox="*res://games/theboxii/global.gd"
+MenuColor="*res://menu/NewMainMenu/menuColor.gd"
 
 [display]
 

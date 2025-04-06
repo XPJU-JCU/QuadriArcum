@@ -5,3 +5,4 @@ extends Resource
 @export var game_name : String
 @export var game_icon : Texture2D
 @export var game_config : String
+@export var game_description : String

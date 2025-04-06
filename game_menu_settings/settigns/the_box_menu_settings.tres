@@ -1,16 +1,13 @@
-[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=5 format=3 uid="uid://c872kloo1ikgx"]
+[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=4 format=3 uid="uid://c872kloo1ikgx"]
 
 [ext_resource type="PackedScene" uid="uid://bjafqh1wwl2l7" path="res://games/theboxii/Scene/main_scene.tscn" id="1_6k73c"]
+[ext_resource type="Texture2D" uid="uid://2un3fw4s7pl6" path="res://games/theboxii/Base/BoxBase.png" id="1_iphem"]
 [ext_resource type="Script" uid="uid://gosrlvrt8i4c" path="res://game_menu_settings/game_menu_settings.gd" id="2_iphem"]
-
-[sub_resource type="Gradient" id="Gradient_7bvd4"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ru2hl"]
-gradient = SubResource("Gradient_7bvd4")
 
 [resource]
 script = ExtResource("2_iphem")
 launch_scene = ExtResource("1_6k73c")
-game_name = "The Box II"
-game_icon = SubResource("GradientTexture2D_ru2hl")
+game_name = "The Box"
+game_icon = ExtResource("1_iphem")
 game_config = "res://games/Rocket-shooter-minigame/config.cfg"
+game_description = "Game about controlling cube. That's all."

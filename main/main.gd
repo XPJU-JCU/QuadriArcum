@@ -1,5 +1,6 @@
 extends Node
 
+@export var menuColorList: Array[Color] = []
 
 func _on_menu_game_selected(game_launch_resource: GameMenuSettings) -> void:
 	$Menu.queue_free()
@@ -8,15 +9,19 @@ func _on_menu_game_selected(game_launch_resource: GameMenuSettings) -> void:
 
 func _ready() -> void:
 	Engine.time_scale = 1
-	
+	if MenuColor.firstLoad:
+		randomize()
+		MenuColor.activeColor = menuColorList.pick_random()
+		get_child(0).colorChanger()
+		MenuColor.firstLoad = false
 	
 func load_game(game_launch_resource: GameMenuSettings):
 	get_tree().set_physics_interpolation_enabled(false)
 	
-	if game_launch_resource.game_name == "Flappy Mickey" or game_launch_resource.game_name == "The Box II":
+	if game_launch_resource.game_name == "Flappy Mickey" or game_launch_resource.game_name == "The Box":
 		get_tree().set_physics_interpolation_enabled(true)
 	
-	if game_launch_resource.game_name == "The Box II":
+	if game_launch_resource.game_name == "The Box":
 		get_tree().change_scene_to_packed(game_launch_resource.launch_scene)
 		
 	
@@ -38,7 +43,6 @@ func load_game(game_launch_resource: GameMenuSettings):
 	var scene = game_launch_resource.launch_scene.instantiate()
 	scene.game_exited.connect(on_game_exited)
 	add_child(scene)
-
 
 func on_game_exited():
 	for child in get_children():

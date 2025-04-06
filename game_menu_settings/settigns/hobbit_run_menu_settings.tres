@@ -14,3 +14,4 @@ launch_scene = ExtResource("1_dh30p")
 game_name = "Hobbit Run"
 game_icon = SubResource("GradientTexture2D_r5sy4")
 game_config = "res://games/hobbit_run/config.cfg"
+game_description = ""

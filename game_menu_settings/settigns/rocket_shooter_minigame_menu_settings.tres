@@ -14,3 +14,4 @@ launch_scene = ExtResource("1_0d7lr")
 game_name = "Rocket Shooter"
 game_icon = SubResource("GradientTexture2D_ru2hl")
 game_config = "res://games/Rocket-shooter-minigame/config.cfg"
+game_description = ""

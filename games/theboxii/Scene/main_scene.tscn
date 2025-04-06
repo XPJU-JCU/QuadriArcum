@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bjafqh1wwl2l7"]
+[gd_scene load_steps=25 format=3 uid="uid://bjafqh1wwl2l7"]
 
 [ext_resource type="PackedScene" uid="uid://borhiyvvc6d1i" path="res://games/theboxii/Object/player.tscn" id="1_31fxm"]
 [ext_resource type="Script" uid="uid://djpdtpgauru78" path="res://games/theboxii/Scene/main_scene.gd" id="1_u7epo"]
@@ -18,6 +18,7 @@
 [ext_resource type="Material" uid="uid://bnyhk15stjf5d" path="res://games/theboxii/Material/white.tres" id="13_c1vcm"]
 [ext_resource type="FontFile" uid="uid://wt4mesltkpty" path="res://games/theboxii/Font/Galindo-Regular.ttf" id="16_c1vcm"]
 [ext_resource type="FontFile" uid="uid://cbli01rvttx0i" path="res://games/theboxii/Font/Logirent-Regular Demo.otf" id="17_n7l00"]
+[ext_resource type="AudioStream" uid="uid://c4gt8yy3odbok" path="res://games/theboxii/Base/TheBoxSong.wav" id="19_p7t5r"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xtjt"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -140,7 +141,7 @@ grow_horizontal = 2
 layout_mode = 2
 theme_override_fonts/font = ExtResource("17_n7l00")
 theme_override_font_sizes/font_size = 50
-text = "THE BOX - GODOT EDITION"
+text = "THE BOX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -222,6 +223,11 @@ theme_override_font_sizes/font_size = 20
 text = "Ad Moop"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_p7t5r")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
 [connection signal="timeout" from="GameControl/Timer" to="GameControl" method="_on_timer_timeout"]

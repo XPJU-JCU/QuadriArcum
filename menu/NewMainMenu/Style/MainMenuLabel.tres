@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://bdja5ndbr6ucq"]
+
+[ext_resource type="FontFile" uid="uid://dqhlocn1gl00x" path="res://menu/NewMainMenu/Font/Kenney Pixel.ttf" id="1_6krba"]
+
+[sub_resource type="FontVariation" id="FontVariation_qrym3"]
+base_font = ExtResource("1_6krba")
+spacing_glyph = 2
+
+[resource]
+font = SubResource("FontVariation_qrym3")
+font_size = 30
+font_color = Color(0, 0, 0, 1)
+outline_size = 5

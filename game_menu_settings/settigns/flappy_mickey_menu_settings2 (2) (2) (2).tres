@@ -14,3 +14,4 @@ launch_scene = ExtResource("1_gn3h2")
 game_name = "Flappy Mickey"
 game_icon = SubResource("GradientTexture2D_q8sk6")
 game_config = "res://games/flappy-mickey/config.cfg"
+game_description = ""

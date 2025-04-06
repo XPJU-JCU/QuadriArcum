@@ -1,7 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://biwum1nbq8p1x"]
-
-[sub_resource type="Resource" id="Resource_h325a"]
-metadata/__load_path__ = "res://games/Rocket-shooter-minigame/icon.svg"
+[gd_scene load_steps=2 format=3 uid="uid://biwum1nbq8p1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gfs2l"]
 size = Vector2(26, 8)
@@ -11,7 +8,6 @@ scale = Vector2(-0.102281, 0.14357)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.203125, 0.0625)
-texture = SubResource("Resource_h325a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_gfs2l")
