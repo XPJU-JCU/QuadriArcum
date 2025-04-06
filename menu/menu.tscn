@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2v7rn2q832n1"]
+[gd_scene load_steps=4 format=3 uid="uid://c2v7rn2q832n1"]
 
 [ext_resource type="Script" uid="uid://08msjp7jwiwt" path="res://menu/menu.gd" id="1_uin05"]
 [ext_resource type="PackedScene" uid="uid://dgkgwdex4c1qs" path="res://menu/menu_game_item/menu_game_item.tscn" id="2_36thy"]
+[ext_resource type="PackedScene" uid="uid://bb42qdoy2bk7a" path="res://menu/NewMainMenu/button_prefab.tscn" id="3_6nwqt"]
 
 [node name="Menu" type="CanvasLayer" node_paths=PackedStringArray("hbox")]
 script = ExtResource("1_uin05")
 game_menu_settings_dir = "res://game_menu_settings/settigns/"
 menu_game_item = ExtResource("2_36thy")
+newGameItem = ExtResource("3_6nwqt")
 hbox = NodePath("MarginContainer/ScrollContainer/HBoxContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

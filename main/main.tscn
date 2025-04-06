@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bagktvrnjdp4q"]
+[gd_scene load_steps=21 format=3 uid="uid://bagktvrnjdp4q"]
 
 [ext_resource type="Script" uid="uid://ds00gpi32lwf7" path="res://main/main.gd" id="1_ew70g"]
 [ext_resource type="PackedScene" uid="uid://c2v7rn2q832n1" path="res://menu/menu.tscn" id="2_wytk8"]
 [ext_resource type="Texture2D" uid="uid://bhae2j1qpk117" path="res://menu/NewMainMenu/Base/BackMain3.png" id="3_c651c"]
-[ext_resource type="PackedScene" uid="uid://bb42qdoy2bk7a" path="res://menu/NewMainMenu/button_prefab.tscn" id="4_0i4oc"]
 [ext_resource type="StyleBox" uid="uid://kgt2a6mw6ood" path="res://menu/NewMainMenu/Style/FloatStyleBoxFlat.tres" id="4_3wy1v"]
 [ext_resource type="FontFile" uid="uid://dqhlocn1gl00x" path="res://menu/NewMainMenu/Font/Kenney Pixel.ttf" id="4_c651c"]
 [ext_resource type="FontFile" uid="uid://3l1qoeo4o12u" path="res://menu/NewMainMenu/Font/Kenney Mini.ttf" id="5_grrlh"]
@@ -86,7 +85,6 @@ menuColorList = Array[Color]([Color(0.0705882, 0.572549, 0.678431, 1), Color(0.6
 
 [node name="Menu" parent="." node_paths=PackedStringArray("vbox", "mainColor", "textureColor", "pictureColor", "infoName", "infoImage", "infoDescription") instance=ExtResource("2_wytk8")]
 process_mode = 3
-newGameItem = ExtResource("4_0i4oc")
 vbox = NodePath("NewMenu/TextureRect/VBoxContainer/GameChoose/HBoxContainer/GameSelect/Panel3/VBoxContainer")
 mainColor = NodePath("NewMenu/MainColorRect")
 textureColor = NodePath("NewMenu/TextureRect")

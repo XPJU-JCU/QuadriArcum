@@ -49,9 +49,11 @@ func _on_bird_pipe_cleared() -> void:
 
 # Resetuje hru
 func reset_game() -> void:
-	get_tree().paused = false
-	self.queue_free()
-	game_exited.emit()
+	get_tree().change_scene_to_file("res://main/main.tscn")
+	#get_tree().paused = false
+	#game_exited.emit()
+	#self.queue_free()
+	
 
 
 # Volá se při dotknutí trubky
