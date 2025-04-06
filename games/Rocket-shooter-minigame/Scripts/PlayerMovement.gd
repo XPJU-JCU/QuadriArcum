@@ -21,7 +21,7 @@ signal player_died
 func _ready():
 	Engine.time_scale = 1
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
-	Input.set_mouse_mode(Input.MOUSE_MODE_MAX)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_MAX)
 
 func get_input():
 	if (Engine.time_scale == 1):
