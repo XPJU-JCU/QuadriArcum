@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ck5t70syhfvs2"]
+[gd_scene load_steps=15 format=3 uid="uid://ck5t70syhfvs2"]
 
 [ext_resource type="Script" uid="uid://37spli1cu4b6" path="res://games/flappy-mickey/game/game.gd" id="1_iekg0"]
 [ext_resource type="PackedScene" uid="uid://buy8nep2jm3xk" path="res://games/flappy-mickey/level/level.tscn" id="2_a8nuv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ctx4v0j10i4cg" path="res://games/flappy-mickey/game/background.gd" id="7_1cum2"]
 [ext_resource type="AudioStream" uid="uid://dqtp544kh8hnc" path="res://games/flappy-mickey/game/pipe_cleared.wav" id="8_jc0rv"]
 [ext_resource type="AudioStream" uid="uid://dlmu334j3wsv5" path="res://games/flappy-mickey/game/game_over.wav" id="9_v5igq"]
+[ext_resource type="AudioStream" uid="uid://b7braajl4wouj" path="res://games/flappy-mickey/game/Doobly Doo.mp3" id="10_mtmlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kfmgv"]
 size = Vector2(98, 1147)
@@ -101,6 +102,11 @@ stream = SubResource("AudioStreamRandomizer_v5igq")
 
 [node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_v5igq")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_mtmlp")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pipe_cleared" from="Bird" to="." method="_on_bird_pipe_cleared"]
 [connection signal="pipe_touched" from="Bird" to="." method="_on_bird_pipe_touched"]
