@@ -132,12 +132,12 @@ script = ExtResource("1_c0mkj")
 
 [node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_xva5l")
-volume_db = 1.248
+volume_db = -6.604
 script = ExtResource("3_r3e1v")
 
 [node name="run_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_tv51f")
-volume_db = -18.761
+volume_db = -23.713
 pitch_scale = 2.68
 script = ExtResource("4_jchny")
 
