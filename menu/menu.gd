@@ -28,14 +28,8 @@ func _ready() -> void:
 	#colorChanger()
 
 func colorChanger():
-	var colorAlfa = MenuColor.activeColor
 	var colorBeta = MenuColor.activeColor
-	colorAlfa.a = 0.6
-	colorBeta.a = 0.8
-	mainColor.color = colorAlfa
-	textureColor.modulate = colorBeta
-	if colorPicture:
-		pictureColor.self_modulate = colorAlfa
+	textureColor.self_modulate = colorBeta
 
 func change_info(data):
 	infoName.text = data.game_name
