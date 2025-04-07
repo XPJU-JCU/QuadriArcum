@@ -94,6 +94,9 @@ func _physics_process(delta: float) -> void:
 func _process(delta):
 	screen_size = get_window().size
 	
+	if Input.is_action_pressed("Pause"):
+		get_tree().change_scene_to_file("res://main/main.tscn")
+	
 	
 	if game_running:
 		#speed up and adjust difficulty
