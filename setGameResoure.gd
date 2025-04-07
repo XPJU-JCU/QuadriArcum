@@ -44,7 +44,8 @@ func take_focus():
 
 func _on_button_focus_entered() -> void:
 	MenuColor.activeSlot = numberSlot
-	take_focus()
+	# take_focus()
+	menu.change_info(game_resoure)
 	changeState()
 
 func _on_button_focus_exited() -> void:
