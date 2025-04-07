@@ -1,17 +1,13 @@
-[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=5 format=3 uid="uid://d17ki64hvnlt"]
+[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=4 format=3 uid="uid://d17ki64hvnlt"]
 
 [ext_resource type="PackedScene" uid="uid://ck5t70syhfvs2" path="res://games/flappy-mickey/game/game.tscn" id="1_gn3h2"]
+[ext_resource type="Texture2D" uid="uid://dsv71oecqt6g1" path="res://games/flappy-mickey/game/flappy_icon.png" id="1_m828s"]
 [ext_resource type="Script" uid="uid://gosrlvrt8i4c" path="res://game_menu_settings/game_menu_settings.gd" id="2_hro0r"]
-
-[sub_resource type="Gradient" id="Gradient_0e5x8"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_q8sk6"]
-gradient = SubResource("Gradient_0e5x8")
 
 [resource]
 script = ExtResource("2_hro0r")
 launch_scene = ExtResource("1_gn3h2")
 game_name = "Flappy Mickey"
-game_icon = SubResource("GradientTexture2D_q8sk6")
+game_icon = ExtResource("1_m828s")
 game_config = "res://games/flappy-mickey/config.cfg"
-game_description = ""
+game_description = "Mickey good. Pipes bad. You flap. Ok?"

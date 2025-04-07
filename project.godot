@@ -24,7 +24,6 @@ MenuColor="*res://menu/NewMainMenu/menuColor.gd"
 [display]
 
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [global_group]
 

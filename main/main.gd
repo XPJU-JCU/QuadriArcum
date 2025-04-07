@@ -9,6 +9,7 @@ func _on_menu_game_selected(game_launch_resource: GameMenuSettings) -> void:
 
 func _ready() -> void:
 	Engine.time_scale = 1
+	get_tree().paused = false
 	#if MenuColor.firstLoad:
 	#	randomize()
 	#	MenuColor.activeColor = menuColorList.pick_random()
