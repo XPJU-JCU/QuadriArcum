@@ -29,7 +29,8 @@ func changeState():
 		textureRect.show()
 	else:
 		textureRect.hide()
-	audioSlot.play(0)
+	if is_inside_tree():
+		audioSlot.play()
 
 func _on_button_pressed() -> void:	
 	audioSlot.play()
@@ -43,7 +44,8 @@ func take_focus():
 
 func _on_button_focus_entered() -> void:
 	MenuColor.activeSlot = numberSlot
-	take_focus()
+	# take_focus()
+	menu.change_info(game_resoure)
 	changeState()
 
 func _on_button_focus_exited() -> void:
