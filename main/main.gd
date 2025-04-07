@@ -10,11 +10,11 @@ func _on_menu_game_selected(game_launch_resource: GameMenuSettings) -> void:
 func _ready() -> void:
 	Engine.time_scale = 1
 	get_tree().paused = false
-	#if MenuColor.firstLoad:
-	#	randomize()
-	#	MenuColor.activeColor = menuColorList.pick_random()
-	#	get_child(0).colorChanger()
-	#	MenuColor.firstLoad = false
+	if MenuColor.firstLoad:
+		randomize()
+		MenuColor.activeColor = menuColorList.pick_random()
+		get_child(0).colorChanger()
+		MenuColor.firstLoad = false
 	
 func load_game(game_launch_resource: GameMenuSettings):
 	get_tree().set_physics_interpolation_enabled(false)
