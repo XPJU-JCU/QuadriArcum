@@ -1,0 +1,24 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://do4s543if1jxi"]
+
+[ext_resource type="Shader" uid="uid://urnylk4lsx7k" path="res://menu/screen.gdshader" id="1_agus1"]
+
+[resource]
+shader = ExtResource("1_agus1")
+shader_parameter/curvature_amount = 0.0
+shader_parameter/scanline_opacity = 0.735
+shader_parameter/scanline_count = 200.0
+shader_parameter/brightness = 1.3
+shader_parameter/contrast = 1.2
+shader_parameter/color_bleed = 1.0
+shader_parameter/vignette_strength = 0.565
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+shader_parameter/opacity = 0.123
+shader_parameter/flicker_speed = 1.0
+shader_parameter/flicker_amount = 0.1
+shader_parameter/phosphor_trail = 0.785
+shader_parameter/horizontal_wobble = 0.0
+shader_parameter/wobble_speed = 2.0
+shader_parameter/noise_amount = 0.102
+shader_parameter/glow_amount = 0.352
+shader_parameter/aberration_amount = 0.013
+shader_parameter/aberration_edge_strength = 3.69
