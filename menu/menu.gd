@@ -7,6 +7,8 @@ extends CanvasLayer
 @export var vbox : VBoxContainer
 @export var mainColor : ColorRect
 @export var textureColor : TextureRect
+@export var nameLabel : Label
+@export var nameLabelDisable : Label
 
 @export var colorPicture: bool
 @export var pictureColor: TextureRect
@@ -69,3 +71,12 @@ func load_menu_games():
 		
 func on_game_selected(game_launch_resource):
 	game_selected.emit(game_launch_resource)
+
+func _on_timer_timeout() -> void:
+	var randomChoose = randi_range(0, 9)
+	if randomChoose == 0:
+		nameLabel.hide()
+		nameLabelDisable.show()
+	else:
+		nameLabel.show()
+		nameLabelDisable.hide()
