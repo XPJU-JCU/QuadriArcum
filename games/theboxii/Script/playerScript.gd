@@ -72,11 +72,11 @@ func _input(event):
 func toggleFullscreen():
 	var current_mode = DisplayServer.window_get_mode()
 	
-	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+	if current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 func spawnRandomPrefab(overwrite):
 	if prefabs.is_empty():
