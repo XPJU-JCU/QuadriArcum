@@ -29,7 +29,8 @@ func changeState():
 		textureRect.show()
 	else:
 		textureRect.hide()
-	audioSlot.play(0)
+	if is_inside_tree():
+		audioSlot.play()
 
 func _on_button_pressed() -> void:	
 	audioSlot.play()
