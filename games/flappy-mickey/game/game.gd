@@ -22,6 +22,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Input.is_action_pressed("Pause"):
+		get_tree().change_scene_to_file("res://main/main.tscn")
+	
 	if Input.is_action_just_released("flap") and is_game_over:
 		reset_game()
 	# Když je is_game_over a zmáčkněš flap, zavolej reset_game()
