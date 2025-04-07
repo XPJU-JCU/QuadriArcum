@@ -88,10 +88,10 @@ func _on_timer_timeout() -> void:
 func _on_button_button_down() -> void:
 	var current_mode = DisplayServer.window_get_mode()
 	
-	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+	if current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		fullScreenButton.icon = fullScreenOn
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 		fullScreenButton.icon = fullScreenOff
