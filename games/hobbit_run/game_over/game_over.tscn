@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://62v4c8nnjei6"]
+[gd_scene load_steps=4 format=3 uid="uid://62v4c8nnjei6"]
 
 [ext_resource type="FontFile" uid="uid://bapa2qf7cgk4d" path="res://games/hobbit_run/retro_font/Retro Gaming.ttf" id="1_rrgx4"]
+[ext_resource type="Texture2D" uid="uid://ci88kyokpid2l" path="res://games/hobbit_run/game_over/pxArt.png" id="2_ns2st"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b6x27"]
 
@@ -14,25 +15,77 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -191.5
-offset_top = -142.5
+offset_top = -300.0
 offset_right = 191.5
-offset_bottom = 142.5
+offset_bottom = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_rrgx4")
 theme_override_font_sizes/font_size = 54
 theme_override_styles/normal = SubResource("StyleBoxTexture_b6x27")
 text = "Frodo died.
-You suck.
-
-RESTART?
-(space)"
+You suck."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
 z_index = 1
-offset_left = 320.0
-offset_top = 128.0
-offset_right = 832.0
-offset_bottom = 512.0
+offset_left = 368.0
+offset_top = 75.0
+offset_right = 800.0
+offset_bottom = 259.0
+
+[node name="Sad" type="Sprite2D" parent="."]
+position = Vector2(632, 360)
+scale = Vector2(1.24219, 0.921875)
+texture = ExtResource("2_ns2st")
+
+[node name="madeBy" type="Label" parent="."]
+offset_left = 488.0
+offset_top = 568.0
+offset_right = 707.0
+offset_bottom = 591.0
+theme_override_fonts/font = ExtResource("1_rrgx4")
+text = "Made by HappyBara :3"
+
+[node name="Restart" type="Label" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = -132.0
+offset_right = -1.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rrgx4")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxTexture_b6x27")
+text = "Restart
+(space)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quit" type="Label" parent="."]
+z_index = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 21.605
+offset_top = -96.0
+offset_right = 404.605
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rrgx4")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxTexture_b6x27")
+text = "Quit
+(escape)"
+horizontal_alignment = 1
+vertical_alignment = 1

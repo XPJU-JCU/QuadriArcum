@@ -17,6 +17,10 @@ extends CanvasLayer
 @export var infoImage: TextureRect
 @export var infoDescription: Label
 
+@export var fullScreenButton: Button
+@export var fullScreenOn: CompressedTexture2D
+@export var fullScreenOff: CompressedTexture2D
+
 signal game_selected(game_launch_resource)
 
 func _ready() -> void:
@@ -80,3 +84,14 @@ func _on_timer_timeout() -> void:
 	else:
 		nameLabel.show()
 		nameLabelDisable.hide()
+
+func _on_button_button_down() -> void:
+	var current_mode = DisplayServer.window_get_mode()
+	
+	if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+		
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		fullScreenButton.icon = fullScreenOn
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		fullScreenButton.icon = fullScreenOff
