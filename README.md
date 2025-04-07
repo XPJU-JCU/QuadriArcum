@@ -15,5 +15,9 @@ Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
 ### The Box music
-"9- Dark Fantasy Studio - Stars and galaxy" Nicolas Jeudy (darkfantasystudio.com)
+"Stars and galaxy" Nicolas Jeudy (darkfantasystudio.com)
+License: https://darkfantasystudio.com/premium-licence/
+
+### Menu music
+"Black hole" Nicolas Jeudy (darkfantasystudio.com)
 License: https://darkfantasystudio.com/premium-licence/

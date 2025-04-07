@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bb42qdoy2bk7a"]
+[gd_scene load_steps=7 format=3 uid="uid://bb42qdoy2bk7a"]
 
 [ext_resource type="Texture2D" uid="uid://4m1n36d74cfm" path="res://menu/NewMainMenu/Base/InfoPolygon.png" id="1_lyfrj"]
 [ext_resource type="Script" uid="uid://bdfu28y1p57bq" path="res://setGameResoure.gd" id="1_se6hs"]
 [ext_resource type="LabelSettings" uid="uid://bdja5ndbr6ucq" path="res://menu/NewMainMenu/Style/MainMenuLabel.tres" id="2_se6hs"]
+[ext_resource type="AudioStream" uid="uid://d1lv663yq27nh" path="res://menu/NewMainMenu/Base/click1.ogg" id="4_2okku"]
+[ext_resource type="AudioStream" uid="uid://bbl83ly4eikds" path="res://menu/NewMainMenu/Base/click2.ogg" id="5_u3mtc"]
 
-[node name="ButtonPrefab" type="Control" node_paths=PackedStringArray("button", "textLabel", "textureRect")]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ofmux"]
+playback_mode = 1
+streams_count = 2
+stream_0/stream = ExtResource("4_2okku")
+stream_1/stream = ExtResource("5_u3mtc")
+
+[node name="ButtonPrefab" type="Control" node_paths=PackedStringArray("button", "textLabel", "textureRect", "audioSlot")]
 layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 3
@@ -12,6 +20,7 @@ script = ExtResource("1_se6hs")
 button = NodePath("Button")
 textLabel = NodePath("HBoxContainer/Name/Label")
 textureRect = NodePath("HBoxContainer/Control/TextureRect")
+audioSlot = NodePath("AudioStreamPlayer")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -72,6 +81,10 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ofmux")
+volume_db = -10.0
 
 [connection signal="focus_entered" from="Button" to="." method="_on_button_focus_entered"]
 [connection signal="focus_exited" from="Button" to="." method="_on_button_focus_exited"]

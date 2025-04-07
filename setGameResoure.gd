@@ -4,6 +4,7 @@ extends Control
 @export var textLabel : Label
 @export var textureRect : TextureRect
 @export var numberSlot : int
+@export var audioSlot : AudioStreamPlayer
 
 var menu: CanvasLayer
 var game_resoure : GameMenuSettings
@@ -28,8 +29,10 @@ func changeState():
 		textureRect.show()
 	else:
 		textureRect.hide()
+	audioSlot.play(0)
 
 func _on_button_pressed() -> void:	
+	audioSlot.play()
 	game_selected.emit(game_resoure)
 
 
@@ -48,7 +51,6 @@ func _on_button_focus_exited() -> void:
 
 func _on_button_mouse_entered() -> void:
 	take_focus()
-
 
 func _on_button_mouse_exited() -> void:
 	pass
