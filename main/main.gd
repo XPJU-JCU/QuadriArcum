@@ -13,8 +13,8 @@ func _ready() -> void:
 	if MenuColor.firstLoad:
 		randomize()
 		MenuColor.activeColor = menuColorList.pick_random()
-		get_child(0).colorChanger()
 		MenuColor.firstLoad = false
+	get_child(0).colorChanger()
 	
 func load_game(game_launch_resource: GameMenuSettings):
 	get_tree().set_physics_interpolation_enabled(false)
