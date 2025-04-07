@@ -1,17 +1,13 @@
-[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=5 format=3 uid="uid://xvyo0oauwnkm"]
+[gd_resource type="Resource" script_class="GameMenuSettings" load_steps=4 format=3 uid="uid://xvyo0oauwnkm"]
 
 [ext_resource type="Script" uid="uid://gosrlvrt8i4c" path="res://game_menu_settings/game_menu_settings.gd" id="1_0s4bv"]
-[ext_resource type="PackedScene" uid="uid://cnitjn0hl4ks3" path="res://games/hobbit_run/main.tscn" id="1_dh30p"]
-
-[sub_resource type="Gradient" id="Gradient_ngamp"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_r5sy4"]
-gradient = SubResource("Gradient_ngamp")
+[ext_resource type="PackedScene" uid="uid://cnitjn0hl4ks3" path="res://games/hobbit_run/MAIN/main.tscn" id="1_dh30p"]
+[ext_resource type="Texture2D" uid="uid://wtwlrmyjwfbf" path="res://games/hobbit_run/MAIN/hobbit_icon.png" id="1_pxigl"]
 
 [resource]
 script = ExtResource("1_0s4bv")
 launch_scene = ExtResource("1_dh30p")
 game_name = "Hobbit Run"
-game_icon = SubResource("GradientTexture2D_r5sy4")
+game_icon = ExtResource("1_pxigl")
 game_config = "res://games/hobbit_run/config.cfg"
-game_description = ""
+game_description = "Help Frodo feast on second breakfast!!!"

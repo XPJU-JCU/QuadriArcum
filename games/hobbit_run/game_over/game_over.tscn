@@ -25,7 +25,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_b6x27")
 text = "Frodo died.
 You suck.
 
-RESTART?"
+RESTART?
+(space)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

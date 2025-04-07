@@ -1,0 +1,103 @@
+[gd_scene load_steps=20 format=3 uid="uid://cnitjn0hl4ks3"]
+
+[ext_resource type="Script" uid="uid://td25a6yfh5ye" path="res://games/hobbit_run/main.gd" id="1_ief6d"]
+[ext_resource type="PackedScene" uid="uid://boo2brhrwyt03" path="res://games/hobbit_run/plus_score_label/plus_score_label.tscn" id="2_b16xw"]
+[ext_resource type="PackedScene" uid="uid://kc4m66sedxti" path="res://games/hobbit_run/ground/ground.tscn" id="3_08ham"]
+[ext_resource type="PackedScene" uid="uid://dmlwuropqu5l4" path="res://games/hobbit_run/hobbit_scene/hobbit.tscn" id="4_vofsr"]
+[ext_resource type="PackedScene" uid="uid://cu3ir6wmh4c2s" path="res://games/hobbit_run/sauron_phase/sauron_sees_you.tscn" id="5_wc5wh"]
+[ext_resource type="PackedScene" uid="uid://ht4sr8ka4l1w" path="res://games/hobbit_run/HUD/hud.tscn" id="6_analx"]
+[ext_resource type="PackedScene" uid="uid://62v4c8nnjei6" path="res://games/hobbit_run/game_over/game_over.tscn" id="7_c65ho"]
+[ext_resource type="PackedScene" uid="uid://bdnirugwvib11" path="res://games/hobbit_run/parallax background/new_bg.tscn" id="8_1fnrr"]
+[ext_resource type="AudioStream" uid="uid://cwefjgyb6ogbq" path="res://games/hobbit_run/hobbit_sound (mp3cut (mp3cut.net).mp3" id="9_ucth5"]
+[ext_resource type="Script" uid="uid://dukniq1pppixn" path="res://games/hobbit_run/main_soundtrack.gd" id="10_3qq0u"]
+[ext_resource type="AudioStream" uid="uid://pkwduq7jf3ub" path="res://games/hobbit_run/game_over_dsound (mp3cut.net).mp3" id="11_26p7o"]
+[ext_resource type="AudioStream" uid="uid://cu1s7s2c6avqo" path="res://games/hobbit_run/ring_scene/coin.mp3" id="12_wd65p"]
+[ext_resource type="AudioStream" uid="uid://dwnpt12ytq3wp" path="res://games/hobbit_run/apple_scene/bit-coin-sound-effect-copyright-free (mp3cut.net).mp3" id="13_5q82j"]
+[ext_resource type="Script" uid="uid://bxka3cfifx0vr" path="res://games/hobbit_run/zong.gd" id="14_se3ch"]
+[ext_resource type="PackedScene" uid="uid://dgtbqm1xoqy0o" path="res://games/hobbit_run/lembas_scene/lembas.tscn" id="15_a0nk0"]
+[ext_resource type="PackedScene" uid="uid://i37fprmkrtsd" path="res://games/hobbit_run/apple_scene/apple.tscn" id="16_vdi5e"]
+[ext_resource type="PackedScene" uid="uid://dpjyseak5vqdk" path="res://games/hobbit_run/ring_scene/ring.tscn" id="17_m24h6"]
+[ext_resource type="PackedScene" uid="uid://dqadsdwy2pga3" path="res://games/hobbit_run/crow_scene/bird.tscn" id="18_ox3ac"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2kq65"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_ief6d")
+
+[node name="PlusScoreLabel" parent="." instance=ExtResource("2_b16xw")]
+visible = false
+
+[node name="Ground" parent="." instance=ExtResource("3_08ham")]
+process_mode = 1
+position = Vector2(-497, -130)
+
+[node name="hobbit" parent="." instance=ExtResource("4_vofsr")]
+process_mode = 1
+position = Vector2(155, 491)
+scale = Vector2(8, 8)
+
+[node name="sauron_sees_you" parent="." instance=ExtResource("5_wc5wh")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 1
+position = Vector2(155, 0)
+offset = Vector2(421, 324)
+
+[node name="HUD" parent="." instance=ExtResource("6_analx")]
+process_mode = 1
+
+[node name="GameOver" parent="." instance=ExtResource("7_c65ho")]
+visible = false
+
+[node name="RingSpawnTimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 30.0
+
+[node name="SBTimer" type="Timer" parent="."]
+process_mode = 1
+wait_time = 1.3
+
+[node name="newBg" parent="." instance=ExtResource("8_1fnrr")]
+process_mode = 1
+
+[node name="main_soundtrack" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("9_ucth5")
+volume_db = -7.027
+script = ExtResource("10_3qq0u")
+
+[node name="death_sound" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("11_26p7o")
+
+[node name="zing" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("12_wd65p")
+
+[node name="zong" type="AudioStreamPlayer" parent="."]
+process_mode = 1
+stream = ExtResource("13_5q82j")
+volume_db = -6.0
+script = ExtResource("14_se3ch")
+
+[node name="lembas" parent="." instance=ExtResource("15_a0nk0")]
+visible = false
+script = null
+
+[node name="apple" parent="." instance=ExtResource("16_vdi5e")]
+process_mode = 1
+visible = false
+
+[node name="ring" parent="." instance=ExtResource("17_m24h6")]
+visible = false
+script = null
+
+[node name="bird" parent="." instance=ExtResource("18_ox3ac")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(742, 582)
+scale = Vector2(8, 8)
+shape = SubResource("WorldBoundaryShape2D_2kq65")

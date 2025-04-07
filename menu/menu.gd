@@ -21,7 +21,7 @@ signal game_selected(game_launch_resource)
 
 func _ready() -> void:
 	load_menu_games()
-	colorChanger()
+	#colorChanger()
 
 func colorChanger():
 	var colorAlfa = MenuColor.activeColor

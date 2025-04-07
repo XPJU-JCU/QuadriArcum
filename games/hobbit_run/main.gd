@@ -112,14 +112,6 @@ func _process(delta):
 		$hobbit.position.x += speed * delta
 		$Camera2D.position.x = $hobbit.position.x
 		
-		
-		#update score
-		#score += 60 * delta
-		#show_score() 
-		
-		#if $Camera2D.position.x > $Ground.position.x * 100000000:
-		#	$Ground.position.x += 100000000.0
-			
 		#remove obstacles that have gone off screen
 		for obs in obstacles:
 			if obs.position.x < ($Camera2D.position.x - screen_size.x):
@@ -140,10 +132,6 @@ func _process(delta):
 			$SBTimer.start()
 			$HUD/MarginContainer.get_node("StartLabel").hide()
 			
-			
-			
-
-#jablka + lembas to rozbíjejí
 func generate_obs():
 	#generate only ground obstacles
 	if obstacles.is_empty():
@@ -287,7 +275,6 @@ func game_over():
 	game_running = false
 	$GameOver.show()
 	
-
 func reset_music():
 	#play some light jazz
 	$main_soundtrack.play()
