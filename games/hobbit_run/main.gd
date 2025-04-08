@@ -22,8 +22,6 @@ var which_one
 const HOBBIT_START_POS := Vector2i(150, 490)
 const CAM_START_POS := Vector2i(155, 0)
 
-var difficulty
-const MAX_DIFFICULTY : int = 2
 var score : float
 var high_score : int
 var speed : float
@@ -52,7 +50,6 @@ func new_game():
 	show_score()
 	game_running = false
 	get_tree().paused = false
-	difficulty = 0
 	
 	#sauron phase bullshit reset
 	$sauron_sees_you.visible = false
@@ -88,8 +85,7 @@ func _physics_process(delta: float) -> void:
 	if game_running:
 		score += delta * 2 #(speed - START_SPEED)/7 * delta
 		show_score() 
-	
-	
+
 #Called every frame. 'delta' is the elapsed time since the previous frame. 
 func _process(delta):
 	screen_size = get_window().size
@@ -99,14 +95,13 @@ func _process(delta):
 	
 	
 	if game_running:
-		#speed up and adjust difficulty
+		#speed up
 		if not speed >= MAX_SPEED:
 			speed += 10 * delta #* delta # deleno SPEED_MODIFIER
 			
 		if speed > MAX_SPEED:
 			pass
 			speed = MAX_SPEED
-		adjust_difficulty()
 
 	#moving the fricking obstacles
 		generate_obs()
@@ -140,31 +135,33 @@ func generate_obs():
 	if obstacles.is_empty():
 		funkce()
 	elif last_obs != null:
-		if last_obs.position.x < $Camera2D.position.x: #score + randi_range(200, 400):
+		if last_obs.position.x < $Camera2D.position.x: #+ score + randi_range(200, 400):
 			funkce()
+		#if (randi() % 5555) == 0:
+		#	funkce()
 
 
 func funkce():
 	#generate only ground obstacles
 	var obs_type = obstacle_types[randi() % obstacle_types.size()]
 	var obs
-	var max_obs = difficulty + 1
-	for i in range(randi() % max_obs + 1):
+	for i in range(randi() % 2):
 		obs = obs_type.instantiate()
 		var obs_height = obs.get_node("Sprite2D").texture.get_height()
 		var obs_scale = obs.get_node("Sprite2D").scale
-		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(100, 200) #(i * 100) + randi_range(2000, 2000)
+		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(30, 50) #(i * 100) + randi_range(2000, 2000)
 		var obs_y : int = 450 + ground_height / 1.2
 		#print(obs_x)
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
 		
 	#additionally random chance to spam a bird man!!!
-	if (randi() % 2) == 0:
+	if (randi() % 3) == 0:
 		obs = bird_scene.instantiate()
-		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(0, 80) #dříve 200
+		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(0, 90) #dříve 200
 		var obs_y : int = bird_heights[randi() % bird_heights.size()]
 		add_obs(obs, obs_x, obs_y)
+		
 
 func generate_one_ring():
 	var ring = ring_scene.instantiate()
@@ -222,8 +219,6 @@ func sauron_phase():
 	$sauron_sees_you.visible = false 
 	$newBg.visible = true
 	$hobbit.wears_ring = false
-	#timmy speed se změní podle difficulty
-	#$RingSpawnTimer += 5????
 	$RingSpawnTimer.start()
 
 func add_obs(obs, x, y):
@@ -262,11 +257,6 @@ func check_high_score():
 	if score > high_score:
 		high_score = score
 		$HUD/MarginContainer.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
-
-func adjust_difficulty():
-	difficulty = int(score)
-	if difficulty > MAX_DIFFICULTY:
-		difficulty = MAX_DIFFICULTY
 
 func game_over():
 	$main_soundtrack.stop()
