@@ -22,8 +22,8 @@ var which_one
 const HOBBIT_START_POS := Vector2i(150, 490)
 const CAM_START_POS := Vector2i(155, 0)
 
-var score : float
-var high_score : int
+@export var score : float
+@export var high_score : int
 var speed : float
 const START_SPEED : float = 500
 @export var MAX_SPEED : float = 10000  	
@@ -133,15 +133,17 @@ func _process(delta):
 func generate_obs():
 	#generate only ground obstacles
 	if obstacles.is_empty():
-		funkce()
+		gen_obs()
+		gen_bird()
 	elif last_obs != null:
 		if last_obs.position.x < $Camera2D.position.x: #+ score + randi_range(200, 400):
-			funkce()
+			gen_obs()
+			gen_bird()
 		#if (randi() % 5555) == 0:
-		#	funkce()
+		#	gen_obs()
 
 
-func funkce():
+func gen_obs():
 	#generate only ground obstacles
 	var obs_type = obstacle_types[randi() % obstacle_types.size()]
 	var obs
@@ -151,17 +153,17 @@ func funkce():
 		var obs_scale = obs.get_node("Sprite2D").scale
 		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(30, 50) #(i * 100) + randi_range(2000, 2000)
 		var obs_y : int = 450 + ground_height / 1.2
-		#print(obs_x)
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
 		
+func gen_bird():
 	#additionally random chance to spam a bird man!!!
-	if (randi() % 3) == 0:
+	if (randi() % 2) == 0:
+		var obs
 		obs = bird_scene.instantiate()
 		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(0, 90) #dříve 200
 		var obs_y : int = bird_heights[randi() % bird_heights.size()]
 		add_obs(obs, obs_x, obs_y)
-		
 
 func generate_one_ring():
 	var ring = ring_scene.instantiate()
@@ -195,7 +197,6 @@ func eat_before_aragorn_takes_it_away(is_lembas):
 	if is_lembas: 
 		#lembas +30 score
 		score += 20
-		
 	else:
 		#apple +15 score
 		score += 10
