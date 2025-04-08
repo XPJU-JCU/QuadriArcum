@@ -12,6 +12,7 @@ signal player_died
 		if(hp < 1):
 			$"../Main_music".stop()
 			$"../Score/Game_over".visible = true
+			$"../Score/Game_over/BtnRestart".grab_focus.call_deferred()
 			Engine.time_scale = 0
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			hp=1
