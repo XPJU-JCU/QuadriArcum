@@ -259,14 +259,14 @@ func show_score():
 func saveHighScore():
 	if score > high_score:
 		high_score = score
-	var file = FileAccess.open("user://highscore.save", FileAccess.WRITE)
+	var file = FileAccess.open("user://highscorehobbit.save", FileAccess.WRITE)
 	if file != null:
 		file.store_var(high_score)
 		file.close()
 
 
 func loadHighScore():
-	var file = FileAccess.open("user://highscore.save", FileAccess.READ)
+	var file = FileAccess.open("user://highscorehobbit.save", FileAccess.READ)
 	if file != null:
 		high_score = file.get_var()
 		file.close()
