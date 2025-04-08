@@ -101,3 +101,7 @@ position = Vector2(1, 0)
 position = Vector2(742, 582)
 scale = Vector2(8, 8)
 shape = SubResource("WorldBoundaryShape2D_2kq65")
+
+[node name="Pause" type="Timer" parent="."]
+
+[connection signal="timeout" from="Pause" to="." method="_on_pause_timeout"]

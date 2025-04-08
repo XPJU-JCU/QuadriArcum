@@ -75,7 +75,6 @@ func new_game():
 	#reset HUD and hide game Over
 	$HUD/MarginContainer.get_node("StartLabel").show()
 	$PlusScoreLabel.hide()
-	#$GameOverLabel.hide()
 	$GameOver.hide()
 	
 	$death_sound.stop()
@@ -120,7 +119,7 @@ func _process(delta):
 		remove_items_midgame(SB, $zong)
 
 	else: 
-		if Input.is_action_pressed("ui_accept"):
+		if Input.is_action_pressed("special_button"):  #HERE HERE HERE
 			new_game()
 			
 			game_running = true
@@ -139,31 +138,30 @@ func generate_obs():
 		if last_obs.position.x < $Camera2D.position.x: #+ score + randi_range(200, 400):
 			gen_obs()
 			gen_bird()
-		#if (randi() % 5555) == 0:
-		#	gen_obs()
-
+		if (randi() % 777) == 0: #absolute random generator
+			gen_obs()
 
 func gen_obs():
 	#generate only ground obstacles
-	var obs_type = obstacle_types[randi() % obstacle_types.size()]
-	var obs
-	for i in range(randi() % 2):
+		var obs_type = obstacle_types[randi() % obstacle_types.size()]
+		var obs
 		obs = obs_type.instantiate()
 		var obs_height = obs.get_node("Sprite2D").texture.get_height()
 		var obs_scale = obs.get_node("Sprite2D").scale
-		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(30, 50) #(i * 100) + randi_range(2000, 2000)
+		var obs_x : int = $Camera2D.global_position.x + screen_size.x# + randi_range(30, 50) #(i * 100) + randi_range(2000, 2000)
 		var obs_y : int = 450 + ground_height / 1.2
 		last_obs = obs
 		add_obs(obs, obs_x, obs_y)
 		
 func gen_bird():
 	#additionally random chance to spam a bird man!!!
-	if (randi() % 2) == 0:
-		var obs
-		obs = bird_scene.instantiate()
-		var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(0, 90) #dříve 200
-		var obs_y : int = bird_heights[randi() % bird_heights.size()]
-		add_obs(obs, obs_x, obs_y)
+	for i in range(randi() % 2):
+		if (randi() % 2) == 0:
+			print("bird generated")
+			var obs = bird_scene.instantiate()
+			var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(0, 90) #dříve 200
+			var obs_y : int = bird_heights[randi() % bird_heights.size()]
+			add_obs(obs, obs_x, obs_y)
 
 func generate_one_ring():
 	var ring = ring_scene.instantiate()
@@ -258,18 +256,30 @@ func check_high_score():
 	if score > high_score:
 		high_score = score
 		$HUD/MarginContainer.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
+		$GameOver.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
+
 
 func game_over():
 	$main_soundtrack.stop()
 	$RingSpawnTimer.stop()
 	$SBTimer.stop()
+	$GameOver.get_node("ScoreLabel").text = "SCORE: " + str(int(score))
 	check_high_score()
 	get_tree().paused = true
 	$death_sound.play()
 	game_running = false
 	$GameOver.show()
+#	InputMap.action_erase_events("special_button")
+	$Pause.start()
 	
 func reset_music():
 	#play some light jazz
 	$main_soundtrack.play()
 	$main_soundtrack.stream.loop = true
+
+
+#this should work, but fuck, it doesnt
+#func _on_pause_timeout() -> void:
+#	var new_key := InputEventKey.new()
+#	new_key.scancode = KEY_SPACE 
+#	InputMap.action_add_event("special_button", new_key) 
