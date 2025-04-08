@@ -25,9 +25,9 @@ func _ready():
 
 func get_input():
 	if (Engine.time_scale == 1):
-		if (global_position.distance_to(get_global_mouse_position()) > 50):	
-			look_at(get_global_mouse_position())
-		velocity = transform.x * Input.get_axis("down", "up") * speed
+		#if (global_position.distance_to(get_global_mouse_position()) > 50):	
+		#	look_at(get_global_mouse_position())
+		#velocity = transform.x * Input.get_axis("down", "up") * speed
 			
 		if Input.is_action_just_pressed("shoot"):
 			shoot()
@@ -37,8 +37,11 @@ func get_input():
 	
 
 func _physics_process(delta):	
-	rotation += rotation_direction * rotation_speed * delta
 	get_input()
+	rotation += Input.get_axis("left", "right") * rotation_speed * delta
+	if Input.is_action_pressed("up"):
+		velocity += Vector2.from_angle(rotation) * speed * delta
+	
 	move_and_slide()
 	hp = Global.hp
 	
