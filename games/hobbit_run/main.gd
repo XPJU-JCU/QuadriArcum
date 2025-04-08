@@ -37,11 +37,13 @@ var sauron_phase_active : bool    #collision off, sauron sprites
 signal game_exited
 
 func _ready():
+	
 	screen_size = get_window().size
 	ground_height = 110 #trust me on this one - $Ground.get_node("JungleTileset").texture.get_height()
 	#$GameOver.get_node("Button").pressed.connect(new_game)   #annoying
 	$RingSpawnTimer.timeout.connect(generate_one_ring)
 	$SBTimer.timeout.connect(generate_second_breakfast)
+	loadHighScore()
 	new_game()
 
 func new_game():
@@ -251,25 +253,39 @@ func hit_obs(body):
 
 func show_score():
 	$HUD/MarginContainer.get_node("ScoreLabel").text = "SCORE: " + str(int(score))
+	$HUD/MarginContainer.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
 
-func check_high_score():
+
+func saveHighScore():
 	if score > high_score:
 		high_score = score
-		$HUD/MarginContainer.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
-		$GameOver.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
+	var file = FileAccess.open("user://highscore.save", FileAccess.WRITE)
+	if file != null:
+		file.store_var(high_score)
+		file.close()
 
+
+func loadHighScore():
+	var file = FileAccess.open("user://highscore.save", FileAccess.READ)
+	if file != null:
+		high_score = file.get_var()
+		file.close()
+	else:
+		high_score = 0
 
 func game_over():
 	$main_soundtrack.stop()
 	$RingSpawnTimer.stop()
 	$SBTimer.stop()
 	$GameOver.get_node("ScoreLabel").text = "SCORE: " + str(int(score))
-	check_high_score()
+	saveHighScore()
+	$GameOver.get_node("HighScoreLabel").text = "SCORE: " + str(int(score))
+	$GameOver.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
 	get_tree().paused = true
 	$death_sound.play()
 	game_running = false
 	$GameOver.show()
-#	InputMap.action_erase_events("special_button")
+	#InputMap.action_erase_events("special_button")
 	$Pause.start()
 	
 func reset_music():

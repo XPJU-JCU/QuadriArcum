@@ -43,9 +43,11 @@ func _physics_process(delta):
 	get_input()
 	rotation += Input.get_axis("left", "right") * rotation_speed * delta
 	if Input.is_action_pressed("up"):
-		velocity += Vector2.from_angle(rotation) * speed * delta
+		velocity = (velocity + Vector2.from_angle(rotation) * speed * delta).clamp(Vector2(-700, -700), Vector2(700,700))
 	
 	move_and_slide()
+	if get_slide_collision_count():
+		velocity = Vector2.ZERO
 	hp = Global.hp
 	
 func shoot():
@@ -69,6 +71,7 @@ func checkEntry(body : Node2D):
 
 func _on_area_2d_body_entered(body: Node2D):
 	checkEntry(body)
+	
 			
 func _on_area_2d_area_entered(area: Area2D):
 	checkEntry(area)
