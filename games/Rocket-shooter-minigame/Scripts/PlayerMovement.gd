@@ -10,10 +10,12 @@ signal player_died
 	set(newhp):
 		hp = newhp
 		if(hp < 1):
+			$"../Main_music".stop()
 			$"../Score/Game_over".visible = true
 			Engine.time_scale = 0
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			hp=1
+			
 
 @onready var projectile = preload("res://games/Rocket-shooter-minigame/Bullet.tscn")
 @export var spawnpoint : Sprite2D
@@ -30,6 +32,7 @@ func get_input():
 		#velocity = transform.x * Input.get_axis("down", "up") * speed
 			
 		if Input.is_action_just_pressed("shoot"):
+			$"../Shot".play()
 			shoot()
 		if Input.is_action_just_pressed("Pause"):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -57,10 +60,12 @@ func checkEntry(body : Node2D):
 		if (i == "Enemies"):
 			hp-=1
 			Global.hp -= 1
+			$"../Death".play()
 		if (i == "Shield_collectible"):
 			hp+=1
 			Global.hp += 1
 			body.queue_free()
+			$"../Shield".play()
 
 func _on_area_2d_body_entered(body: Node2D):
 	checkEntry(body)
