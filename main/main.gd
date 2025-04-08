@@ -52,3 +52,12 @@ func on_game_exited():
 	var scene = preload("res://menu/menu.tscn").instantiate()
 	scene.game_selected.connect(_on_menu_game_selected)
 	add_child(scene)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_released("fullScreenToggle"):
+		var current_mode = DisplayServer.window_get_mode()
+		if current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
