@@ -65,7 +65,7 @@ func _input(event):
 	input = Input.get_action_raw_strength("left") - Input.get_action_raw_strength("right")
 	if Input.is_action_just_pressed("fullScreenToggle"):
 		toggleFullscreen()
-	if event is InputEventKey and event.pressed and not event.echo and not playerControl:
+	if ((event is InputEventKey and event.pressed and not event.echo) or event is InputEventJoypadButton) and not playerControl: 
 		GlobalBox.firstLoad = false
 		get_tree().reload_current_scene()
 
