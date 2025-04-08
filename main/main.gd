@@ -18,9 +18,11 @@ func _ready() -> void:
 	
 func load_game(game_launch_resource: GameMenuSettings):
 	get_tree().set_physics_interpolation_enabled(false)
+	Engine.physics_jitter_fix = 0.5
 	
 	if game_launch_resource.game_name == "Flappy Mickey" or game_launch_resource.game_name == "The Box":
 		get_tree().set_physics_interpolation_enabled(true)
+		Engine.physics_jitter_fix = 0
 	
 	if game_launch_resource.game_name == "The Box":
 		get_tree().change_scene_to_packed(game_launch_resource.launch_scene)
