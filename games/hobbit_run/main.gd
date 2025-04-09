@@ -9,7 +9,7 @@ var obstacle_types := [stump_scene, rock_scene, barrel_scene]
 var obstacles : Array
 var SB : Array
 var rings : Array
-var bird_heights := [200, 390]
+var bird_heights := [200, 380] #making sure the bird isnt too low
 
 var ring_scene = preload("res://games/hobbit_run/ring_scene//ring.tscn")
 
@@ -25,9 +25,8 @@ const CAM_START_POS := Vector2i(155, 0)
 @export var score : float
 @export var high_score : int
 var speed : float
-const START_SPEED : float = 500
-@export var MAX_SPEED : float = 10000  	
-#const SPEED_MODIFIER : int = 4  #(13000) is good - no its not
+const START_SPEED : float = 500 
+@export var MAX_SPEED : float = 1350  #perfect speed for no bird / obs collision
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool
@@ -40,7 +39,6 @@ func _ready():
 	
 	screen_size = get_window().size
 	ground_height = 110 #trust me on this one - $Ground.get_node("JungleTileset").texture.get_height()
-	#$GameOver.get_node("Button").pressed.connect(new_game)   #annoying
 	$RingSpawnTimer.timeout.connect(generate_one_ring)
 	$SBTimer.timeout.connect(generate_second_breakfast)
 	loadHighScore()
@@ -132,6 +130,10 @@ func _process(delta):
 			$HUD/MarginContainer.get_node("StartLabel").hide()
 			
 func generate_obs():
+	#absolute random generator
+	if (randi() % 777) == 0:
+			gen_obs()
+		
 	#generate only ground obstacles
 	if obstacles.is_empty():
 		gen_obs()
@@ -140,28 +142,27 @@ func generate_obs():
 		if last_obs.position.x < $Camera2D.position.x: #+ score + randi_range(200, 400):
 			gen_obs()
 			gen_bird()
-		if (randi() % 777) == 0: #absolute random generator
-			gen_obs()
+			
+
 
 func gen_obs():
 	#generate only ground obstacles
-		var obs_type = obstacle_types[randi() % obstacle_types.size()]
-		var obs
-		obs = obs_type.instantiate()
-		var obs_height = obs.get_node("Sprite2D").texture.get_height()
-		var obs_scale = obs.get_node("Sprite2D").scale
-		var obs_x : int = $Camera2D.global_position.x + screen_size.x# + randi_range(30, 50) #(i * 100) + randi_range(2000, 2000)
-		var obs_y : int = 450 + ground_height / 1.2
-		last_obs = obs
-		add_obs(obs, obs_x, obs_y)
+	var obs_type = obstacle_types[randi() % obstacle_types.size()]
+	var obs
+	obs = obs_type.instantiate()
+	var obs_height = obs.get_node("Sprite2D").texture.get_height()
+	var obs_scale = obs.get_node("Sprite2D").scale
+	var obs_x : int = $Camera2D.global_position.x + screen_size.x# + randi_range(30, 50) #(i * 100) + randi_range(2000, 2000)
+	var obs_y : int = 450 + ground_height / 1.2
+	last_obs = obs
+	add_obs(obs, obs_x, obs_y)
 		
 func gen_bird():
 	#additionally random chance to spam a bird man!!!
 	for i in range(randi() % 2):
 		if (randi() % 2) == 0:
-			print("bird generated")
 			var obs = bird_scene.instantiate()
-			var obs_x : int = $Camera2D.global_position.x + screen_size.x + randi_range(0, 90) #dříve 200
+			var obs_x : int = $Camera2D.global_position.x + screen_size.x + 60#randi_range(0, 50) #dříve 200
 			var obs_y : int = bird_heights[randi() % bird_heights.size()]
 			add_obs(obs, obs_x, obs_y)
 
@@ -255,7 +256,6 @@ func show_score():
 	$HUD/MarginContainer.get_node("ScoreLabel").text = "SCORE: " + str(int(score))
 	$HUD/MarginContainer.get_node("HighScoreLabel").text = "HIGH SCORE: " + str(int(high_score))
 
-
 func saveHighScore():
 	if score > high_score:
 		high_score = score
@@ -263,7 +263,6 @@ func saveHighScore():
 	if file != null:
 		file.store_var(high_score)
 		file.close()
-
 
 func loadHighScore():
 	var file = FileAccess.open("user://highscorehobbit.save", FileAccess.READ)
@@ -293,9 +292,8 @@ func reset_music():
 	$main_soundtrack.play()
 	$main_soundtrack.stream.loop = true
 
-
 #this should work, but fuck, it doesnt
 #func _on_pause_timeout() -> void:
 #	var new_key := InputEventKey.new()
-#	new_key.scancode = KEY_SPACE 
+#	new_key.scancode = KEY_SPACE
 #	InputMap.action_add_event("special_button", new_key) 
