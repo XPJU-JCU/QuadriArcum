@@ -8,8 +8,8 @@ extends Node
 var dark = false
 
 func _ready():
-	saveChanges.button_down.connect(_on_button_button_down.bind(saveChanges))
-	discardChanges.button_down.connect(_on_button_button_down.bind(discardChanges))
+	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel/SaveButton.button_down.connect(_on_button_button_down.bind(saveChanges))
+	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel2/DiscardButton.button_down.connect(_on_button_button_down.bind(discardChanges))
 
 func _input(event):
 	if event.is_action_pressed("fullScreenToggle"):
@@ -31,7 +31,7 @@ func toggle_dark():
 	dark = !dark
 
 func _on_button_button_down(button):
-	if button.name == "SaveButton":
+	if button.name == "SaveChanges":
 		print("saved")
 		#save all changes
 	else:
