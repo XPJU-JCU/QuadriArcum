@@ -26,21 +26,6 @@ func load_game(game_launch_resource: GameMenuSettings):
 	
 	if game_launch_resource.game_name == "The Box":
 		get_tree().change_scene_to_packed(game_launch_resource.launch_scene)
-		
-	
-	
-	var config = ConfigFile.new()
-	var err = config.load(game_launch_resource.game_config)
-
-	if err != OK:
-		return
-		
-	for section in config.get_sections():
-		for key in config.get_section_keys(section):
-			ProjectSettings.set_setting(section+"/"+key, config.get_value(section, key))
-			match section:
-				"input":
-					InputMap.load_from_project_settings()
 					
 	
 	var scene = game_launch_resource.launch_scene.instantiate()
@@ -63,3 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
+
+func _on_button_button_down_close() -> void:
+	pass # Replace with function body.

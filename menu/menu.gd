@@ -36,10 +36,13 @@ func change_info(data):
 	infoImage.texture = data.game_icon
 	infoDescription.text = data.game_description
 
+
+@export var games : Array[Resource]
+
 func load_menu_games():
-	var dir = DirAccess.open(game_menu_settings_dir)
+	#var dir = DirAccess.open(game_menu_settings_dir)
 	
-	var files = dir.get_files()
+	#var files = dir.get_files()
 	
 	# var was_focus_given = false
 	#for file in files:
@@ -58,8 +61,8 @@ func load_menu_games():
 	#	hbox.add_child(scene)
 	#	vbox.add_child(scene)
 		
-	for i in files.size():
-		var new_game_resource = load(game_menu_settings_dir+files[i])
+	for i in games.size():
+		var new_game_resource = games[i]
 		var scene = newGameItem.instantiate()
 		scene.set_game_resoure(new_game_resource, i, self)
 		scene.game_selected.connect(on_game_selected)
