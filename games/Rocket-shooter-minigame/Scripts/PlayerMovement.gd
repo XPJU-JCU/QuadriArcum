@@ -45,11 +45,14 @@ func _physics_process(delta):
 	get_input()
 	rotation += Input.get_axis("left", "right") * rotation_speed * delta
 	if Input.is_action_pressed("up"):
-		velocity = (velocity + Vector2.from_angle(rotation) * speed * delta).clamp(Vector2(-700, -700), Vector2(700,700))
+		velocity = (velocity + Vector2.from_angle(rotation) * speed * delta).clamp(Vector2(-400, -400), Vector2(400,400))
 	
 	move_and_slide()
-	if get_slide_collision_count():
-		velocity = Vector2.ZERO
+	for i in get_slide_collision_count():
+		var collision : KinematicCollision2D = get_slide_collision(i)
+		if collision.get_collider() is StaticBody2D:
+			velocity = Vector2.ZERO
+			
 	hp = Global.hp
 	
 func shoot():
