@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@onready var settings = $NewMenu/Settings/Sett
+
 @export var game_menu_settings_dir : String
 @export var menu_game_item : PackedScene
 @export var newGameItem : PackedScene
@@ -17,9 +19,7 @@ extends CanvasLayer
 @export var infoImage: TextureRect
 @export var infoDescription: Label
 
-@export var fullScreenButton: Button
-@export var fullScreenOn: CompressedTexture2D
-@export var fullScreenOff: CompressedTexture2D
+@export var optionsButton: Button
 
 signal game_selected(game_launch_resource)
 
@@ -81,14 +81,10 @@ func _on_timer_timeout() -> void:
 	else:
 		nameLabel.show()
 		nameLabelDisable.hide()
-
-func _on_button_button_down() -> void:
-	var current_mode = DisplayServer.window_get_mode()
-	
-	if current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 		
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		fullScreenButton.icon = fullScreenOn
+func _on_button_button_down() -> void:
+	if settings.is_visible():
+		settings.hide()
 	else:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
-		fullScreenButton.icon = fullScreenOff
+		settings.show()
+		

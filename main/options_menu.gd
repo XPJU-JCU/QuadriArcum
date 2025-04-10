@@ -1,15 +1,19 @@
 extends Node
 
 @export var colorRect = ColorRect
-@onready var optionPanel = $OptionPanel
+@onready var settPanel = $Sett
 @export var saveChanges = Button
 @export var discardChanges = Button
 
+@export var fullScreenButton: Button
+@export var fullScreenOn: CompressedTexture2D
+@export var fullScreenOff: CompressedTexture2D
+
 var dark = false
 
-func _ready():
-	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel/SaveButton.button_down.connect(_on_button_button_down.bind(saveChanges))
-	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel2/DiscardButton.button_down.connect(_on_button_button_down.bind(discardChanges))
+#func _ready():
+#	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel/SaveButton.button_down.connect(_on_button_button_down.bind(saveChanges))
+#	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel2/DiscardButton.button_down.connect(_on_button_button_down.bind(discardChanges))
 
 func _input(event):
 	if event.is_action_pressed("fullScreenToggle"):
@@ -22,18 +26,32 @@ func toggle_dark():
 
 	if dark:
 		endColor.a = 0.0
-		optionPanel.hide()
+		settPanel.hide()
 		tween.tween_property(colorRect, "color", endColor, 0.1)
 	else:
 		endColor.a = 0.75
 		tween.tween_property(colorRect, "color", endColor, 0.25)
-		optionPanel.show()
+		settPanel.show()
 	dark = !dark
 
-func _on_button_button_down(button):
-	if button.name == "SaveChanges":
-		print("saved")
-		#save all changes
+
+
+func _on_mute_b_button_toggled() -> void:
+	print("mute")
+
+func _on_volume_b_value_changed(value: float) -> void:
+	print("vol")
+
+#full screen
+func _on_full_screen_b_button_down() -> void:
+	var current_mode = DisplayServer.window_get_mode()
+	
+	if current_mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+		
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
-		#discard all changes
-		print("discarted")
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+
+#languages
+func _on_language_b_button_down() -> void:
+	print("Lang")
