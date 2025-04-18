@@ -1,48 +1,32 @@
 extends Node
 
-@export var colorRect = ColorRect
 @onready var settPanel = $Sett
-@export var saveChanges = Button
-@export var discardChanges = Button
+@onready var muteButton = $Sett/SettingsChoose/HBoxContainer/Options/MainPanel/Right/MuteB
+@onready var volumeSlider = $Sett/SettingsChoose/HBoxContainer/Options/MainPanel/Right/VolumeB
+@onready var language = $Sett/SettingsChoose/HBoxContainer/Options/MainPanel/Right/LanguageB
 
-@export var fullScreenButton: Button
-@export var fullScreenOn: CompressedTexture2D
-@export var fullScreenOff: CompressedTexture2D
+@export 	var audio_index = AudioServer.get_bus_index("Master")
+@export var master_volume = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 
-var dark = false
+#@export var is_muted : bool = AudioServer.is_bus_mute(audio_index)
 
-#func _ready():
-#	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel/SaveButton.button_down.connect(_on_button_button_down.bind(saveChanges))
-#	$OptionPanel/VBoxContainer/Control2/HBoxContainer/Panel2/DiscardButton.button_down.connect(_on_button_button_down.bind(discardChanges))
+func _ready():
+	language.select(0)
+	#mute button je potřeba mít mutted
+	#slider je potřeba změnit podle hodnoty volume 
 
-func _input(event):
-	if event.is_action_pressed("fullScreenToggle"):
-		toggle_dark()
-
-func toggle_dark():
-	var tween = create_tween()
-	var startColor = colorRect.color
-	var endColor = startColor
-
-	if dark:
-		endColor.a = 0.0
-		settPanel.hide()
-		tween.tween_property(colorRect, "color", endColor, 0.1)
-	else:
-		endColor.a = 0.75
-		tween.tween_property(colorRect, "color", endColor, 0.25)
-		settPanel.show()
-	dark = !dark
-
-
-
-func _on_mute_b_button_toggled() -> void:
-	print("mute")
-
+#volume change
 func _on_volume_b_value_changed(value: float) -> void:
-	print("vol")
+	var linear_volume = value / 100.0
+	var db = linear_to_db(linear_volume)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), db)
 
-#full screen
+#mute
+func _on_mute_b_button_down() -> void:
+	var is_muted : bool = AudioServer.is_bus_mute(audio_index)
+	AudioServer.set_bus_mute(audio_index, !is_muted)
+
+#full screen - doesnt work, why tho?
 func _on_full_screen_b_button_down() -> void:
 	var current_mode = DisplayServer.window_get_mode()
 	
@@ -53,5 +37,8 @@ func _on_full_screen_b_button_down() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
 
 #languages
-func _on_language_b_button_down() -> void:
-	print("Lang")
+func _on_language_b_item_selected(index: int) -> void:
+	var selected = language.get_item_text(index)
+	if (selected != "English"):
+		$Sett/SettingsChoose/English/EnglishOption.play()
+		language.select(0)
