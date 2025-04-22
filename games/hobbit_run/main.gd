@@ -10,6 +10,7 @@ var obstacles : Array
 var SB : Array
 var rings : Array
 var bird_heights := [200, 380] #making sure the bird isnt too low
+var game_over_pause : bool
 
 var ring_scene = preload("res://games/hobbit_run/ring_scene//ring.tscn")
 
@@ -92,7 +93,6 @@ func _process(delta):
 	if Input.is_action_pressed("Pause"):
 		get_tree().change_scene_to_file("res://main/main.tscn")
 	
-	
 	if game_running:
 		#speed up
 		if not speed >= MAX_SPEED:
@@ -119,7 +119,7 @@ func _process(delta):
 		remove_items_midgame(SB, $zong)
 
 	else: 
-		if Input.is_action_pressed("special_button"):  #HERE HERE HERE
+		if Input.is_action_pressed("special_button") and !game_over_pause:  #HERE HERE HERE
 			new_game()
 			
 			game_running = true
@@ -128,7 +128,7 @@ func _process(delta):
 			$RingSpawnTimer.start()
 			$SBTimer.start()
 			$HUD/MarginContainer.get_node("StartLabel").hide()
-			
+		
 func generate_obs():
 	#absolute random generator
 	if (randi() % 777) == 0:
@@ -284,7 +284,7 @@ func game_over():
 	$death_sound.play()
 	game_running = false
 	$GameOver.show()
-	#InputMap.action_erase_events("special_button")
+	game_over_pause = true
 	$Pause.start()
 	
 func reset_music():
@@ -293,7 +293,5 @@ func reset_music():
 	$main_soundtrack.stream.loop = true
 
 #this should work, but fuck, it doesnt
-#func _on_pause_timeout() -> void:
-#	var new_key := InputEventKey.new()
-#	new_key.scancode = KEY_SPACE
-#	InputMap.action_add_event("special_button", new_key) 
+func _on_pause_timeout() -> void:
+	game_over_pause = false
