@@ -3,6 +3,7 @@ extends Node
 @onready var settPanel = $Sett
 @onready var muteButton = $Sett/SettingsChoose/HBoxContainer/Options/MainPanel/Right/MuteB
 @onready var volumeSlider = $Sett/SettingsChoose/HBoxContainer/Options/MainPanel/Right/VolumeB
+@onready var fullScreenButt = $Sett/SettingsChoose/HBoxContainer/Options/MainPanel/Right/FullScreenB
 @onready var language = $Sett/SettingsChoose/HBoxContainer/Options/MainPanel/Right/LanguageB
 
 @export 	var audio_index = AudioServer.get_bus_index("Master")
@@ -23,6 +24,18 @@ func _ready():
 	var linear = db_to_linear(master_volume) * 100
 	volumeSlider.set_value_no_signal(linear) #linear
 
+func _process(delta: float) -> void:
+	if (settPanel.is_visible_in_tree()):
+		muteButton.show()
+		volumeSlider.show()
+		fullScreenButt.show()
+		language.show()
+	else: 
+		muteButton.hide()
+		volumeSlider.hide()
+		fullScreenButt.hide()
+		language.hide()
+		
 #volume change
 func _on_volume_b_value_changed(value: float) -> void:
 	var linear_volume = value / 100.0
