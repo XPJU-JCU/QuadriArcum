@@ -119,7 +119,7 @@ func _process(delta):
 		remove_items_midgame(SB, $zong)
 
 	else: 
-		if Input.is_action_pressed("special_button") and !game_over_pause:  #HERE HERE HERE
+		if Input.is_action_pressed("ui_accept") and !game_over_pause: 
 			new_game()
 			
 			game_running = true
